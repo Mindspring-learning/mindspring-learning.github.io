@@ -1,0 +1,1824 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biomolecules | MindSpring</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --purple: #4B2E83;
+      --lavender: #EBDFFF;
+      --light: #F8F5FF;
+      --ink: #302449;
+      --muted: #756B87;
+      --white: #FFFFFF;
+      --line: #E6DDF3;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--light);
+      color: var(--ink);
+      font-family: 'Nunito', sans-serif;
+      line-height: 1.7;
+    }
+
+    header {
+      background: white;
+      border-bottom: 1px solid var(--line);
+      padding: 18px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      color: var(--purple);
+      font: italic 600 27px 'Playfair Display', serif;
+      text-decoration: none;
+    }
+
+    header a.back {
+      color: var(--purple);
+      text-decoration: none;
+      font-weight: 800;
+    }
+
+    .hero {
+      padding: 55px 7% 45px;
+      background: linear-gradient(135deg, #EBDFFF, #F8F5FF 70%);
+    }
+
+    .eyebrow {
+      color: var(--purple);
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    h1, h2, h3 {
+      color: var(--purple);
+      line-height: 1.3;
+    }
+
+    h1 {
+      font: 600 clamp(36px, 6vw, 58px) 'Playfair Display', serif;
+      margin: 10px 0;
+    }
+
+    .hero p {
+      max-width: 650px;
+      color: #5E5272;
+      font-size: 17px;
+    }
+
+    .wrap {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 30px 20px 60px;
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 25px;
+    }
+
+    .nav a {
+      padding: 9px 15px;
+      border: 1px solid var(--line);
+      background: white;
+      color: var(--purple);
+      border-radius: 22px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 24px;
+      margin: 18px 0;
+      box-shadow: 0 7px 25px #4B2E830A;
+    }
+
+    .card h2 { margin-top: 0; }
+
+    .note {
+      background: #F1E9FF;
+      border-left: 4px solid #A78BFA;
+      padding: 13px 16px;
+      border-radius: 8px;
+      margin: 15px 0;
+    }
+
+    .terms {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 12px;
+    }
+
+    .term {
+      background: #FBF9FF;
+      padding: 14px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+    }
+
+    .term strong { color: var(--purple); }
+
+    .diagram {
+      background: #FBF9FF;
+      padding: 18px;
+      border-radius: 14px;
+      text-align: center;
+      overflow-x: auto;
+    }
+
+    .flow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 15px 0;
+    }
+
+    .node {
+      background: var(--lavender);
+      border: 1px solid #D7C3F5;
+      color: var(--purple);
+      border-radius: 12px;
+      padding: 12px 16px;
+      font-weight: 800;
+    }
+
+    .arrow { color: var(--purple); font-size: 23px; }
+
+    .mnemonic {
+      border: 1px dashed #B39ADE;
+      border-radius: 12px;
+      padding: 16px;
+      margin: 12px 0;
+    }
+
+    .mnemonic strong { color: var(--purple); }
+
+    .question {
+      border-bottom: 1px solid var(--line);
+      padding: 18px 0;
+    }
+
+    .question p { font-weight: 800; }
+
+    .option {
+      display: block;
+      margin: 8px 0;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .option:hover { background: #F8F3FF; }
+
+    .option input { margin-right: 8px; }
+
+    button {
+      background: var(--purple);
+      color: white;
+      border: 0;
+      border-radius: 12px;
+      padding: 12px 19px;
+      font: inherit;
+      font-weight: 800;
+      cursor: pointer;
+      margin-top: 12px;
+    }
+
+    #result {
+      font-weight: 800;
+      color: var(--purple);
+      margin-top: 15px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    @media (max-width: 600px) {
+      .hero { padding: 38px 6%; }
+      .card { padding: 18px; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <a class="brand" href="index.html">MindSpring</a>
+    <a class="back" href="index.html">← Back to Home</a>
+  </header>
+
+  <section class="hero">
+    <div class="eyebrow">Class 11 Biology · NCERT revision</div>
+    <h1>Biomolecules</h1>
+    <p>Understand the chemistry of life with concise notes,
+      important terminology, memory tricks, diagrams and MCQ practice.</p>
+  </section>
+
+  <main class="wrap">
+    <nav class="nav">
+      <a href="#notes">Quick Notes</a>
+      <a href="#terms">Terminology</a>
+      <a href="#diagram">Diagram</a>
+      <a href="#memory">Mnemonics</a>
+      <a href="#quiz">MCQ Quiz</a>
+    </nav>
+
+    <section class="card" id="notes">
+      <h2>01 · Quick Revision Notes</h2>
+
+      <h3>What are biomolecules?</h3>
+      <p>Biomolecules are chemical compounds found in living organisms.
+        They help build cell structures and carry out essential life processes.</p>
+
+      <h3>Major groups</h3>
+      <ul>
+        <li><strong>Carbohydrates:</strong> Important energy sources and structural materials.</li>
+        <li><strong>Proteins:</strong> Made of amino acids; many act as enzymes.</li>
+        <li><strong>Lipids:</strong> Include fats, oils and phospholipids; important in energy storage and membranes.</li>
+        <li><strong>Nucleic acids:</strong> DNA and RNA; involved in storing and expressing genetic information.</li>
+      </ul>
+
+      <div class="note">
+        <strong>Remember:</strong> Enzymes are biological catalysts.
+        Most enzymes are proteins, although some RNA molecules can also catalyse reactions.
+      </div>
+
+      <h3>Carbohydrates</h3>
+      <ul>
+        <li><strong>Monosaccharides:</strong> Simple sugars, such as glucose and fructose.</li>
+        <li><strong>Disaccharides:</strong> Two monosaccharide units, such as sucrose and lactose.</li>
+        <li><strong>Polysaccharides:</strong> Long chains of sugar units, such as starch, glycogen and cellulose.</li>
+      </ul>
+
+      <h3>Proteins</h3>
+      <p>Amino acids are the building blocks of proteins. Amino acids are joined by
+        peptide bonds to form polypeptide chains. A protein's shape is closely linked to its function.</p>
+
+      <h3>Lipids</h3>
+      <p>Many fats contain glycerol and fatty acids. Phospholipids are important
+        components of cell membranes. Lipids are grouped with biomolecules but
+        are not true polymers made of repeating monomer units like proteins.</p>
+
+      <h3>Nucleic acids</h3>
+      <p>Nucleotides are the building blocks of DNA and RNA. Each nucleotide
+        contains a nitrogenous base, a pentose sugar and a phosphate group.</p>
+    </section>
+l     <section class="card" id="chemical-analysis">
+  <h2>Chemical Analysis of Living Tissues</h2>
+  <h3>1. Elemental analysis</h3>
+        <p>Living matter contains both organic and inorganic elements. Carbon is a major element in organic molecules. Hydrogen, oxygen, nitrogen, phosphorus and sulphur are also important components of many biomolecules.</p>
+        <p>Elements are the basic chemical building blocks; they combine in different ways to form molecules with different properties and functions.</p>
+
+     <h3>3. Compound analysis</h3>
+     <p>In compound analysis, a tissue sample is processed so that its chemical constituents can be examined. The compounds identified may include amino acids, sugars, nitrogen-containing bases and organic acids.</p>
+     <p>Some molecules are small and simple, while others are large molecules built from smaller units.</p>
+
+    <h3>4. Primary and secondary metabolites</h3>
+    <p><strong>Primary metabolites</strong> are compounds directly associated with normal growth, development and maintenance. Examples include amino acids, sugars and many organic acids.</p>
+    <p><strong>Secondary metabolites</strong> are compounds that are not directly involved in the basic processes of growth and reproduction in the same way. Many have ecological roles, such as defence or attracting pollinators.</p>
+
+    <ul>
+    <li><strong>Examples of secondary metabolites:</strong> alkaloids, pigments, essential oils, toxins, lectins, drugs, rubber and gums.</li>
+    <li><strong>Important note:</strong> secondary metabolites can still be biologically important; “secondary” does not mean useless.</li>
+    </ul>
+
+    <h3>5. Quick comparison</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Feature</th><th>Primary metabolites</th><th>Secondary metabolites</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Main association</td><td>Growth and basic metabolism</td><td>Specialised ecological or biological roles</td></tr>
+        <tr><td>Examples</td><td>Sugars, amino acids</td><td>Alkaloids, pigments, essential oils</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Remember for exams</h3>
+  <ul>
+    <li><strong>Elemental analysis</strong> tells us which elements are present.</li>
+    <li><strong>Compound analysis</strong> tells us which chemical compounds are present.</li>
+    <li>Primary metabolites support basic cellular activities; secondary metabolites often have specialised roles.</li>
+  </ul>
+</section>
+    <section class="card" id="terms">
+      <h2>02 · Important Terminology</h2>
+      <div class="terms">
+        <div class="term"><strong>Monomer</strong><br>A small unit that can join with others to form a larger molecule.</div>
+        <div class="term"><strong>Polymer</strong><br>A large molecule made of linked repeating or related units.</div>
+        <div class="term"><strong>Peptide bond</strong><br>The bond joining amino acids in a peptide chain.</div>
+        <div class="term"><strong>Glycosidic bond</strong><br>A bond that links sugar units in many carbohydrates.</div>
+        <div class="term"><strong>Denaturation</strong><br>Disruption of a protein's natural structure, often affecting its function.</div>
+        <div class="term"><strong>Enzyme</strong><br>A biological catalyst that speeds up a chemical reaction.</div>
+        <div class="term"><strong>Nucleotide</strong><br>The unit consisting of a base, pentose sugar and phosphate group.</div>
+        <div class="term"><strong>Primary metabolite</strong><br>A compound directly associated with normal growth and basic metabolism.</div>
+      </div>
+    </section>
+
+    <section class="card" id="diagram">
+      <h2>03 · Visual Learning</h2>
+      <p>Explore how 
+     <section class="card" id="chemical-analysis">
+  <h2>02 · Chemical Analysis of Living Tissues</h2>
+
+  <p>
+    All living organisms are made up of chemical substances called
+    biomolecules. Studying their chemical composition helps us understand
+    how cells are organised and how living systems function.
+  </p>
+
+  <h3>1. Elements in living and non-living matter</h3>
+
+  <p>
+    When scientists analyse plant tissue, animal tissue or microbial
+    cells, they find elements such as carbon, hydrogen, oxygen and
+    nitrogen. Many of these elements are also present in the Earth's crust.
+  </p>
+
+  <p>
+    The important difference is their relative abundance. Living matter
+    generally has a higher proportion of carbon and hydrogen relative
+    to many other elements than the Earth's crust.
+  </p>
+
+  <p><strong>Remember:</strong> Living and non-living matter can contain
+    the same elements, but the relative proportions may differ.
+  </p>
+
+  <h3>2. How are chemical constituents analysed?</h3>
+
+  <p>
+    Scientists can study a tissue sample by grinding it in a suitable
+    chemical solution and separating the resulting mixture into fractions.
+    In the NCERT method, trichloroacetic acid is used to prepare a tissue
+    extract.
+  </p>
+
+  <ul>
+    <li>
+      <strong>Acid-soluble pool:</strong> The filtrate contains many
+      small molecules, including amino acids, sugars and other
+      low-molecular-weight compounds.
+    </li>
+    <li>
+      <strong>Acid-insoluble fraction:</strong> The material retained
+      after filtration contains large cellular structures and
+      macromolecular components, including proteins, nucleic acids
+      and polysaccharides.
+    </li>
+  </ul>
+
+  <p>
+    These fractions help scientists separate and study the different
+    constituents of living tissue.
+  </p>
+
+  <h3>3. Wet weight, dry weight and ash</h3>
+
+  <ul>
+    <li>
+      <strong>Wet weight:</strong> The mass of a fresh tissue sample,
+      including its water.
+    </li>
+    <li>
+      <strong>Dry weight:</strong> The mass remaining after the water
+      has been removed by drying.
+    </li>
+    <li>
+      <strong>Ash:</strong> The inorganic residue left after the dried
+      tissue is completely burnt under appropriate conditions.
+    </li>
+  </ul>
+
+  <p>
+    During burning, most organic compounds are converted into gaseous
+    products. The remaining ash contains inorganic constituents,
+    such as mineral elements and their compounds.
+  </p>
+
+  <p><strong>Exam distinction:</strong> Drying removes water; complete
+    burning removes most organic matter and leaves inorganic residue.
+  </p>
+
+  <h3>4. Elemental analysis vs compound analysis</h3>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Elemental analysis</th>
+          <th>Compound analysis</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Identifies the elements present.</td>
+          <td>Identifies the compounds present.</td>
+        </tr>
+        <tr>
+          <td>Examples: carbon, oxygen, nitrogen.</td>
+          <td>Examples: amino acids, sugars, fatty acids.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>5. Biomolecules and metabolites</h3>
+
+  <p>
+    Chemical compounds found in living organisms are called
+    <strong>biomolecules</strong>. Many of the small organic compounds
+    involved in cellular reactions are called <strong>metabolites</strong>.
+  </p>
+
+  <p>
+    From a biological point of view, compounds can be classified into
+    groups such as amino acids, sugars, fatty acids and nitrogenous
+    bases. Their structures determine their properties and functions.
+  </p>
+
+  <h3>6. Alpha-amino acids</h3>
+
+  <p>
+    Amino acids are important building blocks of proteins. A typical
+    alpha-amino acid has an amino group (–NH₂) and a carboxyl group
+    (–COOH) attached to the same central carbon, called the
+    <strong>alpha-carbon</strong>.
+  </p>
+
+  <p>The alpha-carbon is also attached to:</p>
+
+  <ul>
+    <li>A hydrogen atom (–H)</li>
+    <li>A variable side chain called the R group</li>
+  </ul>
+
+  <p>
+    The R group differs among amino acids and influences their
+    properties. The usual textbook representation is:
+  </p>
+
+  <div class="diagram-box">
+    <pre>
+        H
+        |
+    H₂N—C—COOH
+        |
+        R
+    </pre>
+    <p><strong>Central carbon:</strong> alpha-carbon</p>
+    <p><strong>–NH₂:</strong> amino group</p>
+    <p><strong>–COOH:</strong> carboxyl group</p>
+    <p><strong>R:</strong> variable side chain</p>
+  </div>
+
+  <h3>7. Primary and secondary metabolites</h3>
+
+  <p>
+    <strong>Primary metabolites</strong> have identifiable roles in
+    normal physiological and metabolic processes. Examples include
+    amino acids, sugars and many organic acids.
+  </p>
+
+  <p>
+    <strong>Secondary metabolites</strong> are compounds commonly found
+    in plants, fungi and microorganisms that are not directly involved
+    in the same basic metabolic roles. Many have specialised ecological
+    functions or are useful to humans.
+  </p>
+
+  <p><strong>NCERT examples of secondary metabolites include:</strong></p>
+
+  <ul>
+    <li>Alkaloids</li>
+    <li>Flavonoids</li>
+    <li>Rubber</li>
+    <li>Essential oils</li>
+    <li>Antibiotics</li>
+    <li>Coloured pigments and scents</li>
+    <li>Gums and spices</li>
+    <li>Lectins, such as Concanavalin A</li>
+  </ul>
+
+  <p>
+    Their roles are diverse. Some protect organisms or influence
+    interactions with other organisms; others are useful as medicines,
+    flavouring agents, pigments or industrial materials.
+  </p>
+
+  <p>
+    <strong>Important:</strong> We do not understand the biological role
+    of every secondary metabolite completely. Secondary does not mean
+    unimportant.
+  </p>
+
+  <h3>8. Quick revision — must-know points</h3>
+
+  <ul>
+    <li>Living tissue contains both organic and inorganic constituents.</li>
+    <li>Elemental analysis identifies elements; compound analysis identifies compounds.</li>
+    <li>Wet weight includes water; dry weight is measured after water removal.</li>
+    <li>Ash is the inorganic residue left after complete burning.</li>
+    <li>The acid-soluble pool is rich in small molecules.</li>
+    <li>The acid-insoluble fraction contains macromolecular components.</li>
+    <li>An alpha-amino acid has amino and carboxyl groups attached to its alpha-carbon.</li>
+    <li>Primary metabolites participate in normal physiological processes.</li>
+    <li>Secondary metabolites include alkaloids, flavonoids, rubber and essential oils.</li>
+  </ul>
+</section>
+
+     <section class="card" id="macromolecules">
+  <h2>03 · Biomacromolecules</h2>
+
+  <p>
+    A living cell contains thousands of chemical compounds. Some are
+    small molecules, while others are large and complex. These substances
+    take part in cellular structure, energy transfer, growth, repair
+    and the chemical reactions essential for life.
+  </p>
+
+  <h3>1. What are biomolecules?</h3>
+
+  <p>
+    <strong>Biomolecules</strong> are chemical compounds found in living
+    organisms. They include carbohydrates, proteins, lipids, nucleic
+    acids, amino acids, sugars, nucleotides and many other substances.
+  </p>
+
+  <p>
+    Biomolecules differ in size, structure and function. For example,
+    glucose is a relatively small molecule used in energy metabolism,
+    whereas DNA is a large molecule that stores hereditary information.
+  </p>
+
+  <h3>2. Micromolecules and macromolecules</h3>
+
+  <p>
+    Biomolecules can be grouped broadly according to their molecular
+    size and behaviour during chemical analysis.
+  </p>
+
+  <ul>
+    <li>
+      <strong>Micromolecules:</strong> Relatively small molecules,
+      commonly found in the acid-soluble pool. Examples include amino
+      acids, simple sugars and nucleotides.
+    </li>
+    <li>
+      <strong>Macromolecules:</strong> Large molecules generally found
+      in the acid-insoluble fraction. Examples include proteins,
+      nucleic acids and polysaccharides.
+    </li>
+  </ul>
+
+  <p>
+    Many biological macromolecules have molecular masses in the
+    thousands or much higher. Their large size allows them to form
+    complex structures and perform specialised functions.
+  </p>
+
+  <p>
+    <strong>Important distinction:</strong> Lipids are generally found
+    in the acid-insoluble fraction, but most individual lipid molecules
+    are not true macromolecules in the same sense as proteins,
+    nucleic acids and polysaccharides. Lipids often occur as components
+    of membranes and other large cellular assemblies.
+  </p>
+
+  <h3>3. Understanding the two fractions</h3>
+
+  <div class="diagram-box">
+    <pre>
+         LIVING TISSUE
+               |
+        Tissue extraction
+               |
+          Filtration
+          /        \
+         /          \
+ ACID-SOLUBLE    ACID-INSOLUBLE
+     POOL           FRACTION
+       |                 |
+ Small molecules    Large molecules
+       |                 |
+ Amino acids        Proteins
+ Simple sugars      Nucleic acids
+ Nucleotides        Polysaccharides
+ Organic acids      Lipid-rich structures
+    </pre>
+  </div>
+
+  <p>
+    <strong>Acid-soluble pool:</strong> Contains many small organic
+    compounds, such as amino acids, sugars, nucleotides and organic
+    acids. Inorganic ions may also be present.
+  </p>
+
+  <p>
+    <strong>Acid-insoluble fraction:</strong> Contains cellular
+    structures and large molecular components, including proteins,
+    nucleic acids and polysaccharides. Lipids are also recovered
+    with this fraction during the extraction process.
+  </p>
+
+  <p>
+    The distinction is based on the behaviour of substances during
+    extraction and separation. It is not simply a list of molecules
+    classified by size alone.
+  </p>
+
+  <h3>4. The four major classes of biomolecules</h3>
+
+  <h4>Carbohydrates</h4>
+  <p>
+    Carbohydrates include sugars and their larger forms. They provide
+    energy, store energy and perform structural functions.
+    Examples include glucose, sucrose, starch and cellulose.
+  </p>
+
+  <h4>Proteins</h4>
+  <p>
+    Proteins are chains of amino acids joined by peptide bonds.
+    They function as enzymes, structural materials, transporters,
+    receptors and many other essential cellular components.
+  </p>
+
+  <h4>Lipids</h4>
+  <p>
+    Lipids include fats, oils, phospholipids and steroids. Many lipids
+    are hydrophobic, meaning they do not mix readily with water.
+    They store energy, form important membrane components and
+    participate in signalling.
+  </p>
+
+  <h4>Nucleic acids</h4>
+  <p>
+    DNA and RNA are nucleic acids made from nucleotide units.
+    DNA stores hereditary information, while RNA has several roles
+    in gene expression and protein synthesis.
+  </p>
+
+  <h3>5. What are monomers and polymers?</h3>
+
+  <p>
+    A <strong>monomer</strong> is a small molecular unit that can be
+    joined to other units. A <strong>polymer</strong> is a large
+    molecule made from repeating or linked smaller units.
+  </p>
+
+  <ul>
+    <li>Amino acids form proteins.</li>
+    <li>Monosaccharides can form polysaccharides.</li>
+    <li>Nucleotides form nucleic acids.</li>
+  </ul>
+
+  <p>
+    However, not every large biological molecule is a polymer.
+    Lipids such as triglycerides are not constructed as long chains
+    of repeating monomer units in the same way as proteins or DNA.
+  </p>
+
+  <h3>6. Why is water important?</h3>
+
+  <p>
+    Water forms a major part of living cells. It provides a medium
+    for many biochemical reactions, helps transport dissolved
+    substances and influences the structure and behaviour of
+    biomolecules.
+  </p>
+
+  <p>
+    Many small polar compounds dissolve in water, while hydrophobic
+    substances such as many lipids have limited solubility.
+    This difference helps cells organise membranes and other
+    structures.
+  </p>
+
+  <h3>7. Quick comparison table</h3>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Class</th>
+          <th>Basic unit or components</th>
+          <th>Major role</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Carbohydrates</td>
+          <td>Simple sugars</td>
+          <td>Energy and structure</td>
+        </tr>
+        <tr>
+          <td>Proteins</td>
+          <td>Amino acids</td>
+          <td>Enzymes and cellular functions</td>
+        </tr>
+        <tr>
+          <td>Lipids</td>
+          <td>Often fatty acids and glycerol</td>
+          <td>Energy storage and membranes</td>
+        </tr>
+        <tr>
+          <td>Nucleic acids</td>
+          <td>Nucleotides</td>
+          <td>Genetic information and its expression</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>8. Exam essentials</h3>
+
+  <ul>
+    <li>Proteins, nucleic acids and polysaccharides are biological macromolecules.</li>
+    <li>The acid-soluble pool contains many small molecules.</li>
+    <li>The acid-insoluble fraction contains macromolecules and cellular structures.</li>
+    <li>Lipids occur in the acid-insoluble fraction but are not generally true macromolecules.</li>
+    <li>Proteins are made of amino acids; nucleic acids are made of nucleotides.</li>
+    <li>DNA and RNA are nucleic acids, not proteins.</li>
+    <li>Not all biomolecules are polymers.</li>
+  </ul>
+</section>
+<!-- MINDSRPING: REMAINING BIOMOLECULES LESSONS -->
+
+<section class="card" id="carbohydrates">
+  <h2>04 · Carbohydrates and Polysaccharides</h2>
+
+  <p>
+    Carbohydrates are organic compounds that commonly contain carbon,
+    hydrogen and oxygen. They are important as energy sources, energy
+    stores and structural materials in living organisms.
+  </p>
+
+  <h3>1. Classification of carbohydrates</h3>
+
+  <ul>
+    <li><strong>Monosaccharides:</strong> Simple sugars that cannot be broken down into smaller carbohydrate units by hydrolysis. Examples: glucose, fructose and ribose.</li>
+    <li><strong>Oligosaccharides:</strong> Carbohydrates containing a small number of monosaccharide units. Disaccharides such as sucrose, maltose and lactose belong here.</li>
+    <li><strong>Polysaccharides:</strong> Large carbohydrate molecules made from many monosaccharide units. Examples: starch, glycogen and cellulose.</li>
+  </ul>
+
+  <h3>2. Monosaccharides</h3>
+
+  <p>
+    Glucose is a six-carbon sugar and an important molecule in cellular
+    energy metabolism. Fructose is another six-carbon sugar. Ribose is
+    a five-carbon sugar found in RNA, while deoxyribose occurs in DNA.
+  </p>
+
+  <p>
+    Monosaccharides may be classified according to the number of carbon
+    atoms and the type of carbonyl group they contain.
+  </p>
+
+  <ul>
+    <li><strong>Aldoses:</strong> Contain an aldehyde group in their open-chain form; glucose is an example.</li>
+    <li><strong>Ketoses:</strong> Contain a ketone group in their open-chain form; fructose is an example.</li>
+    <li><strong>Pentoses:</strong> Have five carbon atoms; ribose is an example.</li>
+    <li><strong>Hexoses:</strong> Have six carbon atoms; glucose and fructose are examples.</li>
+  </ul>
+
+  <h3>3. Disaccharides</h3>
+
+  <p>
+    A disaccharide contains two monosaccharide units joined by a
+    glycosidic bond. Hydrolysis breaks this bond and releases smaller
+    sugar units.
+  </p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Disaccharide</th><th>Components</th><th>Common association</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Sucrose</td><td>Glucose + fructose</td><td>Cane sugar</td></tr>
+        <tr><td>Maltose</td><td>Glucose + glucose</td><td>Formed during starch breakdown</td></tr>
+        <tr><td>Lactose</td><td>Glucose + galactose</td><td>Milk sugar</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>4. Polysaccharides</h3>
+
+  <p>
+    Polysaccharides are long carbohydrate chains containing many
+    monosaccharide units. Their properties depend on the sugar units,
+    the glycosidic linkages and the arrangement of the chains.
+  </p>
+
+  <h4>Starch</h4>
+  <p>
+    Starch is a major storage carbohydrate in plants. It consists of
+    glucose units and contains two main components:
+  </p>
+  <ul>
+    <li><strong>Amylose:</strong> Mostly unbranched chains with alpha-1,4 linkages.</li>
+    <li><strong>Amylopectin:</strong> Branched chains with alpha-1,4 linkages along the chains and alpha-1,6 linkages at branch points.</li>
+  </ul>
+
+  <h4>Glycogen</h4>
+  <p>
+    Glycogen is a storage polysaccharide in animals and many fungi.
+    It resembles amylopectin but is more extensively branched.
+    In animals, it is stored especially in the liver and muscles.
+  </p>
+
+  <h4>Cellulose</h4>
+  <p>
+    Cellulose is an important structural component of plant cell walls.
+    It consists of glucose units joined by beta-1,4 glycosidic linkages.
+    Its chains form strong fibres. Humans lack the enzyme cellulase
+    needed to digest cellulose efficiently.
+  </p>
+
+  <h4>Chitin</h4>
+  <p>
+    Chitin is a structural polysaccharide found in arthropod exoskeletons
+    and fungal cell walls. Its repeating units are modified sugars
+    containing nitrogen.
+  </p>
+
+  <div class="diagram-box">
+    <pre>
+CARBOHYDRATE STRUCTURE
+
+Monosaccharide + Monosaccharide
+                |
+          Glycosidic bond
+                |
+            Disaccharide
+
+Many monosaccharide units
+                |
+       Glycosidic linkages
+                |
+           Polysaccharide
+    </pre>
+    <p>Concept diagram: small sugar units can join to form larger carbohydrates.</p>
+  </div>
+
+  <h3>5. Important comparison</h3>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Polysaccharide</th><th>Main role</th><th>Where found</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Starch</td><td>Energy storage</td><td>Plants</td></tr>
+        <tr><td>Glycogen</td><td>Energy storage</td><td>Animals and fungi</td></tr>
+        <tr><td>Cellulose</td><td>Structural support</td><td>Plant cell walls</td></tr>
+        <tr><td>Chitin</td><td>Structural support</td><td>Arthropods and fungi</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>6. Exam essentials</h3>
+  <ul>
+    <li>Glucose is a monosaccharide; sucrose is a disaccharide.</li>
+    <li>Starch is the principal storage polysaccharide in plants.</li>
+    <li>Glycogen is a storage polysaccharide in animals.</li>
+    <li>Cellulose is structural and contains beta-1,4 linkages.</li>
+    <li>Starch and glycogen contain alpha-linked glucose units.</li>
+    <li>Chitin is a nitrogen-containing structural polysaccharide.</li>
+    <li>A glycosidic bond joins sugar units.</li>
+  </ul>
+</section>
+
+<section class="card" id="proteins">
+  <h2>05 · Proteins and Their Structure</h2>
+
+  <p>
+    Proteins are nitrogen-containing biological macromolecules made
+    from amino acids. They perform a wide range of functions, including
+    catalysis, transport, defence, movement and structural support.
+  </p>
+
+  <h3>1. Amino acids: the building blocks</h3>
+
+  <p>
+    A typical alpha-amino acid has an alpha-carbon attached to an amino
+    group, a carboxyl group, a hydrogen atom and a variable R group.
+    The R group determines many of its chemical properties.
+  </p>
+
+  <div class="diagram-box">
+    <pre>
+          H
+          |
+      H₂N—C—COOH
+          |
+          R
+
+  NH₂ = amino group
+  COOH = carboxyl group
+  R = variable side chain
+    </pre>
+  </div>
+
+  <p>
+    Amino acids differ in their side chains. Some are non-polar,
+    some are polar, and some carry charged side chains under
+    particular conditions.
+  </p>
+
+  <h3>2. Peptide bonds</h3>
+
+  <p>
+    A peptide bond forms between the carboxyl group of one amino acid
+    and the amino group of another. Formation of the bond involves
+    removal of the elements of water in a condensation reaction.
+  </p>
+
+  <div class="diagram-box">
+    <pre>
+Amino acid + Amino acid
+          |
+     Peptide bond
+          |
+     Dipeptide + H₂O
+
+Many amino acids
+          |
+   Peptide bonds
+          |
+   Polypeptide chain
+    </pre>
+  </div>
+
+  <p>
+    A short chain of amino acids is called a peptide. A longer chain
+    is a polypeptide. One or more polypeptide chains can fold or
+    assemble to form a functional protein.
+  </p>
+
+  <h3>3. Four levels of protein structure</h3>
+
+  <h4>Primary structure</h4>
+  <p>
+    The primary structure is the specific linear sequence of amino
+    acids in a polypeptide. Changing the sequence can alter folding
+    and biological activity.
+  </p>
+
+  <h4>Secondary structure</h4>
+  <p>
+    The polypeptide backbone forms regular local patterns, including
+    the alpha-helix and beta-pleated sheet. Hydrogen bonding helps
+    stabilise these structures.
+  </p>
+
+  <h4>Tertiary structure</h4>
+  <p>
+    Tertiary structure is the overall three-dimensional folding of
+    a single polypeptide chain. It is influenced by interactions
+    between side chains, including hydrophobic interactions,
+    ionic interactions, hydrogen bonds and disulphide bonds.
+  </p>
+
+  <h4>Quaternary structure</h4>
+  <p>
+    Quaternary structure occurs when multiple polypeptide subunits
+    associate to form a functional protein. Haemoglobin is a familiar
+    example with four subunits.
+  </p>
+
+  <div class="diagram-box">
+    <pre>
+PRIMARY
+Amino-acid sequence
+        |
+        v
+SECONDARY
+Alpha-helix / beta-sheet
+        |
+        v
+TERTIARY
+3-D folding of one chain
+        |
+        v
+QUATERNARY
+Association of multiple chains
+    </pre>
+    <p>These are levels of structural organisation, not steps that every protein must all possess.</p>
+  </div>
+
+  <h3>4. Fibrous and globular proteins</h3>
+
+  <ul>
+    <li><strong>Fibrous proteins:</strong> Often elongated and structural. Examples include collagen and keratin.</li>
+    <li><strong>Globular proteins:</strong> Usually compact and involved in functions such as catalysis, transport or regulation. Examples include many enzymes and haemoglobin.</li>
+  </ul>
+
+  <h3>5. Denaturation</h3>
+
+  <p>
+    Heat, extreme pH and certain chemicals can disrupt the interactions
+    that maintain a protein's shape. This is called denaturation.
+    The protein may lose its biological activity.
+  </p>
+
+  <p>
+    Denaturation generally disrupts higher levels of structure rather
+    than breaking the peptide bonds of the primary sequence.
+    The precise effect depends on the protein and the conditions.
+  </p>
+
+  <h3>6. Functions of proteins</h3>
+
+  <ul>
+    <li><strong>Enzymatic:</strong> Catalyse biochemical reactions.</li>
+    <li><strong>Structural:</strong> Collagen and keratin provide strength and support.</li>
+    <li><strong>Transport:</strong> Haemoglobin carries oxygen in blood.</li>
+    <li><strong>Defence:</strong> Antibodies participate in immune defence.</li>
+    <li><strong>Movement:</strong> Actin and myosin participate in muscle contraction.</li>
+    <li><strong>Regulation:</strong> Some hormones are proteins or peptides.</li>
+  </ul>
+
+  <h3>7. Exam essentials</h3>
+  <ul>
+    <li>Amino acids are linked by peptide bonds.</li>
+    <li>The amino-acid sequence determines the primary structure.</li>
+    <li>Alpha-helices and beta-sheets are examples of secondary structure.</li>
+    <li>Tertiary structure describes the three-dimensional folding of a chain.</li>
+    <li>Quaternary structure involves multiple polypeptide subunits.</li>
+    <li>Denaturation usually affects shape and function without breaking the primary sequence.</li>
+  </ul>
+</section>
+
+<section class="card" id="lipids">
+  <h2>06 · Lipids</h2>
+
+  <p>
+    Lipids are a diverse group of biological substances that are
+    generally poorly soluble in water. They include fats, oils,
+    phospholipids, waxes and steroids.
+  </p>
+
+  <h3>1. Fatty acids</h3>
+
+  <p>
+    A fatty acid contains a carboxyl group attached to a hydrocarbon
+    chain. Fatty acids differ in chain length and in the number and
+    arrangement of carbon-carbon double bonds.
+  </p>
+
+  <ul>
+    <li><strong>Saturated fatty acids:</strong> Have no carbon-carbon double bonds in their hydrocarbon chain.</li>
+    <li><strong>Unsaturated fatty acids:</strong> Have one or more carbon-carbon double bonds.</li>
+  </ul>
+
+  <h3>2. Triglycerides</h3>
+
+  <p>
+    A triglyceride consists of one glycerol molecule linked to three
+    fatty acids by ester bonds. Formation of these bonds involves
+    condensation reactions.
+  </p>
+
+  <div class="diagram-box">
+    <pre>
+       Glycerol
+          |
+    +-----+-----+
+    |     |     |
+ Fatty  Fatty  Fatty
+ acid   acid   acid
+
+   Triglyceride
+    </pre>
+    <p>Schematic only: the fatty-acid chains can differ in length and saturation.</p>
+  </div>
+
+  <p>
+    Fats and oils are important energy stores. They also help with
+    insulation and cushioning. Lipids yield more energy per gram
+    than carbohydrates when oxidised.
+  </p>
+
+  <h3>3. Phospholipids and cell membranes</h3>
+
+  <p>
+    Phospholipids have a hydrophilic (water-attracting) head and
+    hydrophobic (water-avoiding) tails. In water, they can arrange
+    themselves into a bilayer.
+  </p>
+
+  <div class="diagram-box">
+    <pre>
+Outside watery environment
+
+ O  O  O  O  O  O   <- hydrophilic heads
+ || || || || || ||
+ || || || || || ||  <- hydrophobic tails
+ O  O  O  O  O  O   <- hydrophilic heads
+
+Inside watery environment
+    </pre>
+    <p>Conceptual arrangement of a phospholipid bilayer.</p>
+  </div>
+
+  <p>
+    The phospholipid bilayer forms the basic framework of biological
+    membranes. Proteins and other components are associated with
+    membranes and contribute to their functions.
+  </p>
+
+  <h3>4. Steroids and waxes</h3>
+
+  <ul>
+    <li><strong>Steroids:</strong> Have a characteristic four-ring carbon framework. Cholesterol is a component of animal cell membranes and a precursor of steroid hormones.</li>
+    <li><strong>Waxes:</strong> Hydrophobic substances that help reduce water loss or provide protective coatings in organisms.</li>
+  </ul>
+
+  <h3>5. Why are lipids in the acid-insoluble fraction?</h3>
+
+  <p>
+    In tissue extraction, lipids are generally recovered with the
+    acid-insoluble fraction because many occur in membranes and
+    other structures. However, most individual lipid molecules
+    have much lower molecular masses than true biological
+    macromolecules such as proteins and nucleic acids.
+  </p>
+
+  <h3>6. Exam essentials</h3>
+  <ul>
+    <li>Fatty acids contain a carboxyl group and a hydrocarbon chain.</li>
+    <li>Triglycerides contain glycerol and three fatty acids.</li>
+    <li>Ester bonds link fatty acids to glycerol in triglycerides.</li>
+    <li>Phospholipids have hydrophilic heads and hydrophobic tails.</li>
+    <li>Phospholipids form bilayers in biological membranes.</li>
+    <li>Cholesterol is a steroid.</li>
+    <li>Lipids are not generally polymers made of repeating monomer units.</li>
+  </ul>
+</section>
+
+<section class="card" id="nucleic-acids">
+  <h2>07 · Nucleic Acids: DNA and RNA</h2>
+
+  <p>
+    Nucleic acids are biological macromolecules made of nucleotide
+    units. DNA and RNA are essential for storing, transmitting and
+    using genetic information.
+  </p>
+
+  <h3>1. What is a nucleotide?</h3>
+
+  <p>
+    A nucleotide consists of three components:
+  </p>
+
+  <ul>
+    <li>A nitrogenous base</li>
+    <li>A pentose sugar</li>
+    <li>One or more phosphate groups</li>
+  </ul>
+
+  <p>
+    A nucleoside contains a nitrogenous base attached to a sugar,
+    but does not contain a phosphate group. Adding phosphate
+    produces a nucleotide.
+  </p>
+
+  <div class="diagram-box">
+    <pre>
+Nitrogenous base
+       |
+       +---- Pentose sugar
+                    |
+                Phosphate
+                    |
+                Nucleotide
+    </pre>
+  </div>
+
+  <h3>2. Nitrogenous bases</h3>
+
+  <p>
+    The main bases in nucleic acids belong to two groups:
+  </p>
+
+  <ul>
+    <li><strong>Purines:</strong> Adenine (A) and guanine (G).</li>
+    <li><strong>Pyrimidines:</strong> Cytosine (C), thymine (T) and uracil (U).</li>
+  </ul>
+
+  <p>
+    DNA uses A, G, C and T. RNA uses A, G, C and U. Thus, uracil
+    is found in RNA in place of thymine in the usual comparison
+    of these two nucleic acids.
+  </p>
+
+  <h3>3. DNA and RNA sugars</h3>
+
+  <ul>
+    <li><strong>DNA:</strong> Contains deoxyribose sugar.</li>
+    <li><strong>RNA:</strong> Contains ribose sugar.</li>
+  </ul>
+
+  <p>
+    Deoxyribose has one less oxygen atom than ribose at the
+    corresponding carbon position. The sugar and phosphate groups
+    contribute to the backbone of a nucleic acid chain.
+  </p>
+
+  <h3>4. Phosphodiester bonds</h3>
+
+  <p>
+    Nucleotides in a nucleic acid chain are joined through
+    phosphodiester bonds. These link the sugar of one nucleotide
+    to the phosphate associated with the next nucleotide.
+  </p>
+
+  <p>
+    The resulting strand has directionality, commonly described
+    using its 5′ and 3′ ends.
+  </p>
+
+  <h3>5. DNA structure</h3>
+
+  <p>
+    DNA commonly consists of two antiparallel polynucleotide
+    strands arranged in a double helix. Their nitrogenous bases
+    pair specifically:
+  </p>
+
+  <ul>
+    <li>Adenine pairs with thymine (A–T).</li>
+    <li>Guanine pairs with cytosine (G–C).</li>
+  </ul>
+
+  <p>
+    Hydrogen bonds help stabilise the paired bases. The sugar-phosphate
+    backbones lie on the outside of the double helix, while the
+    paired bases lie toward the inside.
+  </p>
+
+  <div class="diagram-box">
+    <pre>
+DNA BASE PAIRING
+
+Strand 1       Strand 2
+   A   ==   T
+   G   ===  C
+   T   ==   A
+   C   ===  G
+
+A pairs with T
+G pairs with C
+    </pre>
+    <p>Conceptual base-pairing diagram; the number of equals signs is illustrative.</p>
+  </div>
+
+  <h3>6. RNA structure and functions</h3>
+
+  <p>
+    RNA is usually single-stranded, although it can fold into
+    complex shapes through internal base pairing.
+  </p>
+
+  <ul>
+    <li><strong>mRNA (messenger RNA):</strong> Carries information used to specify a protein sequence.</li>
+    <li><strong>tRNA (transfer RNA):</strong> Helps deliver amino acids during protein synthesis.</li>
+    <li><strong>rRNA (ribosomal RNA):</strong> Forms part of ribosomes and contributes to their function.</li>
+  </ul>
+
+  <h3>7. DNA versus RNA</h3>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Feature</th><th>DNA</th><th>RNA</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Sugar</td><td>Deoxyribose</td><td>Ribose</td></tr>
+        <tr><td>Unique base in standard comparison</td><td>Thymine</td><td>Uracil</td></tr>
+        <tr><td>Typical structure</td><td>Double-stranded helix</td><td>Usually single-stranded</td></tr>
+        <tr><td>Main role</td><td>Long-term genetic information storage</td><td>Multiple roles in gene expression and protein synthesis</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>8. Exam essentials</h3>
+  <ul>
+    <li>A nucleotide contains a base, a pentose sugar and phosphate.</li>
+    <li>A nucleoside contains a base and sugar, without phosphate.</li>
+    <li>A and G are purines; C, T and U are pyrimidines.</li>
+    <li>DNA contains deoxyribose and thymine.</li>
+    <li>RNA contains ribose and uracil.</li>
+    <li>Phosphodiester bonds join nucleotides in a strand.</li>
+    <li>DNA strands are antiparallel and show complementary base pairing.</li>
+    <li>Hydrogen bonds stabilise complementary base pairs.</li>
+  </ul>
+</section>
+
+<section class="card" id="metabolism">
+  <h2>08 · Metabolism and the Dynamic State of Life</h2>
+
+  <p>
+    Living cells are not chemically static. Molecules are continually
+    synthesised, modified and broken down. The totality of these
+    chemical reactions is called metabolism.
+  </p>
+
+  <h3>1. Anabolism and catabolism</h3>
+
+  <ul>
+    <li><strong>Anabolism:</strong> Reactions that build complex molecules from simpler substances. Biosynthesis of proteins from amino acids is an example.</li>
+    <li><strong>Catabolism:</strong> Reactions that break down molecules into simpler products. The breakdown of glucose during cellular respiration is an example.</li>
+  </ul>
+
+  <div class="diagram-box">
+    <pre>
+Simple molecules
+       |
+       | ANABOLISM
+       v
+Complex molecules
+
+Complex molecules
+       |
+       | CATABOLISM
+       v
+Simpler products
+    </pre>
+  </div>
+
+  <p>
+    Anabolic reactions often require an input of energy, whereas
+    catabolic reactions often release energy that cells can capture.
+    The actual energy change depends on the reaction and its conditions.
+  </p>
+
+  <h3>2. Metabolic pathways</h3>
+
+  <p>
+    A metabolic pathway is a series of linked chemical reactions.
+    The product of one reaction may become the substrate of the next.
+    Different enzymes usually catalyse the different steps.
+  </p>
+
+  <p>
+    Pathways can be linear, branched or cyclic. Cells regulate them
+    so that the production and use of substances match their needs.
+  </p>
+
+  <h3>3. Why is metabolism essential?</h3>
+
+  <ul>
+    <li>It provides energy for cellular activities.</li>
+    <li>It produces building materials for growth and repair.</li>
+    <li>It allows cells to synthesise essential molecules.</li>
+    <li>It helps maintain internal organisation.</li>
+    <li>It supports responses to changes in the environment.</li>
+  </ul>
+
+  <h3>4. Metabolism and living systems</h3>
+
+  <p>
+    Many individual chemical reactions can also occur outside living
+    cells under suitable conditions. However, a living system is
+    distinguished by the coordinated, regulated network of reactions
+    taking place within an organised cellular system.
+  </p>
+
+  <p>
+    Enzymes make these reactions proceed rapidly enough for life
+    and help control their rates.
+  </p>
+
+  <h3>5. Exam essentials</h3>
+  <ul>
+    <li>Metabolism is the sum of chemical reactions in an organism.</li>
+    <li>Anabolism builds complex molecules.</li>
+    <li>Catabolism breaks down molecules.</li>
+    <li>Metabolic pathways consist of linked reactions.</li>
+    <li>Enzymes catalyse most biochemical reactions.</li>
+    <li>Living systems maintain a dynamic, regulated chemical state.</li>
+  </ul>
+</section>
+
+<section class="card" id="enzymes">
+  <h2>09 · Enzymes: Biological Catalysts</h2>
+
+  <p>
+    Enzymes are biological catalysts that increase the rate of
+    biochemical reactions without being consumed as reactants.
+    Most enzymes are proteins, although some RNA molecules also
+    possess catalytic activity.
+  </p>
+
+  <h3>1. What is a catalyst?</h3>
+
+  <p>
+    A catalyst increases the rate of a chemical reaction by providing
+    an alternative pathway with a lower activation-energy barrier.
+    It does not change the overall free-energy difference between
+    reactants and products or the reaction's equilibrium position.
+  </p>
+
+  <h3>2. Substrate and active site</h3>
+
+  <p>
+    The molecule on which an enzyme acts is called its substrate.
+    A region of the enzyme called the active site binds the substrate
+    and helps the reaction occur.
+  </p>
+
+  <div class="diagram-box">
+    <pre>
+Enzyme + Substrate
+        |
+        v
+Enzyme-substrate complex
+        |
+        v
+Enzyme + Product(s)
+    </pre>
+    <p>The enzyme can participate in another catalytic cycle after the products are released.</p>
+  </div>
+
+  <p>
+    The shape and chemical properties of the active site contribute
+    to substrate recognition and catalysis. The induced-fit model
+    describes how binding can involve changes in enzyme shape.
+  </p>
+
+  <h3>3. Activation energy</h3>
+
+  <p>
+    Reactant molecules must overcome an energy barrier before they
+    can form products. This barrier is called activation energy.
+    Enzymes lower the barrier for the reaction pathway, increasing
+    the reaction rate under suitable conditions.
+  </p>
+
+  <h3>4. Factors affecting enzyme activity</h3>
+
+  <h4>Temperature</h4>
+  <p>
+    Enzyme activity generally rises with temperature up to an
+    optimum range because molecular collisions become more frequent.
+    Above the suitable range, the enzyme's structure may be disrupted,
+    reducing activity.
+  </p>
+
+  <h4>pH</h4>
+  <p>
+    Every enzyme has a pH range in which it functions effectively.
+    Changes in pH can alter charges at the active site or affect
+    the enzyme's structure. Different enzymes have different
+    pH optima.
+  </p>
+
+  <h4>Substrate concentration</h4>
+  <p>
+    As substrate concentration rises, reaction rate usually increases
+    until most available active sites are occupied. Beyond this point,
+    the rate approaches a maximum under those conditions.
+  </p>
+
+  <h4>Enzyme concentration</h4>
+  <p>
+    If sufficient substrate is available, increasing the amount of
+    active enzyme can increase the reaction rate.
+  </p>
+
+  <h4>Inhibitors</h4>
+  <p>
+    Inhibitors reduce enzyme activity. Competitive inhibitors compete
+    with the substrate for binding at the active site. Other inhibitors
+    bind elsewhere and alter enzyme activity.
+  </p>
+
+  <h3>5. Cofactors</h3>
+
+  <p>
+    Some enzymes require a non-protein component called a cofactor
+    for catalytic activity. The main categories are:
+  </p>
+
+  <ul>
+    <li><strong>Metal ions:</strong> Inorganic ions required by some enzymes.</li>
+    <li><strong>Coenzymes:</strong> Small organic molecules that assist enzyme reactions.</li>
+    <li><strong>Prosthetic groups:</strong> Non-protein components that are tightly associated with an enzyme.</li>
+  </ul>
+
+  <p>
+    A protein enzyme without its required cofactor is called an
+    apoenzyme. The catalytically active combination of an apoenzyme
+    and its required cofactor is called a holoenzyme.
+  </p>
+
+  <h3>6. Enzymes and specificity</h3>
+
+  <p>
+    Enzymes are often specific to particular substrates or types of
+    reactions. For example, amylase acts on starch, while lipases
+    act on lipids. This specificity helps cells carry out many
+    reactions in a controlled manner.
+  </p>
+
+  <h3>7. Exam essentials</h3>
+  <ul>
+    <li>Enzymes are biological catalysts.</li>
+    <li>The substrate binds at the active site.</li>
+    <li>Enzymes lower activation energy.</li>
+    <li>Enzymes are not consumed by the overall reaction.</li>
+    <li>Temperature, pH, substrate concentration and inhibitors can affect activity.</li>
+    <li>Cofactors may be metal ions, coenzymes or prosthetic groups.</li>
+    <li>Apoenzyme plus its required cofactor forms the active holoenzyme.</li>
+    <li>Most enzymes are proteins, but some RNA molecules are catalytic.</li>
+  </ul>
+</section>
+
+<section class="card" id="chapter-recap">
+  <h2>10 · Biomolecules: Final Revision Map</h2>
+
+  <p>
+    Use this section for a quick review after studying each topic.
+    It is a revision aid, not a replacement for the full explanations
+    or your prescribed NCERT textbook.
+  </p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Concept</th><th>Key fact</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Elemental analysis</td><td>Identifies elements in biological material.</td></tr>
+        <tr><td>Compound analysis</td><td>Identifies chemical compounds.</td></tr>
+        <tr><td>Primary metabolites</td><td>Participate in normal physiological and metabolic processes.</td></tr>
+        <tr><td>Secondary metabolites</td><td>Include many specialised compounds, such as alkaloids and pigments.</td></tr>
+        <tr><td>Carbohydrates</td><td>Include sugars and polysaccharides.</td></tr>
+        <tr><td>Proteins</td><td>Polypeptides made of amino acids linked by peptide bonds.</td></tr>
+        <tr><td>Lipids</td><td>Include fats, phospholipids and steroids.</td></tr>
+        <tr><td>Nucleic acids</td><td>DNA and RNA are nucleotide polymers.</td></tr>
+        <tr><td>Anabolism</td><td>Builds complex molecules.</td></tr>
+        <tr><td>Catabolism</td><td>Breaks down molecules.</td></tr>
+        <tr><td>Enzymes</td><td>Biological catalysts that lower activation energy.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Common exam traps</h3>
+  <ul>
+    <li>Do not confuse a nucleoside with a nucleotide: a nucleotide includes phosphate.</li>
+    <li>Do not confuse a peptide bond with a glycosidic bond.</li>
+    <li>Do not confuse the role of starch with that of cellulose: storage versus structure.</li>
+    <li>Do not assume every lipid is a true macromolecule.</li>
+    <li>Do not assume all enzymes are proteins; some RNA molecules are catalytic.</li>
+    <li>Do not say enzymes change the equilibrium position of a reaction.</li>
+    <li>Do not say denaturation normally breaks the primary amino-acid sequence.</li>
+    <li>Do not confuse DNA's thymine with RNA's uracil.</li>
+  </ul>
+
+  <h3>How to study this chapter</h3>
+  <ol>
+    <li>Understand each topic before memorising the examples.</li>
+    <li>Practise drawing the amino acid, nucleotide, phospholipid bilayer and protein-structure diagrams.</li>
+    <li>Revise the comparison tables and bond names.</li>
+    <li>Answer your MCQs without looking at the notes.</li>
+    <li>Check your school edition of NCERT for the exact prescribed coverage.</li>
+  </ol>
+</section>
+<section class="card" id="quiz">
+      <h2>05 · Biomolecules MCQ Practice</h2>
+      <p>Choose one answer per question, then select Check Answers.</p>
+
+      <form id="quizForm">
+        <div id="questions"></div>
+        <button type="submit">Check Answers</button>
+        <button type="button" id="retry">Try Again</button>
+        <div id="result" aria-live="polite"></div>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    MindSpring · Understand. Revise. Grow.<br>
+    A personal learning project. Check your NCERT textbook for complete syllabus coverage.
+  </footer>
+
+  <script>
+    const quiz = [
+      {
+        q: "Which of these is a monosaccharide?",
+        options: ["Starch", "Glucose", "Lactose", "Cellulose"],
+        answer: 1,
+        why: "Glucose is a monosaccharide. Starch and cellulose are polysaccharides, while lactose is a disaccharide."
+      },
+      {
+        q: "Which units form proteins?",
+        options: ["Nucleotides", "Fatty acids only", "Amino acids", "Monosaccharides"],
+        answer: 2,
+        why: "Proteins are polypeptides made from amino acids linked by peptide bonds."
+      },
+      {
+        q: "Which bond links amino acids in a polypeptide?",
+        options: ["Peptide bond", "Glycosidic bond", "Hydrogen bond only", "Phosphodiester bond"],
+        answer: 0,
+        why: "Peptide bonds link amino acids in the polypeptide backbone."
+      },
+      {
+        q: "Which is a nucleic acid?",
+        options: ["Cellulose", "Glycogen", "Triglyceride", "DNA"],
+        answer: 3,
+        why: "DNA is a nucleic acid made of nucleotide units."
+      },
+      {
+        q: "Which polysaccharide is a major structural component of plant cell walls?",
+        options: ["Sucrose", "Cellulose", "Glycogen", "Lactose"],
+        answer: 1,
+        why: "Cellulose provides structural strength to plant cell walls."
+      },
+      {
+        q: "Which statement about enzymes is most accurate?",
+        options: [
+          "All enzymes are lipids",
+          "Enzymes are used up permanently in every reaction",
+          "Enzymes act as biological catalysts",
+          "Enzymes always work equally well at every temperature"
+        ],
+        answer: 2,
+        why: "Enzymes catalyse biological reactions. Conditions such as temperature and pH can affect their activity."
+      },
+      {
+        q: "Which set lists the three components of a nucleotide?",
+        options: [
+          "Glycerol, fatty acid, phosphate",
+          "Amino group, carboxyl group, R group",
+          "Glucose, fructose, galactose",
+          "Nitrogenous base, pentose sugar, phosphate"
+        ],
+        answer: 3,
+        why: "A nucleotide consists of a nitrogenous base, a pentose sugar and a phosphate group."
+      },
+      {
+        q: "Which carbohydrate is a storage polysaccharide in animals?",
+        options: ["Cellulose", "Glycogen", "Ribose", "Sucrose"],
+        answer: 1,
+        why: "Animals store glucose mainly as glycogen, especially in liver and skeletal muscle."
+      },
+      {
+        q: "What is the main effect of denaturation on a typical protein?",
+        options: [
+          "It always converts the protein into DNA",
+          "It creates a new nucleotide chain",
+          "It disrupts the protein's natural structure and can affect function",
+          "It always breaks every peptide bond"
+        ],
+        answer: 2,
+        why: "Denaturation disrupts a protein's natural conformation; it does not necessarily break its peptide bonds."
+      },
+      {
+        q: "Which molecule is an example of a disaccharide?",
+        options: ["Lactose", "Glucose", "Fructose", "Ribose"],
+        answer: 0,
+        why: "Lactose is a disaccharide made of glucose and galactose."
+      },
+      {
+        q: "Which component is characteristic of phospholipids in cell membranes?",
+        options: ["A chain made entirely of amino acids", "A phosphate-containing polar head group", "A cellulose wall", "A DNA double helix"],
+        answer: 1,
+        why: "Phospholipids have a phosphate-containing polar head and hydrophobic tails."
+      },
+      {
+        q: "Which molecule stores hereditary information in most organisms?",
+        options: ["Starch", "Triglyceride", "Cellulose", "DNA"],
+        answer: 3,
+        why: "DNA stores hereditary information in most organisms; some viruses use RNA genomes."
+      },
+      {
+        q: "Which pair consists of polysaccharides?",
+        options: ["Glucose and fructose", "Sucrose and lactose", "Starch and glycogen", "Ribose and deoxyribose"],
+        answer: 2,
+        why: "Starch and glycogen are polysaccharides made from glucose units."
+      },
+      {
+        q: "Which group contains the amino group and carboxyl group?",
+        options: ["Amino acids", "Monosaccharides", "Fatty acids only", "Nitrogenous bases only"],
+        answer: 0,
+        why: "Amino acids characteristically contain amino and carboxyl groups, along with a variable side chain."
+      },
+      {
+        q: "Which statement about lipids is correct?",
+        options: [
+          "All lipids are polymers of amino acids",
+          "Lipids include fats and phospholipids",
+          "Lipids are all water-soluble sugars",
+          "Lipids are made of nucleotide chains"
+        ],
+        answer: 1,
+        why: "Fats and phospholipids are examples of lipids; lipids are not amino-acid polymers."
+      }
+    ];
+
+    const questionsBox = document.getElementById("questions");
+
+    function renderQuiz() {
+      questionsBox.innerHTML = "";
+
+      quiz.forEach((item, i) => {
+        const section = document.createElement("div");
+        section.className = "question";
+
+        const title = document.createElement("p");
+        title.textContent = (i + 1) + ". " + item.q;
+        section.appendChild(title);
+
+        item.options.forEach((option, j) => {
+          const label = document.createElement("label");
+          label.className = "option";
+
+          const radio = document.createElement("input");
+          radio.type = "radio";
+          radio.name = "q" + i;
+          radio.value = j;
+
+          label.appendChild(radio);
+          label.appendChild(document.createTextNode(option));
+          section.appendChild(label);
+        });
+
+        const feedback = document.createElement("div");
+        feedback.id = "feedback" + i;
+        feedback.setAttribute("aria-live", "polite");
+        section.appendChild(feedback);
+
+        questionsBox.appendChild(section);
+      });
+    }
+
+    document.getElementById("quizForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      let score = 0;
+      let attempted = 0;
+
+      quiz.forEach((item, i) => {
+        const selected = document.querySelector('input[name="q' + i + '"]:checked');
+        const feedback = document.getElementById("feedback" + i);
+
+        if (selected) {
+          attempted++;
+          if (Number(selected.value) === item.answer) score++;
+        }
+
+        feedback.textContent = selected
+          ? ((Number(selected.value) === item.answer ? "✓ " : "✗ ") + item.why)
+          : ("Not answered. " + item.why);
+      });
+
+      document.getElementById("result").textContent =
+        "Score: " + score + " / " + quiz.length +
+        " · Attempted: " + attempted + " / " + quiz.length;
+    });
+
+    document.getElementById("retry").addEventListener("click", function() {
+      document.getElementById("quizForm").reset();
+      document.getElementById("result").textContent = "";
+      quiz.forEach((item, i) => {
+        document.getElementById("feedback" + i).textContent = "";
+      });
+    });
+
+    renderQuiz();
+  </script>
+</body>
+</html>

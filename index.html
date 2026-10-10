@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MindSpring — Understand. Revise. Grow .</title>
+  <style>
+    :root {
+      --ink: #292541;
+      --muted: #706b86;
+      --purple: #7357c8;
+      --purple-light: #f0ebff;
+      --pink-light: #fff0f5;
+      --paper: #fbfaff;
+      --white: #ffffff;
+      --line: #e9e4f5;
+      --green: #217a55;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: linear-gradient(180deg, #f5f0ff 0, var(--paper) 280px);
+      line-height: 1.55;
+    }
+    .wrap { width: min(100% - 32px, 1040px); margin: auto; }
+    header { padding: 24px 0 10px; }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.25rem;font-family: 'Georgia', serif;
+font-weight: 600;
+font-style: italic;color: #4B2E83; }
+    .logo {
+      width: 42px; height: 42px; border-radius: 14px; display: grid; place-items: center;
+      background: var(--purple); color: white; font-size: 1.35rem;
+      box-shadow: 0 8px 22px #7357c833;
+    }
+    .tagline { color: var(--muted); font-size: .92rem; margin-top: 2px; }
+    .hero { padding: 34px 0 24px; display: grid; grid-template-columns: 1.4fr .8fr; gap: 22px; align-items: center; }
+    .eyebrow { color: var(--purple); font-size: .78rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    h1 { font-size: clamp(2rem, 5vw, 3.4rem); line-height: 1.08; margin: 10px 0 14px; letter-spacing: -.04em; }
+    .hero p { color: var(--muted); max-width: 560px; }
+    .hero-art {
+      background: linear-gradient(135deg, var(--purple-light), var(--pink-light));
+      border: 1px solid var(--line); border-radius: 28px; padding: 25px; min-height: 190px;
+      display: flex; flex-direction: column; justify-content: center; gap: 12px;
+    }
+    .floating-note { background: white; border: 1px solid var(--line); padding: 12px 14px; border-radius: 15px; box-shadow: 0 8px 24px #2925410a; }
+    .floating-note:nth-child(2) { margin-left: 24px; }
+    .floating-note:nth-child(3) { margin-right: 20px; }
+    .section-title { display: flex; justify-content: space-between; align-items: end; gap: 12px; margin: 22px 0 14px; }
+    h2 { font-size: 1.35rem; margin: 0; }
+    .small { color: var(--muted); font-size: .9rem; margin: 4px 0 0; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .card { background: var(--white); border: 1px solid var(--line); border-radius: 20px; padding: 19px; box-shadow: 0 8px 28px #29254108; }
+    .card-icon { font-size: 1.55rem; }
+    .card h3 { margin: 9px 0 5px; font-size: 1.05rem; }
+    .card p { color: var(--muted); font-size: .91rem; margin: 0; }
+    .pill { display: inline-block; background: var(--purple-light); color: var(--purple); padding: 4px 9px; border-radius: 999px; font-size: .75rem; font-weight: 700; margin-top: 12px; }
+    .study-layout { display: grid; grid-template-columns: .85fr 1.15fr; gap: 14px; margin: 14px 0 40px; }
+    .chapter-list { display: grid; gap: 9px; margin-top: 13px; }
+    .chapter-btn {
+      width: 100%; border: 1px solid var(--line); border-radius: 12px; padding: 12px;
+      background: white; color: var(--ink); text-align: left; font: inherit; cursor: pointer;
+    }
+    .chapter-btn.active { border-color: var(--purple); background: var(--purple-light); }
+    .notes-box { min-height: 280px; }
+    .notes-box h3 { margin-top: 0; }
+    .notes-box ul { padding-left: 21px; }
+    .notes-box li { margin: 8px 0; }
+    .quiz-q { font-weight: 750; margin: 15px 0 10px; }
+    .answers { display: grid; gap: 8px; }
+    .answer {
+      background: white; border: 1px solid var(--line); color: var(--ink); padding: 10px 12px;
+      border-radius: 12px; text-align: left; font: inherit; cursor: pointer;
+    }
+    .answer:hover { border-color: var(--purple); }
+    .answer.correct { background: #e8f7ef; border-color: #7cc8a0; }
+    .answer.wrong { background: #fff0f0; border-color: #e3a2a2; }
+    .feedback { min-height: 28px; font-size: .9rem; font-weight: 650; margin-top: 10px; }
+    .btn {
+      border: 0; border-radius: 12px; background: var(--purple); color: white; font: inherit;
+      font-weight: 750; padding: 11px 15px; cursor: pointer;
+    }
+    .btn:focus, button:focus-visible { outline: 3px solid #c7b8ff; outline-offset: 2px; }
+    footer { padding: 18px 0 32px; border-top: 1px solid var(--line); color: var(--muted); font-size: .84rem; }
+    @media (max-width: 700px) {
+      .hero, .study-layout { grid-template-columns: 1fr; }
+      .grid { grid-template-columns: 1fr; }
+      .hero { padding-top: 24px; }
+      .hero-art { min-height: 160px; }
+      .section-title { align-items: start; flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <header class="wrap">
+    <div class="brand"><div class="logo">✦</div><div>MindSpring<div class="tagline">Learn it. Revise it. Remember it.</div></div></div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div>
+        <div class="eyebrow">Your calm corner for learning</div>
+        <h1>Small steps.<br>Stronger understanding.</h1>
+        <p>Quick revision notes, memory-friendly summaries and mini quizzes — made to help students learn one chapter at a time.</p>
+      </div>
+      <div class="hero-art" aria-label="StudyNest feature preview">
+        <div class="floating-note">📚 <strong>Clear notes</strong><br><span class="small">The important points, organised.</span></div>
+        <div class="floating-note">🧠 <strong>Quick recall</strong><br><span class="small">Tiny quizzes to test yourself.</span></div>
+        <div class="floating-note">🌱 <strong>Progress at your pace</strong><br><span class="small">No pressure. Keep learning.</span></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title"><div><h2>Explore the study space</h2><p class="small">A starter layout — we'll add subjects gradually.</p></div></div>
+      <div class="grid">
+        <article class="card"><div class="card-icon">🧬</div><h3>Biology</h3><p>Concept summaries, key terms and diagrams to revise.</p><span class="pill">Class 11 · Starter</span></article>
+        <article class="card"><div class="card-icon">⚗️</div><h3>Chemistry</h3><p>Definitions, tables and important ideas in one place.</p><span class="pill">Coming later</span></article>
+        <article class="card"><div class="card-icon">💻</div><h3>Computer Science</h3><p>Python basics, examples and common mistakes.</p><span class="pill">Coming later</span></article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title"><div><h2>Try a chapter</h2><p class="small">Choose the sample chapter to view its revision points.</p></div></div>
+      <div class="study-layout">
+        <div class="card">
+          <h3>Class 11 Biology</h3>
+          <div class="chapter-list">
+           <button class="chapter-btn active" onclick="window.location.href='Biomolecule.html'">Biomolecules</button>             <button class="chapter-btn" data-chapter="coming">Another chapter · Coming soon</button>
+          </div>
+          <p class="small" style="margin-top:14px">Note: this is starter content. Check facts against your current NCERT textbook before using it for exam preparation.</p>
+        </div>
+<article class="card notes-box" id="notes">
+  <span class="eyebrow">YOUR LEARNING SPACE</span>
+  <h3>Explore Chapters 🧬</h3>
+  <p class="small">
+    Build your understanding, one concept at a time.
+    Choose a chapter below to start learning.
+  </p>
+
+  <div class="chapter-list">
+    <a class="chapter-btn"
+       href="Biomolecule.html"
+       style="text-decoration:none; display:block; margin-top:12px;">
+      🧬 Biomolecules — Class 11 Biology →
+    </a>
+  </div>
+
+  <p class="small" style="margin-top:14px;">
+    More chapters coming soon to MindSpring! 💜
+  </p>
+</article>
+      </div>
+    </section>
+
+    <section class="card" style="margin-bottom:34px" id="quiz">
+      <span class="eyebrow">Mini quiz</span>
+      <h2 style="margin-top:5px">Check your recall</h2>
+      <div class="quiz-q" id="question">Which molecules are polymers made of amino acids?</div>
+      <div class="answers" id="answers">
+        <button class="answer" data-correct="false">Carbohydrates</button>
+        <button class="answer" data-correct="true">Proteins</button>
+        <button class="answer" data-correct="false">Lipids</button>
+        <button class="answer" data-correct="false">Mineral salts</button>
+      </div>
+      <div class="feedback" id="feedback" aria-live="polite"></div>
+      <button class="btn" id="next" style="margin-top:8px">Try another question</button>
+    </section>
+  </main>
+
+  <footer><div class="wrap">StudyNest is a personal learning project. Always verify study material with your prescribed textbook and teacher's guidance.</div></footer>
+
+  <script>
+    const chapterButtons = document.querySelectorAll(".chapter-btn");
+    const notes = document.getElementById("notes");
+    chapterButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        chapterButtons.forEach(item => item.classList.remove("active"));
+        button.classList.add("active");
+        if (button.dataset.chapter === "coming") {
+          notes.innerHTML = '<span class="eyebrow">Coming soon</span><h3>Your next chapter</h3><p>When you are ready, add a short summary, important terms and a few self-test questions here.</p>';
+        } else {
+          notes.innerHTML = '<span class="eyebrow">Quick revision</span><h3>Biomolecules — sample notes</h3><ul><li><strong>Biomolecules</strong> are chemical compounds present in living organisms.</li><li><strong>Carbohydrates</strong> commonly serve as energy sources and can have structural roles.</li><li><strong>Proteins</strong> are polymers of amino acids linked by peptide bonds.</li><li><strong>Nucleic acids</strong> (DNA and RNA) are involved in storing and expressing genetic information.</li></ul><p class="small">Build your own notes in your preferred style as you learn.</p>';
+        }
+      });
+    });
+
+    const questions = [
+      { q: "Which molecules are polymers made of amino acids?", options: ["Carbohydrates", "Proteins", "Lipids", "Mineral salts"], correct: 1, why: "Proteins are made of amino-acid units joined by peptide bonds." },
+      { q: "Which pair consists of nucleic acids?", options: ["Glucose and fructose", "DNA and RNA", "Starch and cellulose", "Glycerol and fatty acids"], correct: 1, why: "DNA and RNA are the two major types of nucleic acids." },
+      { q: "Which is a common role of carbohydrates?", options: ["Storing genetic information", "Forming peptide bonds", "Providing energy", "Acting as DNA"], correct: 2, why: "Many carbohydrates are important energy sources; some also have structural roles." }
+    ];
+    let questionIndex = 0;
+    let answered = false;
+    function renderQuestion() {
+      const item = questions[questionIndex];
+      document.getElementById("question").textContent = item.q;
+      const answerBox = document.getElementById("answers");
+      answerBox.innerHTML = "";
+      item.options.forEach((option, index) => {
+        const button = document.createElement("button");
+        button.className = "answer";
+        button.textContent = option;
+        button.addEventListener("click", () => {
+          if (answered) return;
+          answered = true;
+          const buttons = answerBox.querySelectorAll("button");
+          buttons.forEach((b, i) => {
+            b.disabled = true;
+            if (i === item.correct) b.classList.add("correct");
+          });
+          if (index !== item.correct) button.classList.add("wrong");
+          document.getElementById("feedback").textContent =
+            (index === item.correct ? "Correct! " : "Not quite. ") + item.why;
+        });
+        answerBox.appendChild(button);
+      });
+      document.getElementById("feedback").textContent = "";
+      answered = false;
+    }
+    document.getElementById("next").addEventListener("click", () => {
+      questionIndex = (questionIndex + 1) % questions.length;
+      renderQuestion();
+    });
+    renderQuestion();
+  </script>
+</body>
+</html>
