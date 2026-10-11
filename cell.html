@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cell: The Unit of Life | MindSpring</title>
+<meta name="description" content="Class 11 Biology: Cell — The Unit of Life. NCERT notes, interactive cell model, MCQs and flashcards for NEET preparation.">
+
+<style>
+:root {
+  --bg: #f5f8ff;
+  --card: #ffffff;
+  --text: #19243b;
+  --muted: #64718a;
+  --accent: #5368d9;
+  --border: #e1e7f3;
+  --green: #16876d;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+}
+header {
+  background: linear-gradient(130deg, #25336f, #5368d9);
+  color: white;
+  padding: 22px 6%;
+}
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+.brand { font-size: 23px; font-weight: bold; }
+header a { color: white; text-decoration: none; }
+.hero { padding: 42px 0 24px; max-width: 850px; }
+.hero h1 { font-size: clamp(30px, 5vw, 48px); line-height: 1.2; }
+.hero p { color: #e5eaff; font-size: 17px; }
+.tag {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 20px;
+  background: #ffffff20;
+  border: 1px solid #ffffff50;
+  font-size: 13px;
+}
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+nav a {
+  text-decoration: none;
+  color: var(--text);
+  background: white;
+  border: 1px solid var(--border);
+  padding: 9px 13px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+main { width: min(1100px, 92%); margin: 28px auto 60px; }
+section { margin: 35px 0; scroll-margin-top: 20px; }
+h2 { font-size: 27px; line-height: 1.3; }
+h3 { margin-bottom: 7px; }
+.subtitle { color: var(--muted); margin-top: -10px; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+  gap: 17px;
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 17px;
+  padding: 21px;
+  box-shadow: 0 5px 20px #25336f08;
+}
+.card p:last-child { margin-bottom: 0; }
+.fact {
+  border-left: 4px solid var(--accent);
+  background: #edf0ff;
+  padding: 12px 16px;
+  border-radius: 0 10px 10px 0;
+  margin: 15px 0;
+}
+table { width: 100%; border-collapse: collapse; }
+th, td {
+  text-align: left;
+  padding: 11px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+th { background: #eef1ff; }
+.table-wrap { overflow-x: auto; }
+button, .button {
+  border: 0;
+  background: var(--accent);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  text-decoration: none;
+  display: inline-block;
+}
+button:hover, .button:hover { filter: brightness(.93); }
+button:focus-visible, a:focus-visible {
+  outline: 3px solid #edbd4a;
+  outline-offset: 3px;
+}
+.small { font-size: 13px; color: var(--muted); }
+
+/* Interactive 3D-style cell illustration */
+.model-area {
+  background: radial-gradient(ellipse at center, #e5eaff, #f8f9ff);
+  border-radius: 16px;
+  padding: 22px 10px;
+  overflow: hidden;
+}
+.cell-stage {
+  min-height: 340px;
+  display: grid;
+  place-items: center;
+  perspective: 850px;
+}
+.cell {
+  width: min(310px, 78vw);
+  aspect-ratio: 1.25;
+  border: 9px solid #e5a65b;
+  border-radius: 48% 52% 47% 53%;
+  background: radial-gradient(ellipse at 35% 30%, #fff4d5, #f8c7a7 65%, #df9e94);
+  position: relative;
+  box-shadow: inset 0 0 0 5px #fff6, 0 25px 35px #26336d24;
+  transform-style: preserve-3d;
+  transform: rotateX(13deg) rotateY(-12deg);
+  transition: transform .5s;
+}
+.organelle {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  border: 2px solid #ffffffb0;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: bold;
+  color: #26304b;
+  box-shadow: 0 5px 8px #27314a26;
+  transition: transform .2s;
+}
+.organelle:hover { transform: scale(1.12) translateZ(12px); }
+.nucleus {
+  width: 82px; height: 82px; border-radius: 50%;
+  left: 35%; top: 30%;
+  background: radial-gradient(circle at 35% 30%, #f3bbff, #8e6bd1);
+}
+.mito {
+  width: 55px; height: 25px; border-radius: 50%;
+  background: #ff986e;
+}
+.mito.one { left: 8%; top: 24%; transform: rotate(25deg); }
+.mito.two { right: 7%; bottom: 24%; transform: rotate(-28deg); }
+.golgi {
+  width: 55px; height: 34px; border-radius: 40%;
+  right: 10%; top: 17%; background: #86d8b7;
+}
+.er {
+  width: 82px; height: 28px; border-radius: 35%;
+  left: 25%; bottom: 12%; background: #8cc8ed;
+}
+.ribosome {
+  width: 12px; height: 12px; border-radius: 50%;
+  background: #5368d9; border: 0;
+}
+.r1 { left: 19%; top: 55%; }
+.r2 { left: 68%; top: 60%; }
+.r3 { left: 59%; top: 17%; }
+.lysosome {
+  width: 27px; height: 27px; border-radius: 50%;
+  left: 12%; bottom: 17%; background: #f6d35c;
+}
+.cell-label {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 8px;
+}
+.organelle-buttons {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+.organelles-info {
+  background: white;
+  border: 1px solid var(--border);
+  padding: 15px;
+  border-radius: 12px;
+  margin-top: 16px;
+  min-height: 90px;
+}
+.question {
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border);
+}
+.question label {
+  display: block;
+  margin: 8px 0;
+  cursor: pointer;
+}
+.feedback { margin-top: 10px; font-weight: bold; }
+.flashcard {
+  min-height: 175px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 14px;
+  background: #edf0ff;
+  border-radius: 15px;
+  padding: 20px;
+}
+.flashcard h3 { font-size: 21px; }
+footer {
+  text-align: center;
+  padding: 28px;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+@media (max-width: 600px) {
+  header { padding: 18px 5%; }
+  main { width: 92%; }
+  .card { padding: 16px; }
+  th, td { padding: 8px; }
+}
+</style>
+</head>
+
+<body>
+<header>
+  <div class="topbar">
+    <div class="brand">🌱 MindSpring</div>
+    <a href="index.html">← Back to Home</a>
+  </div>
+  <div class="hero">
+    <span class="tag">CLASS 11 BIOLOGY · NCERT · NEET</span>
+    <h1>Cell: The Unit of Life</h1>
+    <p>Explore the building blocks of life through clear notes, an interactive cell model, practice questions and flashcards.</p>
+    <nav aria-label="Chapter navigation">
+      <a href="#notes">📘 Notes</a>
+      <a href="#model">🔬 3D-style model</a>
+      <a href="#quiz">🧠 MCQs</a>
+      <a href="#flashcards">🗂️ Flashcards</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section id="notes">
+  <h2>📘 NCERT Learning Notes</h2>
+  <p class="subtitle">Study the concepts first, then test your understanding.</p>
+
+  <div class="card">
+    <h3>1. What is a cell?</h3>
+    <p>The cell is the basic structural and functional unit of life. All living organisms are made of cells or their products.</p>
+    <div class="fact"><strong>Remember:</strong> The cell is the smallest unit capable of carrying out the essential activities of life.</div>
+  </div>
+
+  <div class="grid" style="margin-top:17px">
+    <article class="card">
+      <h3>2. Cell theory</h3>
+      <ul>
+        <li>All living organisms are composed of cells and cell products.</li>
+        <li>All cells arise from pre-existing cells.</li>
+        <li>Matthias Schleiden studied plants; Theodor Schwann studied animals.</li>
+        <li>Rudolf Virchow later popularised the idea that cells arise from pre-existing cells.</li>
+      </ul>
+    </article>
+    <article class="card">
+      <h3>3. Types of organisms</h3>
+      <ul>
+        <li><strong>Unicellular:</strong> one cell performs all life functions; e.g. Amoeba.</li>
+        <li><strong>Multicellular:</strong> many cells perform specialised functions; e.g. humans.</li>
+        <li>Cells differ in shape, size and function.</li>
+      </ul>
+    </article>
+  </div>
+
+  <div class="card" style="margin-top:17px">
+    <h3>4. Prokaryotic vs eukaryotic cells</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Feature</th><th>Prokaryotic</th><th>Eukaryotic</th></tr></thead>
+        <tbody>
+          <tr><td>Nucleus</td><td>No membrane-bound nucleus; DNA lies in a nucleoid</td><td>Membrane-bound nucleus</td></tr>
+          <tr><td>Membrane-bound organelles</td><td>Absent</td><td>Present</td></tr>
+          <tr><td>Ribosomes</td><td>70S</td><td>80S in cytoplasm; 70S in mitochondria and plastids</td></tr>
+          <tr><td>Examples</td><td>Bacteria, cyanobacteria</td><td>Plants, animals, fungi, protists</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small">S values are sedimentation coefficients, not ordinary additive units.</p>
+  </div>
+
+  <div class="grid" style="margin-top:17px">
+    <article class="card">
+      <h3>5. Plasma membrane</h3>
+      <p>A selectively permeable boundary around the cell. It regulates the movement of substances into and out of the cell.</p>
+      <ul>
+        <li>Made mainly of lipids and proteins.</li>
+        <li>The fluid mosaic model was proposed by Singer and Nicolson.</li>
+        <li>Passive transport does not directly require cellular energy; active transport requires energy.</li>
+      </ul>
+    </article>
+    <article class="card">
+      <h3>6. Cell wall</h3>
+      <p>Plant cells have a cell wall outside the plasma membrane. It provides support, protection and shape.</p>
+      <ul>
+        <li>Plant cell walls contain cellulose.</li>
+        <li>The middle lamella is rich in calcium pectate.</li>
+        <li>Plasmodesmata connect neighbouring plant cells.</li>
+      </ul>
+    </article>
+    <article class="card">
+      <h3>7. Endoplasmic reticulum</h3>
+      <ul>
+        <li><strong>Rough ER:</strong> ribosomes attached; involved in protein synthesis and processing.</li>
+        <li><strong>Smooth ER:</strong> lipid synthesis and other metabolic functions.</li>
+        <li>Forms an extensive network of membranes in the cytoplasm.</li>
+      </ul>
+    </article>
+    <article class="card">
+      <h3>8. Golgi apparatus</h3>
+      <p>Consists of flattened membrane-bound sacs called cisternae.</p>
+      <ul>
+        <li>Modifies, packages and sorts proteins and lipids.</li>
+        <li>Helps form lysosomes.</li>
+        <li>Has cis and trans faces associated with receiving and dispatching materials.</li>
+      </ul>
+    </article>
+    <article class="card">
+      <h3>9. Lysosomes and vacuoles</h3>
+      <ul>
+        <li><strong>Lysosomes:</strong> contain hydrolytic enzymes for intracellular digestion.</li>
+        <li><strong>Vacuoles:</strong> storage compartments enclosed by the tonoplast.</li>
+        <li>The large central vacuole helps maintain turgor in plant cells.</li>
+      </ul>
+    </article>
+    <article class="card">
+      <h3>10. Mitochondria</h3>
+      <ul>
+        <li>Site of aerobic respiration and major ATP production.</li>
+        <li>Have outer and inner membranes; inner folds are cristae.</li>
+        <li>Contain their own DNA and ribosomes.</li>
+        <li>Often called the powerhouse of the cell.</li>
+      </ul>
+    </article>
+    <article class="card">
+      <h3>11. Plastids</h3>
+      <ul>
+        <li><strong>Chloroplasts:</strong> photosynthesis.</li>
+        <li><strong>Chromoplasts:</strong> contain pigments other than chlorophyll.</li>
+        <li><strong>Leucoplasts:</strong> storage of food materials.</li>
+        <li>Chloroplasts contain thylakoids arranged into grana, embedded in stroma.</li>
+      </ul>
+    </article>
+    <article class="card">
+      <h3>12. Ribosomes</h3>
+      <p>Ribosomes are the sites of protein synthesis.</p>
+      <ul>
+        <li>Prokaryotic ribosomes are 70S.</li>
+        <li>Eukaryotic cytoplasmic ribosomes are 80S.</li>
+        <li>Ribosomes may occur freely in cytoplasm or attached to rough ER.</li>
+      </ul>
+    </article>
+    <article class="card">
+      <h3>13. Nucleus</h3>
+      <ul>
+        <li>Contains genetic material and regulates many cellular activities.</li>
+        <li>The nuclear envelope has two membranes and pores.</li>
+        <li>Chromatin condenses into chromosomes during cell division.</li>
+        <li>The nucleolus is associated with ribosomal RNA production and ribosome assembly.</li>
+      </ul>
+    </article>
+    <article class="card">
+      <h3>14. Cytoskeleton and centrosome</h3>
+      <ul>
+        <li>The cytoskeleton includes microtubules, microfilaments and intermediate filaments.</li>
+        <li>It supports cell shape, movement and intracellular transport.</li>
+        <li>Animal cells commonly have a centrosome with a pair of centrioles.</li>
+      </ul>
+    </article>
+  </div>
+
+  <div class="fact">
+    <strong>NEET revision tip:</strong> Learn each organelle's structure, function, membrane count and distinguishing feature. Check the current NCERT textbook for the exact prescribed scope.
+  </div>
+</section>
+
+<section id="model">
+  <h2>🔬 Explore a Cell in 3D Style</h2>
+  <p class="subtitle">Select a cell part to learn its function. Dragging is not required.</p>
+  <div class="card">
+    <div class="model-area">
+      <div class="cell-stage">
+        <div class="cell" id="cellModel" role="group" aria-label="Illustrative animal cell model">
+          <button class="organelle nucleus" onclick="showOrganelle('nucleus')" aria-label="Explore nucleus">Nucleus</button>
+          <button class="organelle mito one" onclick="showOrganelle('mitochondria')" aria-label="Explore mitochondria">Mito.</button>
+          <button class="organelle mito two" onclick="showOrganelle('mitochondria')" aria-label="Explore mitochondria">Mito.</button>
+          <button class="organelle golgi" onclick="showOrganelle('golgi')" aria-label="Explore Golgi apparatus">Golgi</button>
+          <button class="organelle er" onclick="showOrganelle('er')" aria-label="Explore endoplasmic reticulum">ER</button>
+          <button class="organelle ribosome r1" onclick="showOrganelle('ribosomes')" aria-label="Explore ribosomes"></button>
+          <button class="organelle ribosome r2" onclick="showOrganelle('ribosomes')" aria-label="Explore ribosomes"></button>
+          <button class="organelle ribosome r3" onclick="showOrganelle('ribosomes')" aria-label="Explore ribosomes"></button>
+          <button class="organelle lysosome" onclick="showOrganelle('lysosomes')" aria-label="Explore lysosomes">L</button>
+        </div>
+      </div>
+      <div class="cell-label">Illustrative animal cell</div>
+    </div>
+    <div class="organelle-buttons">
+      <button onclick="rotateCell()">Rotate model</button>
+      <button onclick="resetCell()">Reset view</button>
+    </div>
+    <div class="organelles-info" id="organelleInfo" aria-live="polite">
+      <strong>Choose an organelle</strong>
+      <p>Tap any labelled structure in the model to see its main function.</p>
+    </div>
+    <p class="small">This is a stylised educational illustration, not a molecularly accurate 3D reconstruction. The shapes and positions are schematic.</p>
+  </div>
+</section>
+
+<section id="quiz">
+  <h2>🧠 Test Yourself — MCQs</h2>
+  <p class="subtitle">Choose one answer for each question, then check your score.</p>
+  <div class="card">
+    <form id="quizForm">
+      <div class="question">
+        <strong>1. What is the basic structural and functional unit of life?</strong>
+        <label><input type="radio" name="q1" value="a"> Tissue</label>
+        <label><input type="radio" name="q1" value="b"> Cell</label>
+        <label><input type="radio" name="q1" value="c"> Organ</label>
+        <label><input type="radio" name="q1" value="d"> Organelle</label>
+      </div>
+      <div class="question">
+        <strong>2. Which structure is the site of protein synthesis?</strong>
+        <label><input type="radio" name="q2" value="a"> Lysosome</label>
+        <label><input type="radio" name="q2" value="b"> Vacuole</label>
+        <label><input type="radio" name="q2" value="c"> Ribosome</label>
+        <label><input type="radio" name="q2" value="d"> Centriole</label>
+      </div>
+      <div class="question">
+        <strong>3. Which organelle has cristae?</strong>
+        <label><input type="radio" name="q3" value="a"> Golgi apparatus</label>
+        <label><input type="radio" name="q3" value="b"> Mitochondrion</label>
+        <label><input type="radio" name="q3" value="c"> Nucleus</label>
+        <label><input type="radio" name="q3" value="d"> Lysosome</label>
+      </div>
+      <div class="question">
+        <strong>4. The fluid mosaic model of the plasma membrane was proposed by:</strong>
+        <label><input type="radio" name="q4" value="a"> Schleiden and Schwann</label>
+        <label><input type="radio" name="q4" value="b"> Watson and Crick</label>
+        <label><input type="radio" name="q4" value="c"> Singer and Nicolson</label>
+        <label><input type="radio" name="q4" value="d"> Hooke and Leeuwenhoek</label>
+      </div>
+      <div class="question">
+        <strong>5. Which structure is found in prokaryotic cells?</strong>
+        <label><input type="radio" name="q5" value="a"> Membrane-bound nucleus</label>
+        <label><input type="radio" name="q5" value="b"> Golgi apparatus</label>
+        <label><input type="radio" name="q5" value="c"> 70S ribosomes</label>
+        <label><input type="radio" name="q5" value="d"> Mitochondria</label>
+      </div>
+      <div class="question">
+        <strong>6. The inner membrane folds of mitochondria are called:</strong>
+        <label><input type="radio" name="q6" value="a"> Grana</label>
+        <label><input type="radio" name="q6" value="b"> Cristae</label>
+        <label><input type="radio" name="q6" value="c"> Cisternae</label>
+        <label><input type="radio" name="q6" value="d"> Thylakoids</label>
+      </div>
+      <div class="question">
+        <strong>7. The main component of the plant cell wall is:</strong>
+        <label><input type="radio" name="q7" value="a"> Glycogen</label>
+        <label><input type="radio" name="q7" value="b"> Cellulose</label>
+        <label><input type="radio" name="q7" value="c"> Chitin</label>
+        <label><input type="radio" name="q7" value="d"> Starch</label>
+      </div>
+      <div class="question">
+        <strong>8. Which organelle modifies and packages many proteins?</strong>
+        <label><input type="radio" name="q8" value="a"> Golgi apparatus</label>
+        <label><input type="radio" name="q8" value="b"> Nucleolus</label>
+        <label><input type="radio" name="q8" value="c"> Centriole</label>
+        <label><input type="radio" name="q8" value="d"> Cytoskeleton</label>
+      </div>
+      <button type="submit">Check my answers</button>
+      <button type="button" onclick="resetQuiz()" style="background:#64718a;margin-left:5px">Try again</button>
+      <div id="quizResult" class="feedback" aria-live="polite"></div>
+      <div id="quizReview"></div>
+    </form>
+  </div>
+</section>
+
+<section id="flashcards">
+  <h2>🗂️ Flashcards</h2>
+  <p class="subtitle">Try recalling the answer before revealing it.</p>
+  <div class="card">
+    <div class="flashcard">
+      <span class="tag" style="background:#dfe4ff;color:#3547a1;border:0" id="cardCount">Card 1 of 8</span>
+      <h3 id="flashQuestion">What is the function of ribosomes?</h3>
+      <p id="flashAnswer" hidden>Ribosomes are the sites of protein synthesis.</p>
+      <button id="revealButton" onclick="toggleAnswer()">Reveal answer</button>
+    </div>
+    <div class="organelle-buttons">
+      <button onclick="changeCard(-1)">← Previous</button>
+      <button onclick="changeCard(1)">Next →</button>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <p><strong>MindSpring</strong> · Learn with curiosity 🌱</p>
+  <p>Class 11 Biology · Cell: The Unit of Life</p>
+  <a href="index.html">Return to MindSpring homepage</a>
+</footer>
+
+<script>
+const organelles = {
+  nucleus: {
+    title: "Nucleus",
+    text: "Contains most of the cell's genetic material and helps regulate cellular activities. The nuclear envelope has two membranes."
+  },
+  mitochondria: {
+    title: "Mitochondria",
+    text: "Carry out important stages of aerobic respiration and ATP production. Their inner membrane forms folds called cristae."
+  },
+  golgi: {
+    title: "Golgi apparatus",
+    text: "Modifies, sorts and packages proteins and lipids. It consists of flattened membrane-bound sacs called cisternae."
+  },
+  er: {
+    title: "Endoplasmic reticulum",
+    text: "Rough ER has attached ribosomes and is involved in protein synthesis. Smooth ER is important in lipid synthesis."
+  },
+  ribosomes: {
+    title: "Ribosomes",
+    text: "Ribosomes are the sites of protein synthesis. They occur freely in the cytoplasm or attached to rough ER."
+  },
+  lysosomes: {
+    title: "Lysosomes",
+    text: "Contain hydrolytic enzymes that digest substances within the cell."
+  }
+};
+
+function showOrganelle(name) {
+  const item = organelles[name];
+  document.getElementById("organelleInfo").innerHTML =
+    "<strong>" + item.title + "</strong><p>" + item.text + "</p>";
+}
+
+let rotation = 0;
+function rotateCell() {
+  rotation += 35;
+  document.getElementById("cellModel").style.transform =
+    "rotateX(" + (13 + rotation % 35) + "deg) rotateY(" + rotation + "deg)";
+}
+function resetCell() {
+  rotation = 0;
+  document.getElementById("cellModel").style.transform =
+    "rotateX(13deg) rotateY(-12deg)";
+}
+
+const correctAnswers = {
+  q1: "b", q2: "c", q3: "b", q4: "c",
+  q5: "c", q6: "b", q7: "b", q8: "a"
+};
+const explanations = [
+  "The cell is the basic structural and functional unit of life.",
+  "Ribosomes are the sites of protein synthesis.",
+  "Cristae are folds of the inner mitochondrial membrane.",
+  "Singer and Nicolson proposed the fluid mosaic model in 1972.",
+  "Prokaryotic cells have 70S ribosomes and lack membrane-bound organelles.",
+  "Cristae increase the inner membrane's surface area.",
+  "Cellulose is a major component of plant cell walls.",
+  "The Golgi apparatus modifies, sorts and packages many proteins."
+];
+
+document.getElementById("quizForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+  let score = 0;
+  let review = "";
+  for (let i = 1; i <= 8; i++) {
+    const q = "q" + i;
+    const chosen = this.querySelector('input[name="' + q + '"]:checked');
+    const correct = chosen && chosen.value === correctAnswers[q];
+    if (correct) score++;
+    review += "<p><strong>" + i + ". " +
+      (correct ? "Correct ✓" : "Review ✎") +
+      "</strong> — " + explanations[i - 1] + "</p>";
+  }
+  document.getElementById("quizResult").textContent =
+    "Your score: " + score + " / 8";
+  document.getElementById("quizReview").innerHTML = review;
+});
+
+function resetQuiz() {
+  document.getElementById("quizForm").reset();
+  document.getElementById("quizResult").textContent = "";
+  document.getElementById("quizReview").innerHTML = "";
+}
+
+const cards = [
+  ["What is the function of ribosomes?", "Ribosomes are the sites of protein synthesis."],
+  ["What are cristae?", "Folds of the inner mitochondrial membrane."],
+  ["What is the main function of lysosomes?", "Intracellular digestion using hydrolytic enzymes."],
+  ["What is the tonoplast?", "The membrane surrounding a plant cell's vacuole."],
+  ["What is the function of the Golgi apparatus?", "Modification, sorting and packaging of proteins and lipids."],
+  ["What is the nucleoid?", "The region containing the main DNA in a prokaryotic cell; it is not surrounded by a nuclear membrane."],
+  ["What are grana?", "Stacks of thylakoids inside chloroplasts."],
+  ["What is the plasma membrane?", "A selectively permeable membrane that regulates movement into and out of the cell."]
+];
+let currentCard = 0;
+let revealed = false;
+
+function renderCard() {
+  document.getElementById("cardCount").textContent =
+    "Card " + (currentCard + 1) + " of " + cards.length;
+  document.getElementById("flashQuestion").textContent = cards[currentCard][0];
+  document.getElementById("flashAnswer").textContent = cards[currentCard][1];
+  revealed = false;
+  document.getElementById("flashAnswer").hidden = true;
+  document.getElementById("revealButton").textContent = "Reveal answer";
+}
+function toggleAnswer() {
+  revealed = !revealed;
+  document.getElementById("flashAnswer").hidden = !revealed;
+  document.getElementById("revealButton").textContent =
+    revealed ? "Hide answer" : "Reveal answer";
+}
+function changeCard(direction) {
+  currentCard = (currentCard + direction + cards.length) % cards.length;
+  renderCard();
+}
+renderCard();
+</script>
+</body>
+</html>
