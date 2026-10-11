@@ -91,11 +91,34 @@ font-style: italic;color: #4B2E83; }
       .hero-art { min-height: 160px; }
       .section-title { align-items: start; flex-direction: column; }
     }
+    
+.logo-link {
+    display: inline-block;
+}
+
+/* MindSpring brand logo */
+.site-logo {
+    display: block;
+    width: 145px;
+    max-width: 100%;
+    height: auto;
+}
+
+.logo-link {
+    display: inline-block;
+    text-decoration: none;
+}
+
   </style>
 </head>
 <body>
   <header class="wrap">
-    <div class="brand"><div class="logo">✦</div><div>MindSpring<div class="tagline">Learn it. Revise it. Remember it.</div></div></div>
+    <div class="brand">
+    <a href="index.html" class="logo-link">
+        <img src="assests/mindspring-logo-transparent.png" alt="MindSpring logo" class="site-logo">
+    </a>
+</div>
+
   </header>
 
   <main class="wrap">
