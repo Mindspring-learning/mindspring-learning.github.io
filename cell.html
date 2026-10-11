@@ -240,6 +240,214 @@ footer {
   .card { padding: 16px; }
   th, td { padding: 8px; }
 }
+  
+/* ===== MindSpring 3D Cell Explorer ===== */
+
+.cell-explorer {
+  margin: 24px 0;
+  padding: 18px;
+  border: 1px solid #d8e5ee;
+  border-radius: 20px;
+  background: linear-gradient(145deg, #f8fbff, #edf5fa);
+  color: #183044;
+  box-shadow: 0 12px 30px rgba(31, 65, 90, 0.09);
+}
+
+.cell-explorer .explorer-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.cell-explorer button,
+.cell-explorer select {
+  font: inherit;
+  border: 1px solid #bfd1df;
+  border-radius: 10px;
+  padding: 9px 12px;
+  background: white;
+  color: #183044;
+}
+
+.cell-explorer button {
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.cell-explorer button:hover {
+  background: #e5f3ff;
+  border-color: #438ac1;
+}
+
+.cell-explorer button:focus-visible,
+.cell-explorer select:focus-visible,
+.cell-explorer input:focus-visible {
+  outline: 3px solid #69b9f5;
+  outline-offset: 3px;
+}
+
+.cell-explorer .explorer-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(250px, 1fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.cell-explorer .viewer-panel {
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #101d30;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.12);
+}
+
+#cell3dViewer {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  min-height: 320px;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 45%, #263e5a 0%, #17283e 55%, #101d30 100%);
+}
+
+#cell3dViewer canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+}
+
+#viewerStatus {
+  position: absolute;
+  z-index: 2;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 9px;
+  background: rgba(8, 18, 32, 0.82);
+  color: #f3f8ff;
+  font-size: 0.9rem;
+  pointer-events: none;
+}
+
+.cell-explorer .viewer-help {
+  padding: 12px;
+  color: #dce9f8;
+  font-size: 0.88rem;
+  text-align: center;
+}
+
+.cell-explorer .organelle-panel {
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid #d7e4ed;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.9);
+}
+
+.cell-explorer .organelle-panel h3 {
+  margin-top: 0;
+}
+
+.cell-explorer .small {
+  color: #587084;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+#organelleControls {
+  display: grid;
+  gap: 8px;
+  margin: 14px 0;
+}
+
+#organelleControls .organelle-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+  align-items: center;
+  padding: 7px 9px;
+  border: 1px solid #e0eaf0;
+  border-radius: 10px;
+  background: #f7fafc;
+}
+
+#organelleControls .organelle-row button {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  font-weight: 600;
+}
+
+#organelleControls .organelle-row button.selected {
+  background: #dceeff;
+  color: #075a91;
+}
+
+#organelleControls .visibility-control {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #587084;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+#organelleControls input {
+  accent-color: #1679bd;
+}
+
+#organelleInfo {
+  margin-top: 14px;
+  padding: 14px;
+  border-left: 4px solid #3196d3;
+  border-radius: 8px;
+  background: #edf7ff;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+#organelleInfo h3 {
+  margin-bottom: 8px;
+  color: #125783;
+}
+
+#organelleInfo p {
+  margin: 7px 0;
+}
+
+.cell-explorer .educational-note {
+  margin-top: 14px;
+  color: #587084;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 760px) {
+  .cell-explorer {
+    padding: 10px;
+  }
+
+  .cell-explorer .explorer-layout {
+    grid-template-columns: 1fr;
+  }
+
+  #cell3dViewer {
+    height: 380px;
+    min-height: 300px;
+  }
+
+  .cell-explorer .explorer-toolbar > * {
+    max-width: 100%;
+  }
+}
+
 </style>
 </head>
 
@@ -404,37 +612,66 @@ footer {
   </div>
 </section>
 
+
 <section id="model">
-  <h2>🔬 Explore a Cell in 3D Style</h2>
-  <p class="subtitle">Select a cell part to learn its function. Dragging is not required.</p>
-  <div class="card">
-    <div class="model-area">
-      <div class="cell-stage">
-        <div class="cell" id="cellModel" role="group" aria-label="Illustrative animal cell model">
-          <button class="organelle nucleus" onclick="showOrganelle('nucleus')" aria-label="Explore nucleus">Nucleus</button>
-          <button class="organelle mito one" onclick="showOrganelle('mitochondria')" aria-label="Explore mitochondria">Mito.</button>
-          <button class="organelle mito two" onclick="showOrganelle('mitochondria')" aria-label="Explore mitochondria">Mito.</button>
-          <button class="organelle golgi" onclick="showOrganelle('golgi')" aria-label="Explore Golgi apparatus">Golgi</button>
-          <button class="organelle er" onclick="showOrganelle('er')" aria-label="Explore endoplasmic reticulum">ER</button>
-          <button class="organelle ribosome r1" onclick="showOrganelle('ribosomes')" aria-label="Explore ribosomes"></button>
-          <button class="organelle ribosome r2" onclick="showOrganelle('ribosomes')" aria-label="Explore ribosomes"></button>
-          <button class="organelle ribosome r3" onclick="showOrganelle('ribosomes')" aria-label="Explore ribosomes"></button>
-          <button class="organelle lysosome" onclick="showOrganelle('lysosomes')" aria-label="Explore lysosomes">L</button>
+  <h2>🔬 3D Cell Explorer</h2>
+  <p class="subtitle">
+    Explore animal and plant cells. Rotate, zoom, select organelles
+    and discover their functions.
+  </p>
+
+  <div class="cell-explorer">
+    <div class="explorer-toolbar">
+      <label for="cellTypeSelect">Cell type</label>
+      <select id="cellTypeSelect">
+        <option value="animal">Animal cell</option>
+        <option value="plant">Plant cell</option>
+      </select>
+
+      <button type="button" id="reset3D">Reset view</button>
+      <button type="button" id="toggleRotation" aria-pressed="false">
+        Auto-rotate: Off
+      </button>
+    </div>
+
+    <div class="explorer-layout">
+      <div class="viewer-panel">
+        <div id="cell3dViewer"
+             role="img"
+             aria-label="Interactive three-dimensional cell model">
+          <p id="viewerStatus" role="status">
+            Preparing the 3D cell explorer…
+          </p>
+        </div>
+
+        <div class="viewer-help">
+          Drag to rotate · Scroll to zoom · Select an organelle to explore
         </div>
       </div>
-      <div class="cell-label">Illustrative animal cell</div>
+
+      <aside class="organelle-panel">
+        <h3>Explore organelles</h3>
+        <p class="small">
+          Select a structure in the model or use the list below.
+        </p>
+
+        <div id="organelleControls"></div>
+
+        <div id="organelleInfo" aria-live="polite">
+          <h3>Welcome to the cell</h3>
+          <p>Choose an organelle to learn its structure and function.</p>
+        </div>
+      </aside>
     </div>
-    <div class="organelle-buttons">
-      <button onclick="rotateCell()">Rotate model</button>
-      <button onclick="resetCell()">Reset view</button>
-    </div>
-    <div class="organelles-info" id="organelleInfo" aria-live="polite">
-      <strong>Choose an organelle</strong>
-      <p>Tap any labelled structure in the model to see its main function.</p>
-    </div>
-    <p class="small">This is a stylised educational illustration, not a molecularly accurate 3D reconstruction. The shapes and positions are schematic.</p>
+
+    <p class="small">
+      Educational 3D reconstruction. Shapes and sizes are schematic,
+      not exact molecular-scale representations. An internet connection
+      is required to load the 3D library.
+    </p>
   </div>
 </section>
+
 
 <section id="quiz">
   <h2>🧠 Test Yourself — MCQs</h2>
@@ -648,5 +885,650 @@ function changeCard(direction) {
 }
 renderCard();
 </script>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.166.1/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.166.1/examples/jsm/"
+  }
+}
+</script>
+
+<script type="module">
+import * as THREE from "three";
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+
+const viewer = document.getElementById("cell3dViewer");
+const status = document.getElementById("viewerStatus");
+const typeSelect = document.getElementById("cellTypeSelect");
+const controlsBox = document.getElementById("organelleControls");
+const infoBox = document.getElementById("organelleInfo");
+const resetButton = document.getElementById("reset3D");
+const rotateButton = document.getElementById("toggleRotation");
+
+if (!viewer || !status || !typeSelect || !controlsBox || !infoBox) {
+  throw new Error("Cell Explorer HTML elements are missing.");
+}
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color("#101d30");
+
+const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 100);
+camera.position.set(8, 5.5, 8);
+
+let renderer;
+
+try {
+  renderer = new THREE.WebGLRenderer({ antialias: true });
+} catch (error) {
+  status.textContent =
+    "3D graphics could not start in this browser. Try another browser or enable WebGL.";
+  throw error;
+}
+
+renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.15;
+viewer.appendChild(renderer.domElement);
+
+const orbit = new OrbitControls(camera, renderer.domElement);
+orbit.enableDamping = true;
+orbit.dampingFactor = 0.06;
+orbit.minDistance = 5;
+orbit.maxDistance = 18;
+orbit.target.set(0, 0, 0);
+
+scene.add(new THREE.HemisphereLight(0xe4f4ff, 0x39445d, 2.1));
+
+const keyLight = new THREE.DirectionalLight(0xffffff, 3);
+keyLight.position.set(6, 8, 7);
+scene.add(keyLight);
+
+const fillLight = new THREE.PointLight(0x73baff, 35);
+fillLight.position.set(-6, 2, -4);
+scene.add(fillLight);
+
+const rimLight = new THREE.PointLight(0x8fffd7, 22);
+rimLight.position.set(2, -4, 5);
+scene.add(rimLight);
+
+const cellGroup = new THREE.Group();
+scene.add(cellGroup);
+
+const raycaster = new THREE.Raycaster();
+const pointer = new THREE.Vector2();
+const selectableMeshes = [];
+const organelleObjects = {};
+const originalEmissive = new Map();
+
+let selectedId = null;
+let autoRotate = false;
+let currentType = "animal";
+let pointerStart = null;
+
+const organelleData = {
+  membrane: {
+    name: "Cell membrane",
+    color: "#75d5ee",
+    description: "A thin, selectively permeable boundary around the cell.",
+    function: "Regulates the movement of substances into and out of the cell.",
+    ncert: "The plasma membrane is selectively permeable."
+  },
+  nucleus: {
+    name: "Nucleus",
+    color: "#ad91ff",
+    description: "A membrane-bound organelle containing most of the cell's genetic material.",
+    function: "Controls cellular activities and stores hereditary information.",
+    ncert: "The nuclear envelope consists of two membranes and contains nuclear pores."
+  },
+  nucleolus: {
+    name: "Nucleolus",
+    color: "#ffb4df",
+    description: "A dense region found inside the nucleus.",
+    function: "Participates in ribosomal RNA production and ribosome assembly.",
+    ncert: "The nucleolus is not surrounded by a membrane."
+  },
+  mitochondria: {
+    name: "Mitochondria",
+    color: "#ffac69",
+    description: "Organelles with a double membrane and a folded inner membrane.",
+    function: "Sites of aerobic respiration and major ATP production.",
+    ncert: "The inner membrane forms folds called cristae. Mitochondria contain their own DNA and ribosomes."
+  },
+  er: {
+    name: "Endoplasmic reticulum",
+    color: "#63d6c5",
+    description: "A network of membranous tubules and sacs in the cytoplasm.",
+    function: "Rough ER supports protein synthesis; smooth ER is involved in lipid synthesis.",
+    ncert: "Rough ER has ribosomes attached to its surface; smooth ER lacks attached ribosomes."
+  },
+  golgi: {
+    name: "Golgi apparatus",
+    color: "#ffd76b",
+    description: "A stack of flattened membrane-bound sacs.",
+    function: "Modifies, packages and sorts proteins and lipids.",
+    ncert: "The Golgi apparatus is involved in packaging materials for transport."
+  },
+  ribosomes: {
+    name: "Ribosomes",
+    color: "#f3f1e8",
+    description: "Tiny particles made of RNA and proteins.",
+    function: "Sites of protein synthesis.",
+    ncert: "Eukaryotic cytoplasmic ribosomes are 80S; mitochondrial and chloroplast ribosomes are 70S."
+  },
+  lysosomes: {
+    name: "Lysosomes",
+    color: "#ff7e98",
+    description: "Membrane-bound sacs containing digestive enzymes.",
+    function: "Break down macromolecules and worn-out cell components.",
+    ncert: "Lysosomal enzymes function in an acidic interior."
+  },
+  vacuole: {
+    name: "Central vacuole",
+    color: "#8ee7ff",
+    description: "A large, fluid-filled compartment in a typical plant cell.",
+    function: "Stores substances and helps maintain turgor pressure.",
+    ncert: "The vacuolar membrane is called the tonoplast."
+  },
+  chloroplast: {
+    name: "Chloroplast",
+    color: "#83e58b",
+    description: "A plastid containing chlorophyll in photosynthetic plant cells.",
+    function: "Carries out photosynthesis.",
+    ncert: "Chloroplasts contain thylakoids, which are arranged in stacks called grana, and possess their own DNA and ribosomes."
+  },
+  wall: {
+    name: "Cell wall",
+    color: "#b6e6a0",
+    description: "A rigid outer covering outside the plant cell membrane.",
+    function: "Provides support, protection and shape.",
+    ncert: "Plant cell walls are mainly made of cellulose."
+  },
+  cytoplasm: {
+    name: "Cytoplasm",
+    color: "#f3a8bd",
+    description: "The cellular material between the plasma membrane and the nucleus.",
+    function: "Houses organelles and is the site of many metabolic reactions.",
+    ncert: "The cytoplasm includes the cytosol and suspended cellular structures."
+  }
+};
+
+function material(color, opacity = 1, extra = {}) {
+  return new THREE.MeshStandardMaterial({
+    color,
+    roughness: 0.42,
+    metalness: 0.04,
+    transparent: opacity < 1,
+    opacity,
+    ...extra
+  });
+}
+
+function markObject(object, id) {
+  object.userData.organelleId = id;
+  object.traverse(child => {
+    if (!child.isMesh && !child.isSprite) return;
+
+    child.userData.organelleId = id;
+
+    if (child.isMesh && child.material?.emissive) {
+      originalEmissive.set(
+        child,
+        child.material.emissive.clone()
+      );
+    }
+
+    selectableMeshes.push(child);
+  });
+
+  if (!organelleObjects[id]) organelleObjects[id] = [];
+  organelleObjects[id].push(object);
+  cellGroup.add(object);
+  return object;
+}
+
+function sphere(id, color, position, scale, opacity = 1) {
+  const mesh = new THREE.Mesh(
+    new THREE.SphereGeometry(1, 32, 24),
+    material(color, opacity)
+  );
+  mesh.position.set(...position);
+  mesh.scale.set(...scale);
+  return markObject(mesh, id);
+}
+
+function tube(id, points, color, radius = 0.055) {
+  const curve = new THREE.CatmullRomCurve3(
+    points.map(point => new THREE.Vector3(...point))
+  );
+
+  const mesh = new THREE.Mesh(
+    new THREE.TubeGeometry(curve, 48, radius, 8, false),
+    material(color)
+  );
+
+  return markObject(mesh, id);
+}
+
+function labelSprite(id, position) {
+  const canvas = document.createElement("canvas");
+  const context = canvas.getContext("2d");
+
+  canvas.width = 512;
+  canvas.height = 128;
+
+  context.fillStyle = "rgba(8, 20, 36, 0.88)";
+  context.beginPath();
+  context.roundRect(5, 5, 502, 118, 22);
+  context.fill();
+
+  context.strokeStyle = organelleData[id].color;
+  context.lineWidth = 7;
+  context.stroke();
+
+  context.font = "bold 34px Arial";
+  context.textAlign = "center";
+  context.textBaseline = "middle";
+  context.fillStyle = "#ffffff";
+  context.fillText(organelleData[id].name, 256, 64, 460);
+
+  const texture = new THREE.CanvasTexture(canvas);
+  texture.colorSpace = THREE.SRGBColorSpace;
+
+  const sprite = new THREE.Sprite(
+    new THREE.SpriteMaterial({
+      map: texture,
+      transparent: true,
+      depthTest: false
+    })
+  );
+
+  sprite.position.set(...position);
+  sprite.scale.set(2.25, 0.56, 1);
+  sprite.renderOrder = 10;
+  sprite.userData.organelleId = id;
+
+  if (!organelleObjects[id]) organelleObjects[id] = [];
+  organelleObjects[id].push(sprite);
+  cellGroup.add(sprite);
+}
+
+function buildMembrane(isPlant) {
+  if (isPlant) {
+    const geometry = new THREE.BoxGeometry(6.2, 4.6, 4.2);
+    const edges = new THREE.EdgesGeometry(geometry);
+    const lines = new THREE.LineSegments(
+      edges,
+      new THREE.LineBasicMaterial({ color: "#b6e6a0" })
+    );
+    lines.userData.organelleId = "wall";
+    markObject(lines, "wall");
+
+    const inner = new THREE.Mesh(
+      new THREE.BoxGeometry(5.85, 4.25, 3.85),
+      material("#a7e6bd", 0.1, { side: THREE.DoubleSide })
+    );
+    markObject(inner, "wall");
+
+    const membrane = new THREE.Mesh(
+      new THREE.BoxGeometry(5.7, 4.1, 3.7),
+      material("#75d5ee", 0.11, {
+        side: THREE.DoubleSide,
+        wireframe: true
+      })
+    );
+    markObject(membrane, "membrane");
+  } else {
+    sphere("membrane", "#75d5ee", [0, 0, 0], [3.15, 2.35, 2.35], 0.13);
+    const outline = new THREE.Mesh(
+      new THREE.SphereGeometry(1, 36, 28),
+      material("#75d5ee", 0.12, {
+        wireframe: true,
+        side: THREE.DoubleSide
+      })
+    );
+    outline.scale.set(3.15, 2.35, 2.35);
+    markObject(outline, "membrane");
+  }
+}
+
+function buildCell(type) {
+  currentType = type;
+  selectedId = null;
+  cellGroup.clear();
+  selectableMeshes.length = 0;
+  originalEmissive.clear();
+
+  for (const key of Object.keys(organelleObjects)) {
+    delete organelleObjects[key];
+  }
+
+  const isPlant = type === "plant";
+
+  buildMembrane(isPlant);
+
+  sphere(
+    "cytoplasm",
+    "#f3a8bd",
+    [0, 0, 0],
+    isPlant ? [2.75, 1.95, 1.7] : [2.85, 2.05, 2.05],
+    0.15
+  );
+
+  // Nucleus and nucleolus
+  sphere("nucleus", "#9874df", [-0.45, 0.2, 0], [0.83, 0.83, 0.83]);
+  sphere("nucleolus", "#ed83bd", [-0.22, 0.42, 0.42], [0.29, 0.29, 0.29]);
+
+  // Mitochondria: ellipsoids with folded inner-membrane lines
+  const mitoPositions = isPlant
+    ? [[1.25, 0.9, 0.4], [-1.55, -0.9, 0.5]]
+    : [[1.35, 0.95, 0.5], [-1.65, -0.85, 0.45], [0.85, -1.1, -0.8]];
+
+  mitoPositions.forEach((p, index) => {
+    sphere("mitochondria", "#ed8b4c", p, [0.65, 0.32, 0.36]);
+
+    for (let i = 0; i < 3; i++) {
+      const x = p[0] + (i - 1) * 0.16;
+      tube("mitochondria", [
+        [x, p[1] - 0.13, p[2] + 0.22],
+        [x + 0.1, p[1] + 0.03, p[2] + 0.28],
+        [x - 0.03, p[1] + 0.12, p[2] + 0.22]
+      ], "#7b382f", 0.025);
+    }
+  });
+
+  // Endoplasmic reticulum around the nucleus
+  for (let i = 0; i < 5; i++) {
+    const y = 0.95 - i * 0.32;
+    tube("er", [
+      [-1.15, y, -0.35],
+      [-0.8, y + 0.1, -0.55],
+      [-0.1, y + 0.04, -0.62],
+      [0.55, y - 0.12, -0.42],
+      [0.85, y - 0.1, -0.15]
+    ], "#48cbb8", 0.055);
+  }
+
+  // Golgi apparatus: stacked flattened sacs
+  for (let i = 0; i < 5; i++) {
+    sphere(
+      "golgi",
+      "#f1c653",
+      [-1.35 + Math.abs(i - 2) * 0.07, -0.1 + i * 0.17, -1.0],
+      [0.62 - Math.abs(i - 2) * 0.04, 0.09, 0.24]
+    );
+  }
+
+  // Ribosomes
+  for (let i = 0; i < 30; i++) {
+    const angle = i * 2.399;
+    const r = 0.95 + (i % 4) * 0.22;
+    sphere(
+      "ribosomes",
+      "#eee6d6",
+      [
+        Math.cos(angle) * r,
+        Math.sin(angle) * r * 0.65,
+        Math.sin(angle * 1.7) * 1.15
+      ],
+      [0.075, 0.075, 0.075]
+    );
+  }
+
+  // Lysosomes
+  const lysosomePositions = [
+    [1.8, 0.3, -0.55],
+    [-1.85, 0.45, 0.85],
+    [0.4, -1.45, 0.75]
+  ];
+
+  lysosomePositions.forEach(p => {
+    sphere("lysosomes", "#f16f94", p, [0.23, 0.23, 0.23]);
+  });
+
+  if (isPlant) {
+    // Large central vacuole
+    sphere("vacuole", "#72d8f4", [0.55, 0, 0], [1.35, 1.35, 1.25], 0.52);
+
+    // Chloroplasts with simple internal thylakoid markings
+    const chloroplastPositions = [
+      [-1.9, 1.2, 0.5],
+      [1.9, 1.25, -0.4],
+      [-1.9, -1.2, -0.35],
+      [1.9, -1.25, 0.5]
+    ];
+
+    chloroplastPositions.forEach(p => {
+      sphere("chloroplast", "#55c66b", p, [0.45, 0.25, 0.34]);
+
+      for (let i = -1; i <= 1; i++) {
+        tube("chloroplast", [
+          [p[0] - 0.22, p[1] + i * 0.09, p[2] + 0.23],
+          [p[0], p[1] + i * 0.09, p[2] + 0.27],
+          [p[0] + 0.22, p[1] + i * 0.09, p[2] + 0.2]
+        ], "#236b3b", 0.025);
+      }
+    });
+  }
+
+  // Floating labels are selectable too
+  const labelPositions = {
+    membrane: [0, 2.6, 0],
+    nucleus: [-0.45, 1.35, 0.25],
+    nucleolus: [-0.15, 0.75, 0.6],
+    mitochondria: [1.5, 1.45, 0.55],
+    er: [0.45, 0.85, -0.65],
+    golgi: [-1.45, 0.65, -1.0],
+    ribosomes: [0.65, -1.45, 1.1],
+    lysosomes: [2.0, 0.5, 0.8],
+    cytoplasm: [0.1, -2.0, 0],
+    wall: [0, 2.6, 0],
+    vacuole: [0.7, 0.1, 1.3],
+    chloroplast: [1.85, -1.6, 0.6]
+  };
+
+  const ids = [
+    "membrane", "cytoplasm", "nucleus", "nucleolus",
+    "mitochondria", "er", "golgi", "ribosomes", "lysosomes"
+  ];
+
+  if (isPlant) ids.push("wall", "vacuole", "chloroplast");
+
+  ids.forEach(id => labelSprite(id, labelPositions[id]));
+
+  renderOrganelleList();
+  showOrganelle(isPlant ? "chloroplast" : "nucleus");
+  resetView();
+  status.textContent = "3D cell ready. Drag to rotate and scroll to zoom.";
+}
+
+function renderOrganelleList() {
+  controlsBox.replaceChildren();
+
+  const ids = Object.keys(organelleObjects);
+
+  ids.forEach(id => {
+    const row = document.createElement("div");
+    row.className = "organelle-row";
+
+    const button = document.createElement("button");
+    button.type = "button";
+    button.textContent = organelleData[id].name;
+    button.dataset.select = id;
+
+    const label = document.createElement("label");
+    label.className = "visibility-control";
+
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.checked = true;
+    checkbox.dataset.visible = id;
+    checkbox.setAttribute("aria-label", "Show " + organelleData[id].name);
+
+    label.append(checkbox, document.createTextNode("Show"));
+    row.append(button, label);
+    controlsBox.appendChild(row);
+  });
+}
+
+function showOrganelle(id) {
+  if (!organelleObjects[id]) return;
+
+  selectedId = id;
+
+  for (const mesh of selectableMeshes) {
+    if (!mesh.material || !mesh.material.emissive) continue;
+
+    const original = originalEmissive.get(mesh);
+    if (original) mesh.material.emissive.copy(original);
+
+    if (mesh.userData.organelleId === id) {
+      mesh.material.emissive.set("#ffffff");
+      mesh.material.emissiveIntensity = 0.7;
+    } else {
+      mesh.material.emissiveIntensity = 0;
+    }
+  }
+
+  controlsBox.querySelectorAll("[data-select]").forEach(button => {
+    const selected = button.dataset.select === id;
+    button.classList.toggle("selected", selected);
+    button.setAttribute("aria-pressed", String(selected));
+  });
+
+  const data = organelleData[id];
+  infoBox.replaceChildren();
+
+  const title = document.createElement("h3");
+  title.textContent = data.name;
+  title.style.color = data.color;
+
+  const description = document.createElement("p");
+  description.textContent = data.description;
+
+  const functionTitle = document.createElement("strong");
+  functionTitle.textContent = "Function: ";
+
+  const functionText = document.createElement("span");
+  functionText.textContent = data.function;
+
+  const functionParagraph = document.createElement("p");
+  functionParagraph.append(functionTitle, functionText);
+
+  const ncert = document.createElement("p");
+  const ncertTitle = document.createElement("strong");
+  ncertTitle.textContent = "NCERT connection: ";
+  ncert.append(ncertTitle, document.createTextNode(data.ncert));
+
+  infoBox.append(title, description, functionParagraph, ncert);
+}
+
+function resetView() {
+  camera.position.set(8, 5.5, 8);
+  orbit.target.set(0, 0, 0);
+  orbit.update();
+}
+
+controlsBox.addEventListener("click", event => {
+  const button = event.target.closest("[data-select]");
+  if (button) showOrganelle(button.dataset.select);
+});
+
+controlsBox.addEventListener("change", event => {
+  const checkbox = event.target.closest("[data-visible]");
+  if (!checkbox) return;
+
+  const id = checkbox.dataset.visible;
+  const objects = organelleObjects[id] || [];
+
+  objects.forEach(object => {
+    object.visible = checkbox.checked;
+  });
+
+  if (!checkbox.checked && selectedId === id) {
+    selectedId = null;
+    infoBox.innerHTML =
+      "<h3>Organelle hidden</h3><p>Turn it back on to explore it again.</p>";
+  }
+});
+
+typeSelect.addEventListener("change", () => {
+  buildCell(typeSelect.value);
+});
+
+resetButton.addEventListener("click", resetView);
+
+rotateButton.addEventListener("click", () => {
+  autoRotate = !autoRotate;
+  orbit.autoRotate = autoRotate;
+  rotateButton.textContent = "Auto-rotate: " + (autoRotate ? "On" : "Off");
+  rotateButton.setAttribute("aria-pressed", String(autoRotate));
+});
+
+renderer.domElement.addEventListener("pointerdown", event => {
+  pointerStart = { x: event.clientX, y: event.clientY };
+});
+
+renderer.domElement.addEventListener("pointerup", event => {
+  if (!pointerStart) return;
+
+  const distance = Math.hypot(
+    event.clientX - pointerStart.x,
+    event.clientY - pointerStart.y
+  );
+  pointerStart = null;
+
+  // Ignore drags so rotating the cell doesn't accidentally select it.
+  if (distance > 6) return;
+
+  const rect = renderer.domElement.getBoundingClientRect();
+  pointer.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+  pointer.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+
+  raycaster.setFromCamera(pointer, camera);
+  const hits = raycaster.intersectObjects(selectableMeshes, false);
+
+  const hit = hits.find(item =>
+    item.object.visible &&
+    item.object.userData.organelleId &&
+    organelleObjects[item.object.userData.organelleId]
+  );
+
+  if (hit) {
+    const id = hit.object.userData.organelleId;
+    const checkbox = controlsBox.querySelector(`[data-visible="${id}"]`);
+
+    if (checkbox && !checkbox.checked) return;
+    showOrganelle(id);
+  }
+});
+
+function resizeViewer() {
+  const width = viewer.clientWidth;
+  const height = viewer.clientHeight;
+
+  if (!width || !height) return;
+
+  camera.aspect = width / height;
+  camera.updateProjectionMatrix();
+  renderer.setSize(width, height, false);
+}
+
+const resizeObserver = new ResizeObserver(resizeViewer);
+resizeObserver.observe(viewer);
+
+function animate() {
+  requestAnimationFrame(animate);
+  orbit.update();
+  renderer.render(scene, camera);
+}
+
+buildCell("animal");
+resizeViewer();
+animate();
+</script>  
+
 </body>
 </html>
