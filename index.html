@@ -150,7 +150,10 @@ font-style: italic;color: #4B2E83; }
         <div class="card">
           <h3>Class 11 Biology</h3>
           <div class="chapter-list">
-           <button class="chapter-btn active" onclick="window.location.href='Biomolecule.html'">Biomolecules</button>             <button class="chapter-btn" data-chapter="coming">Another chapter · Coming soon</button>
+           <button class="chapter-btn active" onclick="window.location.href='Biomolecule.html'">Biomolecules</button>            <button class="chapter-btn" data-chapter="cell"
+  onclick="window.location.href='cell.html'">
+  Cell: The Unit of Life
+</button>
           </div>
           <p class="small" style="margin-top:14px">Note: this is starter content. Check facts against your current NCERT textbook before using it for exam preparation.</p>
         </div>
@@ -163,13 +166,18 @@ font-style: italic;color: #4B2E83; }
   </p>
 
   <div class="chapter-list">
-    <a class="chapter-btn"
-       href="Biomolecule.html"
-       style="text-decoration:none; display:block; margin-top:12px;">
-      🧬 Biomolecules — Class 11 Biology →
-    </a>
-  </div>
+  <a class="chapter-btn"
+     href="Biomolecule.html"
+     style="text-decoration:none; display:block; margin-top:12px;">
+    🧬 Biomolecules — Class 11 Biology →
+  </a>
 
+  <a class="chapter-btn"
+     href="Cell.html"
+     style="text-decoration:none; display:block;">
+    🔬 Cell: The Unit of Life — Class 11 Biology →
+  </a>
+</div>
   <p class="small" style="margin-top:14px;">
     More chapters coming soon to MindSpring! 💜
   </p>
@@ -201,7 +209,9 @@ font-style: italic;color: #4B2E83; }
       button.addEventListener("click", () => {
         chapterButtons.forEach(item => item.classList.remove("active"));
         button.classList.add("active");
-        if (button.dataset.chapter === "coming") {
+       if (button.dataset.chapter === "cell") {
+  window.location.href = "Cell.html";
+} else if (button.dataset.chapter === "coming") {
           notes.innerHTML = '<span class="eyebrow">Coming soon</span><h3>Your next chapter</h3><p>When you are ready, add a short summary, important terms and a few self-test questions here.</p>';
         } else {
           notes.innerHTML = '<span class="eyebrow">Quick revision</span><h3>Biomolecules — sample notes</h3><ul><li><strong>Biomolecules</strong> are chemical compounds present in living organisms.</li><li><strong>Carbohydrates</strong> commonly serve as energy sources and can have structural roles.</li><li><strong>Proteins</strong> are polymers of amino acids linked by peptide bonds.</li><li><strong>Nucleic acids</strong> (DNA and RNA) are involved in storing and expressing genetic information.</li></ul><p class="small">Build your own notes in your preferred style as you learn.</p>';
