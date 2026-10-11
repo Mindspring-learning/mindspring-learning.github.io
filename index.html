@@ -204,22 +204,17 @@ font-style: italic;color: #4B2E83; }
   <footer><div class="wrap">StudyNest is a personal learning project. Always verify study material with your prescribed textbook and teacher's guidance.</div></footer>
 
   <script>
-    const chapterButtons = document.querySelectorAll(".chapter-btn");
-    const notes = document.getElementById("notes");
-    chapterButtons.forEach(button => {
-      button.addEventListener("click", () => {
-        chapterButtons.forEach(item => item.classList.remove("active"));
-        button.classList.add("active");
-       if (button.dataset.chapter === "cell") {
-  window.location.href = "Cell.html";
-} else if (button.dataset.chapter === "coming") {
-          notes.innerHTML = '<span class="eyebrow">Coming soon</span><h3>Your next chapter</h3><p>When you are ready, add a short summary, important terms and a few self-test questions here.</p>';
-        } else {
-          notes.innerHTML = '<span class="eyebrow">Quick revision</span><h3>Biomolecules — sample notes</h3><ul><li><strong>Biomolecules</strong> are chemical compounds present in living organisms.</li><li><strong>Carbohydrates</strong> commonly serve as energy sources and can have structural roles.</li><li><strong>Proteins</strong> are polymers of amino acids linked by peptide bonds.</li><li><strong>Nucleic acids</strong> (DNA and RNA) are involved in storing and expressing genetic information.</li></ul><p class="small">Build your own notes in your preferred style as you learn.</p>';
-        }
-      });
-    });
+   const chapterButtons = document.querySelectorAll(".chapter-btn");
 
+chapterButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    if (button.dataset.chapter === "cell") {
+      window.location.href = "Cell.html";
+    } else if (button.dataset.chapter === "coming") {
+      alert("More chapters are coming soon to MindSpring!");
+    }
+  });
+});
     const questions = [
       { q: "Which molecules are polymers made of amino acids?", options: ["Carbohydrates", "Proteins", "Lipids", "Mineral salts"], correct: 1, why: "Proteins are made of amino-acid units joined by peptide bonds." },
       { q: "Which pair consists of nucleic acids?", options: ["Glucose and fructose", "DNA and RNA", "Starch and cellulose", "Glycerol and fatty acids"], correct: 1, why: "DNA and RNA are the two major types of nucleic acids." },
