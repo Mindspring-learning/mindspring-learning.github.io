@@ -1,0 +1,281 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MindSpring | Protein Explorer</title>
+
+  <script src="https://3dmol.org/build/3Dmol-min.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 24px;
+      font-family: Arial, sans-serif;
+      background: #f5f0ff;
+      color: #30204f;
+    }
+
+    .panel {
+      max-width: 1000px;
+      margin: auto;
+      background: white;
+      padding: 22px;
+      border-radius: 20px;
+    }
+
+    h1 { margin-bottom: 6px; }
+    .muted { color: #756b89; }
+
+    #viewer {
+  position: relative;
+  z-index: 0;
+  isolation: isolate;
+  width: 100%;
+  height: 480px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #faf8ff;
+}
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 16px 0;
+    }
+
+    button {
+      border: 0;
+      border-radius: 10px;
+      padding: 12px 16px;
+      background: #e8ddff;
+      color: #38205f;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover { background: #d8c5ff; }
+
+    #info {
+      padding: 16px;
+      background: #f5f0ff;
+      border-radius: 12px;
+      line-height: 1.6;
+      min-height: 65px;
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 10px; }
+      .panel { padding: 14px; }
+      #viewer { height: 360px; }
+    }
+    
+
+.scroll-hint-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 12px 0;
+  padding: 14px;
+  text-align: center;
+  background: #f1e9ff;
+  border: 1px solid #dfd0ff;
+  border-radius: 12px;
+  color: #40266d;
+
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.scroll-hint-top span {
+  font-size: 20px;
+  animation: bounce 1s infinite alternate;
+}
+
+.scroll-hint-top small {
+  color: #625477;
+}
+
+@keyframes bounce {
+  to { transform: translateY(4px); }
+}
+
+
+@keyframes bounce {
+  to { transform: translateY(5px); }
+}
+
+  </style>
+</head>
+
+<body>
+  <main class="panel">
+    <h1>MindSpring 🔬</h1>
+    <p class="muted">Protein Explorer · Hemoglobin (4HHB)</p>
+
+  
+<p style="display:block !important; visibility:visible !important;
+opacity:1 !important; padding:14px; margin:12px 0;
+background:#f1e9ff; color:#40266d; border-radius:12px;
+text-align:center; font-weight:bold;">
+↓ More to explore! Scroll down for interactive labels and explanations.
+</p>
+   
+<div id="viewer"></div>
+
+
+    
+<div class="buttons">
+  <button onclick="showGroup('alpha')">Identify Alpha Chains (A + C)</button>
+  <button onclick="showGroup('beta')">Identify Beta Chains (B + D)</button>
+  <button onclick="showHeme()">Show Heme Groups</button>
+  <button onclick="resetModel()">Reset View</button>
+</div>
+
+
+    <div id="info">
+      <strong>Explore hemoglobin</strong><br>
+      Select a button to highlight a part and learn about it.
+      You can also rotate and zoom the model.
+    </div>
+
+    <p class="muted">
+      Molecular viewer powered by
+      <a href="https://3dmol.org/" target="_blank"
+         rel="noopener">3Dmol.js</a>.
+    </p>
+  </main>
+
+  <script>
+    const viewer = $3Dmol.createViewer(
+      document.getElementById("viewer"),
+      { backgroundColor: "#faf8ff" }
+    );
+
+    let modelReady = false;
+
+    $3Dmol.download("pdb:4HHB", viewer, {}, function () {
+      modelReady = true;
+      resetModel();
+    });
+
+    
+function showGroup(group) {
+  if (!modelReady) return;
+
+  const chains = group === "alpha" ? ["A", "C"] : ["B", "D"];
+
+  viewer.setStyle({}, {
+    cartoon: { color: "#d9d0eb" }
+  });
+
+  chains.forEach(function (chain) {
+    viewer.setStyle({ chain: chain }, {
+      cartoon: { color: "#8154d8" }
+    });
+  });
+
+  viewer.zoomTo({ chain: chains });
+  viewer.render();
+
+  if (group === "alpha") {
+    document.getElementById("info").innerHTML =
+      "<strong>Alpha chains (A + C)</strong><br>" +
+      "<b>Structure:</b> Two alpha-globin protein subunits.<br>" +
+      "<b>Function:</b> They combine with two beta chains to form adult haemoglobin, " +
+      "which transports oxygen in the blood.<br>" +
+      "<b>Biology connection:</b> Haemoglobin has four protein subunits and four heme groups.<br>" +
+      "<b>Quick fact:</b> The alpha chains are two of the four globin chains.";
+  } else {
+    document.getElementById("info").innerHTML =
+      "<strong>Beta chains (B + D)</strong><br>" +
+      "<b>Structure:</b> Two beta-globin protein subunits.<br>" +
+      "<b>Function:</b> They combine with the alpha chains to form adult haemoglobin.<br>" +
+      "<b>Biology connection:</b> The globin subunits work together with heme groups " +
+      "to enable oxygen binding and transport.<br>" +
+      "<b>Quick fact:</b> Normal adult haemoglobin A has two alpha and two beta chains.";
+  }
+}
+
+    function showPart(chain) {
+      if (!modelReady) return;
+
+      viewer.setStyle({}, {
+        cartoon: { color: "#d9d0eb" }
+      });
+
+      viewer.setStyle({ chain: chain }, {
+        cartoon: { color: "#8154d8" }
+      });
+
+      viewer.zoomTo({ chain: chain });
+      viewer.render();
+
+      const names = {
+        A: "α chain A",
+        C: "α chain C",
+        B: "β chain B",
+        D: "β chain D"
+      };
+
+      document.getElementById("info").innerHTML =
+        "<strong>" + names[chain] + "</strong><br>" +
+        "One of the four protein subunits of hemoglobin. " +
+        "The two α chains and two β chains form the functional " +
+        "hemoglobin assembly.";
+    }
+
+    
+function showHeme() {
+  if (!modelReady) return;
+
+  viewer.setStyle({}, {
+    cartoon: { color: "#d9d0eb" }
+  });
+
+  viewer.setStyle({ resn: "HEM" }, {
+    stick: { colorscheme: "Jmol" }
+  });
+
+  viewer.setStyle({ resn: "HEM", elem: "Fe" }, {
+    sphere: { color: "#e34b57", scale: 0.8 }
+  });
+
+  viewer.zoomTo({ resn: "HEM" });
+  viewer.render();
+
+  document.getElementById("info").innerHTML =
+    "<strong>Heme Groups</strong><br>" +
+    "<b>Structure:</b> Each heme contains a ring-shaped porphyrin structure " +
+    "with a central iron ion (Fe²⁺).<br>" +
+    "<b>Location:</b> Each heme group sits within a globin protein subunit.<br>" +
+    "<b>Function:</b> The iron ion binds oxygen reversibly, allowing haemoglobin " +
+    "to pick up oxygen in the lungs and release it in tissues.<br>" +
+    "<b>Biology connection:</b> Adult haemoglobin has four globin subunits " +
+    "and four heme groups.<br>" +
+    "<b>Quick fact:</b> One haemoglobin molecule can bind up to four oxygen molecules.";
+}
+
+
+    function resetModel() {
+      if (!modelReady) return;
+
+      viewer.setStyle({}, {
+        cartoon: { color: "spectrum" }
+      });
+
+      viewer.zoomTo();
+      viewer.render();
+
+      document.getElementById("info").innerHTML =
+        "<strong>Explore hemoglobin</strong><br>" +
+        "Choose a chain or the heme groups to explore them.";
+    }
+  </script>
+</body>
+</html>
