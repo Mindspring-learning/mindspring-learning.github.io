@@ -303,41 +303,69 @@ chapterButtons.forEach(button => {
     renderQuestion();
   </script>
   
+
 <script>
-  document.getElementById("feedbackForm").addEventListener("submit", function(event) {
+  const feedbackForm = document.getElementById("feedbackForm");
+
+  feedbackForm.addEventListener("submit", async function (event) {
     event.preventDefault();
+
+    const message = document.getElementById("feedbackMessage");
+    const button = feedbackForm.querySelector('button[type="submit"]');
 
     const chapter = document.getElementById("nextChapter").value.trim();
     const rating = document.getElementById("rating").value;
     const suggestions = document.getElementById("suggestions").value.trim();
-    const message = document.getElementById("feedbackMessage");
 
     if (!chapter && !rating && !suggestions) {
       message.textContent = "Please fill in at least one field. 💜";
       return;
     }
 
-    const feedback = [
-      "MindSpring Feedback",
-      "Requested chapter: " + (chapter || "Not provided"),
-      "Experience: " + (rating || "Not provided"),
-      "Suggestions: " + (suggestions || "Not provided")
-    ].join("\n");
+    // Replace this with the email you want feedback delivered to.
+    const recipient = "suvithasuthakar@gmail.com";
 
-    const blob = new Blob([feedback], { type: "text/plain" });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement("a");
+    button.disabled = true;
+    message.textContent = "Sending your feedback... 💜";
 
-    link.href = url;
-    link.download = "mindspring-feedback.txt";
-    link.click();
+    try {
+      const response = await fetch(
+        "https://formsubmit.co/ajax/" + encodeURIComponent(recipient),
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+          body: JSON.stringify({
+            _subject: "New MindSpring Feedback 💜",
+            "Requested chapter": chapter || "Not provided",
+            "Experience rating": rating || "Not provided",
+            "Suggestions": suggestions || "Not provided"
+          })
+        }
+      );
 
-    URL.revokeObjectURL(url);
+      const result = await response.json();
 
-    message.textContent =
-      "Feedback file downloaded! Please send it to MindSpring separately. 💜";
+      if (!response.ok || result.success === false || result.success === "false") {
+        throw new Error("Submission failed");
+      }
+
+      message.textContent =
+        "Thank you! Your feedback has been sent. 💜";
+
+      feedbackForm.reset();
+
+    } catch (error) {
+      message.textContent =
+        "Sorry, feedback could not be sent. Please try again later.";
+    } finally {
+      button.disabled = false;
+    }
   });
 </script>
+
 
 </body>
 </html>
