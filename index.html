@@ -148,15 +148,57 @@ font-style: italic;color: #4B2E83; }
     <section>
       <div class="section-title"><div><h2>Try a chapter</h2><p class="small">Choose the sample chapter to view its revision points.</p></div></div>
       <div class="study-layout">
-        <div class="card">
-          <h3>Class 11 Biology</h3>
-          <div class="chapter-list">
-           <button class="chapter-btn active" onclick="window.location.href='Biomolecule.html'">Biomolecules</button>            
-            <button class="chapter-btn" onclick="window.location.href='cell.html'">Cell: The Unit of Life </button>
-             <button class="chapter-btn active" onclick="window.location.href='cell cycle.11.html'">Cell Cycle and Cell division</button>
-          </div>
-          <p class="small" style="margin-top:14px">Note: this is starter content. Check facts against your current NCERT textbook before using it for exam preparation.</p>
-        </div>
+       <div class="card">
+  <span class="eyebrow">YOUR VOICE MATTERS 💜</span>
+  <h3>Help MindSpring Grow!</h3>
+  <p class="small">
+    Tell us what you'd love to see next and help us
+    make learning better for everyone.
+  </p>
+
+  <form id="feedbackForm">
+    <label for="nextChapter"><strong>📚 Which chapter are you waiting for next?</strong></label>
+    <input
+      type="text"
+      id="nextChapter"
+      name="nextChapter"
+      placeholder="e.g. Plant Kingdom"
+      style="width:100%; margin-top:10px; padding:12px; border:1px solid var(--line); border-radius:12px; font:inherit;"
+    >
+
+    <label for="rating" style="display:block; margin-top:18px;">
+      <strong>✨ How is your MindSpring experience?</strong>
+    </label>
+    <select
+      id="rating"
+      name="rating"
+      style="width:100%; margin-top:10px; padding:12px; border:1px solid var(--line); border-radius:12px; font:inherit; background:white;"
+    >
+      <option value="">Choose your experience</option>
+      <option value="Loved it">💜 Loved it!</option>
+      <option value="Really good">😊 Really good</option>
+      <option value="Needs improvement">🌱 Needs improvement</option>
+    </select>
+
+    <label for="suggestions" style="display:block; margin-top:18px;">
+      <strong>💌 Your feedback or suggestions</strong>
+    </label>
+    <textarea
+      id="suggestions"
+      name="suggestions"
+      rows="4"
+      placeholder="What should we improve or add?"
+      style="width:100%; margin-top:10px; padding:12px; border:1px solid var(--line); border-radius:12px; font:inherit; resize:vertical;"
+    ></textarea>
+
+    <button type="submit" class="btn" style="width:100%; margin-top:16px;">
+      Send My Feedback 💜
+    </button>
+
+    <p class="small" id="feedbackMessage" aria-live="polite"></p>
+  </form>
+</div>
+
 <article class="card notes-box" id="notes">
   <span class="eyebrow">YOUR LEARNING SPACE</span>
   <h3>Explore Chapters 🧬</h3>
@@ -260,5 +302,42 @@ chapterButtons.forEach(button => {
     });
     renderQuestion();
   </script>
+  
+<script>
+  document.getElementById("feedbackForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const chapter = document.getElementById("nextChapter").value.trim();
+    const rating = document.getElementById("rating").value;
+    const suggestions = document.getElementById("suggestions").value.trim();
+    const message = document.getElementById("feedbackMessage");
+
+    if (!chapter && !rating && !suggestions) {
+      message.textContent = "Please fill in at least one field. 💜";
+      return;
+    }
+
+    const feedback = [
+      "MindSpring Feedback",
+      "Requested chapter: " + (chapter || "Not provided"),
+      "Experience: " + (rating || "Not provided"),
+      "Suggestions: " + (suggestions || "Not provided")
+    ].join("\n");
+
+    const blob = new Blob([feedback], { type: "text/plain" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+
+    link.href = url;
+    link.download = "mindspring-feedback.txt";
+    link.click();
+
+    URL.revokeObjectURL(url);
+
+    message.textContent =
+      "Feedback file downloaded! Please send it to MindSpring separately. 💜";
+  });
+</script>
+
 </body>
 </html>
