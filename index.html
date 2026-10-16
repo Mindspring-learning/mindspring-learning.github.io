@@ -347,7 +347,7 @@ chapterButtons.forEach(button => {
       );
 
       const result = await response.json();
-
+      console.log("FormSubmit response:", result);
       if (!response.ok || result.success === false || result.success === "false") {
         throw new Error("Submission failed");
       }
@@ -357,10 +357,12 @@ chapterButtons.forEach(button => {
 
       feedbackForm.reset();
 
-    } catch (error) {
-      message.textContent =
-        "Sorry, feedback could not be sent. Please try again later.";
-    } finally {
+   } catch (error) {
+  console.error("MindSpring feedback error:", error);
+
+  message.textContent =
+    "Couldn't send feedback. Please check the browser console, pa. 💜";
+} finally {
       button.disabled = false;
     }
   });
