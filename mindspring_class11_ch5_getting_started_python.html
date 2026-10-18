@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Class 11 Computer Science notes: Getting Started with Python. MindSpring Learning study chapter.">
+<title>Chapter 5 — Getting Started with Python | MindSpring Learning</title>
+<style>
+:root{--ink:#292541;--muted:#706b86;--purple:#7357c8;--purple-light:#f0ebff;--pink-light:#fff0f5;--paper:#fbfaff;--white:#fff;--line:#e9e4f5;--green:#217a55}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:22px}
+body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:linear-gradient(180deg,#f5f0ff 0,var(--paper) 280px);line-height:1.65}
+a{color:var(--purple);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{width:min(100% - 32px,1040px);margin:auto}
+header{padding:24px 0 10px}.brand{display:flex;align-items:center;gap:10px;font-family:Georgia,serif;font-style:italic;color:#4B2E83;font-size:1.25rem}
+.site-logo{display:block;width:145px;max-width:100%;height:auto}.logo-link{display:inline-block;text-decoration:none}
+.hero{padding:34px 0 24px;display:grid;grid-template-columns:1.4fr .8fr;gap:22px;align-items:center}
+.eyebrow{color:var(--purple);font-size:.78rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.08;margin:10px 0 14px;letter-spacing:-.04em}
+.hero p{color:var(--muted);max-width:560px}.hero-art{background:linear-gradient(135deg,var(--purple-light),var(--pink-light));border:1px solid var(--line);border-radius:28px;padding:25px;min-height:190px;display:flex;flex-direction:column;justify-content:center;gap:12px}
+.floating-note{background:white;border:1px solid var(--line);padding:12px 14px;border-radius:15px;box-shadow:0 8px 24px #2925410a}.floating-note:nth-child(2){margin-left:24px}.floating-note:nth-child(3){margin-right:20px}
+.section-title{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:22px 0 14px}
+h2{font-size:1.35rem;margin:0 0 14px;line-height:1.3}h3{margin:22px 0 8px;font-size:1.08rem}h4{margin:18px 0 7px}
+.small,.muted{color:var(--muted);font-size:.9rem}.card{background:var(--white);border:1px solid var(--line);border-radius:20px;padding:clamp(19px,3vw,27px);box-shadow:0 8px 28px #29254108;margin:0 0 16px}
+.content{padding-bottom:25px}.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.mini{padding:15px;border:1px solid var(--line);border-radius:15px;background:linear-gradient(135deg,#fff,var(--paper))}.mini h3{margin:0 0 5px}.mini p{margin:5px 0;color:var(--muted);font-size:.92rem}
+.pill{display:inline-block;background:var(--purple-light);color:var(--purple);padding:4px 9px;border-radius:999px;font-size:.75rem;font-weight:700;margin-top:12px}
+p{margin:10px 0}ul,ol{padding-left:23px}li{margin:5px 0}
+.callout{padding:14px 16px;border-radius:14px;background:var(--purple-light);border-left:4px solid var(--purple);margin:16px 0}.callout.tip{background:#e8f7ef;border-left-color:#7cc8a0}.callout.warning{background:#fff5ec;border-left-color:#e9a15b}
+table{border-collapse:collapse;width:100%;margin:14px 0;font-size:.93rem;background:white}th,td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}th{background:var(--purple-light);font-weight:750}tr:nth-child(even) td{background:#fdfcff}
+code{font-family:ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",monospace;font-size:.92em}:not(pre)>code{background:var(--purple-light);color:#4B2E83;padding:2px 5px;border-radius:5px}
+pre{background:#292541;color:#f5f0ff;padding:16px;border-radius:14px;overflow:auto;line-height:1.6;font-size:.9rem;border:1px solid #40385f}pre code{color:inherit}.output{background:#fbfaff;color:#292541;border:1px dashed #c9bee8;padding:12px 15px;border-radius:12px;margin-top:-3px}
+.label{font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;font-weight:800;color:var(--muted);margin:12px 0 6px}
+details{border:1px solid var(--line);border-radius:13px;padding:12px 15px;margin:10px 0;background:white}summary{font-weight:750;cursor:pointer;color:var(--ink)}
+.quiz-question{padding:16px 0;border-bottom:1px solid var(--line)}.quiz-question:last-of-type{border-bottom:0}.quiz-question p{font-weight:750;margin:0 0 8px}.quiz-question label{display:block;margin:6px 0;color:var(--muted);cursor:pointer}.quiz-question input{margin-right:8px;accent-color:var(--purple)}
+button{border:0;border-radius:12px;background:var(--purple);color:white;font:inherit;font-weight:750;padding:11px 15px;cursor:pointer}button:hover{filter:brightness(.95)}button:focus-visible{outline:3px solid #c7b8ff;outline-offset:2px}
+.result{font-weight:750;margin-left:12px}.toplink{display:inline-block;margin:8px 0 25px}.chapter-btn{display:block;width:100%;border:1px solid var(--line);border-radius:12px;padding:12px;background:white;color:var(--ink);font:inherit;text-align:left}.chapter-btn:hover{border-color:var(--purple);background:var(--purple-light);text-decoration:none}
+footer{padding:18px 0 32px;border-top:1px solid var(--line);color:var(--muted);font-size:.84rem}
+@media(max-width:700px){.hero{grid-template-columns:1fr;padding-top:24px}.hero-art{min-height:160px}.grid2{grid-template-columns:1fr}.section-title{align-items:start;flex-direction:column}.card{padding:18px}table{font-size:.83rem}th,td{padding:7px}}
+@media print{body{background:white}.hero-art,.toplink,button{display:none}.hero{padding:15px 0}.card{box-shadow:none;break-inside:avoid;border:1px solid #ddd}pre{white-space:pre-wrap}}
+</style>
+</head>
+<body id="top">
+<header class="wrap">
+  <div class="brand">
+    <a href="index.html" class="logo-link" aria-label="MindSpring homepage">
+      <img src="assests/mindspring-logo-transparent.png" alt="MindSpring logo" class="site-logo">
+    </a>
+  </div>
+  <section class="hero">
+    <div>
+      <div class="eyebrow">Your calm corner for learning</div>
+      <h1>Getting Started<br>with Python.</h1>
+      <p>Class 11 Computer Science · Chapter 5 · Clear revision notes, worked examples and a mini quiz to help you learn at your own pace.</p>
+      <span class="pill">Class 11 · Python 3</span>
+    </div>
+    <div class="hero-art" aria-label="Chapter features">
+      <div class="floating-note">📚 <strong>Clear notes</strong><br><span class="small">Concepts, definitions and examples.</span></div>
+      <div class="floating-note">🧠 <strong>Quick recall</strong><br><span class="small">Key points for revision.</span></div>
+      <div class="floating-note">🌱 <strong>Learn at your pace</strong><br><span class="small">Try the quiz when you're ready.</span></div>
+    </div>
+  </section>
+</header>
+
+<main class="wrap">
+<section class="card" aria-label="Chapter contents">
+  <span class="eyebrow">YOUR LEARNING SPACE</span>
+  <h2 style="margin-top:6px">Explore this chapter 💜</h2>
+  <p class="small">Choose a topic to jump straight to it.</p>
+  <div class="grid2"><a class="chapter-btn" href="#objectives">Learning goals →</a><a class="chapter-btn" href="#intro">Introduction to Python →</a><a class="chapter-btn" href="#modes">Working with Python →</a><a class="chapter-btn" href="#tokens">Tokens →</a><a class="chapter-btn" href="#keywords">Keywords →</a><a class="chapter-btn" href="#identifiers">Identifiers →</a><a class="chapter-btn" href="#literals">Literals →</a><a class="chapter-btn" href="#variables">Variables →</a><a class="chapter-btn" href="#types">Data types →</a><a class="chapter-btn" href="#operators">Operators →</a><a class="chapter-btn" href="#expressions">Expressions →</a><a class="chapter-btn" href="#io">Input and output →</a><a class="chapter-btn" href="#conversion">Type conversion →</a><a class="chapter-btn" href="#errors">Errors and debugging →</a><a class="chapter-btn" href="#summary">Quick recap →</a><a class="chapter-btn" href="#practice">Practice questions →</a><a class="chapter-btn" href="#quiz">Self-check quiz →</a></div></section><div class="content">
+<section class="card" id="objectives">
+<h2><span class="num">✓</span>Learning goals</h2>
+<p>By the end of this chapter, you should be able to:</p>
+<ul>
+<li>Explain what Python is and identify its main features.</li>
+<li>Distinguish between interactive mode and script mode.</li>
+<li>Recognise tokens, keywords, identifiers and literals.</li>
+<li>Use variables and understand common Python data types.</li>
+<li>Apply operators and evaluate expressions.</li>
+<li>Read input, display output and convert between data types.</li>
+<li>Identify common programming errors and correct simple mistakes.</li>
+</ul>
+</section>
+
+<section class="card" id="intro">
+<h2><span class="num">1</span>Introduction to Python</h2>
+<p>A <b>program</b> is a set of instructions written to make a computer perform a task. A <b>programming language</b> provides rules and symbols for writing those instructions.</p>
+<p><b>Python</b> is a high-level, general-purpose programming language. Its syntax is designed to be readable, which makes it useful for beginners as well as professional developers.</p>
+<h3>Important features of Python</h3>
+<div class="grid2">
+<div class="mini"><h3>Readable syntax</h3><p>Programs can often be understood without many complicated symbols.</p></div>
+<div class="mini"><h3>High-level language</h3><p>It hides many low-level hardware details from the programmer.</p></div>
+<div class="mini"><h3>Interpreted execution</h3><p>Python uses an interpreter to run code; implementation details may vary.</p></div>
+<div class="mini"><h3>Portable</h3><p>Programs can often be used on different operating systems with little change.</p></div>
+<div class="mini"><h3>Free and open-source</h3><p>Python is available under an open-source licence.</p></div>
+<div class="mini"><h3>Rich libraries</h3><p>Many built-in modules and external packages extend its capabilities.</p></div>
+</div>
+<h3>Where is Python used?</h3>
+<ul><li>Web and software development</li><li>Data analysis and visualisation</li><li>Artificial intelligence and machine learning</li><li>Automation and scripting</li><li>Scientific and educational applications</li></ul>
+<div class="callout tip"><b>Remember:</b> Python is case-sensitive. For example, <code>marks</code>, <code>Marks</code> and <code>MARKS</code> are different names.</div>
+</section>
+
+<section class="card" id="modes">
+<h2><span class="num">2</span>Working with Python</h2>
+<h3>Interactive mode</h3>
+<p>In interactive mode, you type a command at the Python prompt and the interpreter responds immediately. The prompt is commonly shown as <code>&gt;&gt;&gt;</code>.</p>
+<pre><code>&gt;&gt;&gt; 8 + 4
+12
+&gt;&gt;&gt; print("Hello, Python!")
+Hello, Python!</code></pre>
+<p><b>Best for:</b> trying small expressions, checking results and learning syntax.</p>
+<h3>Script mode</h3>
+<p>In script mode, you write a sequence of statements in a file, usually ending in <code>.py</code>, and run the file.</p>
+<pre><code># hello.py
+print("Hello, Python!")
+print(8 + 4)</code></pre>
+<div class="label">Output</div><pre class="output"><code>Hello, Python!
+12</code></pre>
+<p><b>Best for:</b> writing, saving, editing and running complete programs.</p>
+<table><thead><tr><th>Interactive mode</th><th>Script mode</th></tr></thead><tbody>
+<tr><td>Commands are entered one at a time.</td><td>Statements are saved in a source file.</td></tr>
+<tr><td>Results appear immediately for expressions.</td><td>Results appear when the script is executed.</td></tr>
+<tr><td>Useful for quick experiments.</td><td>Useful for longer, reusable programs.</td></tr>
+</tbody></table>
+</section>
+
+<section class="card" id="tokens">
+<h2><span class="num">3</span>Tokens in Python</h2>
+<p><b>Tokens</b> are the smallest meaningful units of a program recognised by Python. Common introductory categories include keywords, identifiers, literals and operators; punctuation symbols such as commas and colons also help form statements.</p>
+<pre><code>total = price + 5</code></pre>
+<p>In this statement, <code>total</code> and <code>price</code> are identifiers, <code>=</code> and <code>+</code> are operators, and <code>5</code> is an integer literal.</p>
+<div class="callout"><b>Tip:</b> When asked to identify tokens, break the statement into its meaningful names, values, operators and punctuation.</div>
+</section>
+
+<section class="card" id="keywords">
+<h2><span class="num">4</span>Keywords</h2>
+<p><b>Keywords</b> are reserved words with predefined meanings in Python. They cannot be used as ordinary variable names.</p>
+<p>Examples: <code>if</code>, <code>else</code>, <code>elif</code>, <code>for</code>, <code>while</code>, <code>break</code>, <code>continue</code>, <code>def</code>, <code>return</code>, <code>class</code>, <code>import</code>, <code>in</code>, <code>is</code>, <code>and</code>, <code>or</code>, <code>not</code>, <code>pass</code>, <code>True</code>, <code>False</code> and <code>None</code>.</p>
+<pre><code>if age >= 18:
+    print("Adult")</code></pre>
+<p>Here, <code>if</code> is a keyword. The colon introduces the indented block that belongs to the condition.</p>
+<div class="callout warning"><b>Common mistake:</b> <code>if</code> is a keyword, but <code>If</code> is not the same keyword because Python is case-sensitive.</div>
+</section>
+
+<section class="card" id="identifiers">
+<h2><span class="num">5</span>Identifiers and naming rules</h2>
+<p>An <b>identifier</b> is a name given to a program element, such as a variable, function or class.</p>
+<h3>Rules for identifiers</h3>
+<ol>
+<li>Use letters, digits and underscores.</li>
+<li>The first character cannot be a digit.</li>
+<li>Spaces are not allowed.</li>
+<li>A Python keyword cannot be used as an identifier.</li>
+<li>Identifiers are case-sensitive.</li>
+<li>Characters such as <code>@</code>, <code>#</code> and <code>%</code> are not allowed in ordinary identifiers.</li>
+</ol>
+<table><thead><tr><th>Valid</th><th>Invalid</th><th>Reason</th></tr></thead><tbody>
+<tr><td><code>student</code></td><td><code>2student</code></td><td>Cannot start with a digit</td></tr>
+<tr><td><code>student_name</code></td><td><code>student name</code></td><td>Spaces are not allowed</td></tr>
+<tr><td><code>marks1</code></td><td><code>class</code></td><td><code>class</code> is a keyword</td></tr>
+<tr><td><code>_total</code></td><td><code>total@</code></td><td><code>@</code> is not permitted here</td></tr>
+<tr><td><code>StudentName</code></td><td><code>my-name</code></td><td>Hyphen is an operator, not part of a name</td></tr>
+</tbody></table>
+<div class="callout tip"><b>Good practice:</b> Use meaningful names such as <code>total_marks</code> instead of unclear names such as <code>tm</code>, unless a short name is appropriate.</div>
+</section>
+
+<section class="card" id="literals">
+<h2><span class="num">6</span>Literals</h2>
+<p>A <b>literal</b> is a value written directly in the source code.</p>
+<table><thead><tr><th>Literal category</th><th>Examples</th><th>Notes</th></tr></thead><tbody>
+<tr><td>Integer</td><td><code>10</code>, <code>-7</code>, <code>0</code></td><td>Whole-number values</td></tr>
+<tr><td>Floating-point</td><td><code>3.14</code>, <code>-0.5</code></td><td>Numbers with a fractional part or exponent notation</td></tr>
+<tr><td>Complex</td><td><code>2+3j</code></td><td><code>j</code> represents the imaginary part</td></tr>
+<tr><td>String</td><td><code>'hello'</code>, <code>"Python"</code></td><td>Text enclosed in quotes</td></tr>
+<tr><td>Boolean</td><td><code>True</code>, <code>False</code></td><td>Truth values; capitalisation matters</td></tr>
+<tr><td>Special value</td><td><code>None</code></td><td>Represents the absence of a value</td></tr>
+</tbody></table>
+<pre><code>count = 12
+price = 45.50
+message = "Welcome"
+is_ready = True
+result = None</code></pre>
+</section>
+
+<section class="card" id="variables">
+<h2><span class="num">7</span>Variables and assignment</h2>
+<p>A <b>variable</b> is a name that refers to an object or value. In Python, a variable name is created when it is assigned a value.</p>
+<pre><code>age = 16
+student_name = "Mira"
+height = 1.62</code></pre>
+<p>The symbol <code>=</code> is the assignment operator. It assigns the object on the right to the name on the left; it does not mean “is equal to” as in mathematics.</p>
+<h3>Reassigning a variable</h3>
+<pre><code>value = 10
+print(value)
+value = "Python"
+print(value)</code></pre>
+<div class="label">Output</div><pre class="output"><code>10
+Python</code></pre>
+<p>Python is dynamically typed, so a name can be assigned objects of different types at different times.</p>
+<h3>Multiple assignment</h3>
+<pre><code>a, b = 10, 20
+print(a, b)
+
+x = y = 0
+print(x, y)</code></pre>
+<div class="label">Output</div><pre class="output"><code>10 20
+0 0</code></pre>
+<h3>Comments</h3>
+<p>Comments explain code to people reading it. A single-line comment begins with <code>#</code>.</p>
+<pre><code># Calculate the total
+first = 10
+second = 20
+print(first + second)</code></pre>
+<p>Python ignores the comment during normal execution.</p>
+</section>
+
+<section class="card" id="types">
+<h2><span class="num">8</span>Data types and checking types</h2>
+<p>A data type describes the kind of value an object represents. Use the built-in <code>type()</code> function to inspect an object's type.</p>
+<table><thead><tr><th>Type</th><th>Meaning</th><th>Example</th></tr></thead><tbody>
+<tr><td><code>int</code></td><td>Integer</td><td><code>25</code></td></tr>
+<tr><td><code>float</code></td><td>Floating-point number</td><td><code>3.5</code></td></tr>
+<tr><td><code>complex</code></td><td>Complex number</td><td><code>2+3j</code></td></tr>
+<tr><td><code>bool</code></td><td>Boolean value</td><td><code>True</code></td></tr>
+<tr><td><code>str</code></td><td>String/text</td><td><code>"Hello"</code></td></tr>
+<tr><td><code>list</code></td><td>Ordered, mutable collection</td><td><code>[1, 2, 3]</code></td></tr>
+<tr><td><code>tuple</code></td><td>Ordered, immutable collection</td><td><code>(1, 2, 3)</code></td></tr>
+<tr><td><code>set</code></td><td>Collection of distinct values</td><td><code>{1, 2, 3}</code></td></tr>
+<tr><td><code>dict</code></td><td>Key-value mapping</td><td><code>{"name": "Mira"}</code></td></tr>
+<tr><td><code>NoneType</code></td><td>Type of <code>None</code></td><td><code>None</code></td></tr>
+</tbody></table>
+<pre><code>a = 25
+b = 3.5
+c = "Hello"
+d = True
+
+print(type(a))
+print(type(b))
+print(type(c))
+print(type(d))</code></pre>
+<div class="label">Output</div><pre class="output"><code>&lt;class 'int'&gt;
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;
+&lt;class 'bool'&gt;</code></pre>
+<h3>Mutable and immutable objects</h3>
+<p><b>Mutable</b> objects can be changed after creation; lists and dictionaries are common examples. <b>Immutable</b> objects cannot be changed in place; integers, floats, strings and tuples are examples.</p>
+<pre><code>items = [10, 20, 30]
+items[0] = 99
+print(items)</code></pre>
+<div class="label">Output</div><pre class="output"><code>[99, 20, 30]</code></pre>
+<div class="callout"><b>Note:</b> A string is immutable, but a variable can be reassigned to a different string.</div>
+</section>
+
+<section class="card" id="operators">
+<h2><span class="num">9</span>Operators in Python</h2>
+<p>An <b>operator</b> performs an operation on one or more values, called operands.</p>
+<h3>Arithmetic operators</h3>
+<table><thead><tr><th>Operator</th><th>Operation</th><th>Example</th><th>Result</th></tr></thead><tbody>
+<tr><td><code>+</code></td><td>Addition</td><td><code>10 + 3</code></td><td>13</td></tr>
+<tr><td><code>-</code></td><td>Subtraction</td><td><code>10 - 3</code></td><td>7</td></tr>
+<tr><td><code>*</code></td><td>Multiplication</td><td><code>10 * 3</code></td><td>30</td></tr>
+<tr><td><code>/</code></td><td>Division</td><td><code>7 / 2</code></td><td>3.5</td></tr>
+<tr><td><code>//</code></td><td>Floor division</td><td><code>7 // 2</code></td><td>3</td></tr>
+<tr><td><code>%</code></td><td>Remainder</td><td><code>7 % 2</code></td><td>1</td></tr>
+<tr><td><code>**</code></td><td>Exponentiation</td><td><code>2 ** 3</code></td><td>8</td></tr>
+</tbody></table>
+<div class="callout warning"><b>Floor division detail:</b> <code>//</code> rounds the quotient down toward negative infinity. For example, <code>-7 // 2</code> gives <code>-4</code>, not <code>-3</code>.</div>
+<h3>Comparison (relational) operators</h3>
+<table><thead><tr><th>Operator</th><th>Meaning</th></tr></thead><tbody>
+<tr><td><code>==</code></td><td>Equal to</td></tr><tr><td><code>!=</code></td><td>Not equal to</td></tr><tr><td><code>&gt;</code></td><td>Greater than</td></tr><tr><td><code>&lt;</code></td><td>Less than</td></tr><tr><td><code>&gt;=</code></td><td>Greater than or equal to</td></tr><tr><td><code>&lt;=</code></td><td>Less than or equal to</td></tr>
+</tbody></table>
+<pre><code>a = 10
+b = 20
+print(a < b)
+print(a == b)
+print(a != b)</code></pre>
+<div class="label">Output</div><pre class="output"><code>True
+False
+True</code></pre>
+<h3>Assignment operators</h3>
+<table><thead><tr><th>Operator</th><th>Example</th><th>Meaning</th></tr></thead><tbody>
+<tr><td><code>=</code></td><td><code>x = 5</code></td><td>Assign 5 to x</td></tr>
+<tr><td><code>+=</code></td><td><code>x += 2</code></td><td>Add 2 to x and assign the result</td></tr>
+<tr><td><code>-=</code></td><td><code>x -= 2</code></td><td>Subtract 2 from x and assign</td></tr>
+<tr><td><code>*=</code></td><td><code>x *= 2</code></td><td>Multiply x by 2 and assign</td></tr>
+<tr><td><code>/=</code></td><td><code>x /= 2</code></td><td>Divide x by 2 and assign</td></tr>
+<tr><td><code>//=</code></td><td><code>x //= 2</code></td><td>Floor-divide and assign</td></tr>
+<tr><td><code>%=</code></td><td><code>x %= 2</code></td><td>Take remainder and assign</td></tr>
+<tr><td><code>**=</code></td><td><code>x **= 2</code></td><td>Raise x to the power of 2 and assign</td></tr>
+</tbody></table>
+<h3>Logical operators</h3>
+<table><thead><tr><th>Operator</th><th>Meaning</th></tr></thead><tbody><tr><td><code>and</code></td><td>True when both conditions are true</td></tr><tr><td><code>or</code></td><td>True when at least one condition is true</td></tr><tr><td><code>not</code></td><td>Reverses a truth value</td></tr></tbody></table>
+<pre><code>print(10 > 5 and 8 > 3)
+print(10 < 5 or 8 > 3)
+print(not (10 > 5))</code></pre>
+<div class="label">Output</div><pre class="output"><code>True
+True
+False</code></pre>
+<h3>Membership operators</h3>
+<p><code>in</code> and <code>not in</code> test whether a value is present in a sequence or collection.</p>
+<pre><code>language = "Python"
+print("P" in language)
+print("z" not in language)</code></pre>
+<div class="label">Output</div><pre class="output"><code>True
+True</code></pre>
+<h3>Identity operators</h3>
+<p><code>is</code> and <code>is not</code> check object identity. They do not simply compare values; use <code>==</code> when you want to test value equality.</p>
+<pre><code>a = [1, 2]
+b = a
+c = [1, 2]
+print(a is b)
+print(a is c)
+print(a == c)</code></pre>
+<div class="label">Output</div><pre class="output"><code>True
+False
+True</code></pre>
+</section>
+
+<section class="card" id="expressions">
+<h2><span class="num">10</span>Expressions and precedence</h2>
+<p>An <b>expression</b> combines values, variables, operators and sometimes function calls to produce a result.</p>
+<pre><code>result = 5 + 3 * 2
+print(result)</code></pre>
+<div class="label">Output</div><pre class="output"><code>11</code></pre>
+<p>Multiplication takes place before addition. Parentheses can make the intended order clearer.</p>
+<pre><code>print((5 + 3) * 2)
+print(2 ** 3 ** 2)</code></pre>
+<div class="label">Output</div><pre class="output"><code>16
+512</code></pre>
+<p>Exponentiation is evaluated from right to left, so <code>2 ** 3 ** 2</code> means <code>2 ** (3 ** 2)</code>.</p>
+<h3>Useful precedence order</h3>
+<p>From higher to lower precedence, a simplified guide is:</p>
+<ol>
+<li>Parentheses and grouping</li>
+<li>Exponentiation (<code>**</code>)</li>
+<li>Unary operators (<code>+x</code>, <code>-x</code>, <code>not</code> has its own lower precedence)</li>
+<li>Multiplication, division, floor division and remainder</li>
+<li>Addition and subtraction</li>
+<li>Comparisons, membership and identity tests</li>
+<li><code>not</code>, then <code>and</code>, then <code>or</code></li>
+</ol>
+<div class="callout tip"><b>Exam tip:</b> When solving an expression, write down each step. Do not evaluate strictly from left to right unless the operators have the same precedence and associativity allows it.</div>
+</section>
+
+<section class="card" id="io">
+<h2><span class="num">11</span>Input and output</h2>
+<h3>The <code>print()</code> function</h3>
+<p><code>print()</code> displays values or text on the screen.</p>
+<pre><code>name = "Asha"
+marks = 92
+print("Name:", name)
+print("Marks:", marks)</code></pre>
+<div class="label">Output</div><pre class="output"><code>Name: Asha
+Marks: 92</code></pre>
+<p>By default, <code>print()</code> separates multiple arguments with a space and ends with a newline. The <code>sep</code> and <code>end</code> arguments can change this behaviour.</p>
+<pre><code>print("2026", "10", "18", sep="-")
+print("Hello", end=" ")
+print("there!")</code></pre>
+<div class="label">Output</div><pre class="output"><code>2026-10-18
+Hello there!</code></pre>
+<h3>The <code>input()</code> function</h3>
+<p><code>input()</code> reads a line entered by the user and returns it as a string.</p>
+<pre><code>name = input("Enter your name: ")
+print("Welcome", name)</code></pre>
+<div class="label">Example interaction</div><pre class="output"><code>Enter your name: Asha
+Welcome Asha</code></pre>
+<div class="callout warning"><b>Important:</b> Even if a user types digits such as <code>25</code>, <code>input()</code> returns the text <code>"25"</code>. Convert it when you need a number.</div>
+</section>
+
+<section class="card" id="conversion">
+<h2><span class="num">12</span>Type conversion</h2>
+<p><b>Type conversion</b> means changing a value from one data type to another.</p>
+<h3>Explicit conversion (type casting)</h3>
+<p>The programmer requests conversion using functions such as <code>int()</code>, <code>float()</code>, <code>str()</code> and <code>bool()</code>.</p>
+<pre><code>a = int("25")
+b = float("4.5")
+c = str(100)
+
+print(a + 5)
+print(b + 0.5)
+print(c + " students")</code></pre>
+<div class="label">Output</div><pre class="output"><code>30
+5.0
+100 students</code></pre>
+<h3>Using input to calculate a total</h3>
+<pre><code>first = int(input("Enter first number: "))
+second = int(input("Enter second number: "))
+total = first + second
+print("Total =", total)</code></pre>
+<div class="label">Example interaction</div><pre class="output"><code>Enter first number: 12
+Enter second number: 8
+Total = 20</code></pre>
+<h3>Implicit conversion</h3>
+<p>In some operations, Python automatically converts compatible numeric values to a suitable common type.</p>
+<pre><code>answer = 5 + 2.5
+print(answer)
+print(type(answer))</code></pre>
+<div class="label">Output</div><pre class="output"><code>7.5
+&lt;class 'float'&gt;</code></pre>
+<div class="callout warning"><b>Watch out:</b> <code>int("hello")</code> raises a <code>ValueError</code>. Conversion is only possible when the input has a suitable format.</div>
+</section>
+
+<section class="card" id="errors">
+<h2><span class="num">13</span>Errors and debugging</h2>
+<p>A program may fail because its syntax is invalid, an operation is not possible, or its logic does not produce the intended result.</p>
+<table><thead><tr><th>Error type</th><th>What it means</th><th>Example</th></tr></thead><tbody>
+<tr><td>Syntax error</td><td>The code breaks Python's grammar rules.</td><td><code>if x &gt; 3 print(x)</code> — missing colon</td></tr>
+<tr><td>Runtime error / exception</td><td>An error occurs while the program runs.</td><td><code>10 / 0</code> — <code>ZeroDivisionError</code></td></tr>
+<tr><td>Logical error</td><td>The program runs but gives the wrong result.</td><td>Using <code>+</code> when calculating a difference</td></tr>
+</tbody></table>
+<h3>Debugging checklist</h3>
+<ul><li>Read the error message carefully.</li><li>Check spelling, capitalisation, quotes, brackets and colons.</li><li>Check indentation and the order of statements.</li><li>Test calculations with small values.</li><li>Print intermediate results to locate a logic error.</li></ul>
+</section>
+
+<section class="card" id="summary">
+<h2><span class="num">★</span>Quick recap</h2>
+<ul>
+<li>Python is a readable, high-level, general-purpose programming language.</li>
+<li>Interactive mode is useful for quick experiments; script mode stores code in a file.</li>
+<li>Tokens are the meaningful units that make up a program.</li>
+<li>Keywords are reserved; identifiers are names chosen by the programmer.</li>
+<li>Literals are values written directly in code.</li>
+<li>Variables refer to objects and are created through assignment.</li>
+<li><code>type()</code> reports an object's type.</li>
+<li><code>=</code> assigns; <code>==</code> compares values.</li>
+<li><code>/</code> performs division, <code>//</code> floor division, and <code>%</code> gives the remainder.</li>
+<li><code>input()</code> returns a string; convert it for numeric calculations.</li>
+<li>Syntax errors, runtime exceptions and logical errors are different kinds of problems.</li>
+</ul>
+</section>
+
+<section class="card" id="practice">
+<h2><span class="num">✎</span>Practice questions</h2>
+<h3>A. Very short answer questions</h3>
+<ol>
+<li>What is Python?</li>
+<li>What is the difference between interactive mode and script mode?</li>
+<li>Define a keyword and an identifier.</li>
+<li>What is a literal? Give two examples.</li>
+<li>What is the purpose of the <code>type()</code> function?</li>
+<li>What is the difference between <code>=</code> and <code>==</code>?</li>
+<li>What data type does <code>input()</code> return?</li>
+<li>What is a syntax error?</li>
+</ol>
+<h3>B. Predict the output</h3>
+<details><summary>Question 1: What is printed?</summary><pre><code>x = 7
+y = 2
+print(x // y)
+print(x % y)</code></pre><p><b>Answer</b></p><pre class="output"><code>3
+1</code></pre></details>
+<details><summary>Question 2: What is printed?</summary><pre><code>print(4 + 3 * 2)
+print((4 + 3) * 2)</code></pre><p><b>Answer</b></p><pre class="output"><code>10
+14</code></pre></details>
+<details><summary>Question 3: What is printed?</summary><pre><code>value = "11"
+print(value + "2")
+print(int(value) + 2)</code></pre><p><b>Answer</b></p><pre class="output"><code>112
+13</code></pre></details>
+<h3>C. Write programs</h3>
+<ol>
+<li>Write a program that displays your name, class and school on separate lines.</li>
+<li>Input two integers and display their sum, difference and product.</li>
+<li>Input the length and breadth of a rectangle and calculate its area.</li>
+<li>Input a number and display its quotient and remainder when divided by 2.</li>
+<li>Input a temperature in Celsius and convert it to Fahrenheit using <code>F = (C * 9/5) + 32</code>.</li>
+</ol>
+<details><summary>Sample solution: area of a rectangle</summary><pre><code>length = float(input("Enter length: "))
+breadth = float(input("Enter breadth: "))
+area = length * breadth
+print("Area =", area)</code></pre></details>
+</section>
+
+<section class="card" id="quiz">
+<h2><span class="num">?</span>Self-check quiz</h2>
+<p class="lead">Choose one answer for each question, then select <b>Check answers</b>.</p>
+<form id="quizForm">
+<div class="quiz-question"><p>1. Which symbol begins a single-line comment in Python?</p>
+<label><input type="radio" name="q1" value="a"> //</label><label><input type="radio" name="q1" value="b"> #</label><label><input type="radio" name="q1" value="c"> &lt;!--</label></div>
+<div class="quiz-question"><p>2. Which is a valid identifier?</p>
+<label><input type="radio" name="q2" value="a"> 2marks</label><label><input type="radio" name="q2" value="b"> student name</label><label><input type="radio" name="q2" value="c"> student_name</label></div>
+<div class="quiz-question"><p>3. What is the result of <code>17 % 5</code>?</p>
+<label><input type="radio" name="q3" value="a"> 3</label><label><input type="radio" name="q3" value="b"> 2</label><label><input type="radio" name="q3" value="c"> 3.4</label></div>
+<div class="quiz-question"><p>4. What type of value does <code>input()</code> return by default?</p>
+<label><input type="radio" name="q4" value="a"> String</label><label><input type="radio" name="q4" value="b"> Integer</label><label><input type="radio" name="q4" value="c"> Boolean</label></div>
+<div class="quiz-question"><p>5. Which operator checks value equality?</p>
+<label><input type="radio" name="q5" value="a"> =</label><label><input type="radio" name="q5" value="b"> is</label><label><input type="radio" name="q5" value="c"> ==</label></div>
+<div class="quiz-question"><p>6. What is the output of <code>2 + 3 * 4</code>?</p>
+<label><input type="radio" name="q6" value="a"> 20</label><label><input type="radio" name="q6" value="b"> 14</label><label><input type="radio" name="q6" value="c"> 24</label></div>
+<div class="quiz-question"><p>7. Which function converts a suitable numeric string to an integer?</p>
+<label><input type="radio" name="q7" value="a"> int()</label><label><input type="radio" name="q7" value="b"> type()</label><label><input type="radio" name="q7" value="c"> print()</label></div>
+<div class="quiz-question"><p>8. Which one is a Boolean literal?</p>
+<label><input type="radio" name="q8" value="a"> "True"</label><label><input type="radio" name="q8" value="b"> True</label><label><input type="radio" name="q8" value="c"> true</label></div>
+<button type="button" id="checkQuiz">Check answers</button><span class="result" id="quizResult" aria-live="polite"></span>
+</form>
+</section>
+<a class="toplink" href="#top">↑ Back to top</a>
+</div></main>
+</div>
+<footer><div class="wrap">MindSpring is a personal learning project. Use these revision notes alongside your prescribed textbook and teacher’s guidance. 💜</div></footer>
+<script>
+(function(){
+ const answers={q1:"b",q2:"c",q3:"b",q4:"a",q5:"c",q6:"b",q7:"a",q8:"b"};
+ document.getElementById("checkQuiz").addEventListener("click",function(){
+   let score=0,answered=0;
+   Object.keys(answers).forEach(function(key){
+     const selected=document.querySelector('input[name="'+key+'"]:checked');
+     if(selected){answered++;if(selected.value===answers[key])score++;}
+   });
+   const result=document.getElementById("quizResult");
+   if(answered<Object.keys(answers).length){
+     result.textContent="Answer all 8 questions first ("+answered+"/8 answered).";
+   }else{
+     result.textContent="Score: "+score+"/8 — "+(score===8?"Excellent work!":score>=6?"Good job. Review any missed concepts.":"Revise the notes and try again.");
+   }
+ });
+})();
+</script>
+</body>
+</html>
