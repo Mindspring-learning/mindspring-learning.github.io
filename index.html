@@ -145,7 +145,37 @@ font-style: italic;color: #4B2E83; }
   transform: translateY(-2px);
   box-shadow: 0 6px 18px rgba(91, 33, 182, 0.25);
 }
+#cs-chapters {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 19px;
+  box-shadow: 0 8px 28px #29254108;
+  scroll-margin-top: 30px;
+}
 
+.cs-list {
+  display: grid;
+  gap: 9px;
+  margin-top: 13px;
+}
+
+.cs-btn {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px;
+  background: white;
+  color: var(--ink);
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+}
+
+.cs-btn:hover {
+  border-color: var(--purple);
+  background: var(--purple-light);
+}
 
   </style>
 </head>
@@ -280,7 +310,7 @@ font-style: italic;color: #4B2E83; }
   </p>
 </article>
       </div>
-      <article class="cs notes" id="cs-chapters">
+      <article class="card notes-box cs" id="cs-chapters">
   <span class="eyebrow">YOUR PYTHON WORLD</span>
   <h3>Explore Chapters🧬</h3>
   <p class="big">
