@@ -65,22 +65,23 @@
   let currentHint = "";
   let questionLocked = false;
 
-  function setMood(mood, text) {
-    widget.classList.remove(
-      "mira-happy", "mira-thinking", "mira-celebrating"
-    );
-    widget.classList.add("mira-" + mood);
+function setMood(mood, text) {
+  widget.classList.remove(
+    "mira-happy", "mira-thinking", "mira-celebrating"
+  );
+  widget.classList.add("mira-" + mood);
 
-    const labels = {
-      happy: "Happy Mira 😊",
-      thinking: "Thinking Mira 🤔",
-      celebrating: "Celebrating Mira 🎉"
-    };
+  const labels = {
+    happy: "Happy Mira 😊",
+    thinking: "Thinking Mira 🤔",
+    celebrating: "Celebrating Mira 🎉"
+  };
 
-    moodLabel.textContent = labels[mood] || "Mira 💜";
-    message.textContent = text;
-    status.replaceChildren();
-  }
+  moodLabel.textContent = labels[mood] || "Mira 💜";
+  message.textContent = text;
+  status.replaceChildren();
+}
+
 
   function addOption(label, callback) {
     const button = document.createElement("button");
@@ -377,21 +378,32 @@
   }
 
   function checkAnswer(index) {
-    if (questionLocked || !currentQuestion) return;
-    questionLocked = true;
+  if (questionLocked || !currentQuestion) return;
+  questionLocked = true;
 
-    const correct = index === currentQuestion.answer;
+  const correct = index === currentQuestion.answer;
+  const correctAnswer = currentQuestion.options[currentQuestion.answer];
 
+  if (correct) {
     setMood(
-      correct ? "celebrating" : "thinking",
-      (correct ? "🎉 Correct! Great job, scientist!" :
-        "💜 Not quite — mistakes help us learn!") +
-      "\n\n" + currentQuestion.explanation
+      "celebrating",
+      "Yesss, you got it! 🎉💜\n\n" +
+      currentQuestion.explanation +
+      "\n\nNice work! Ready for another little challenge?"
     );
-
-    addOption("🔄 Try another MCQ", pickQuestion);
-    addOption("🔁 Retry this question", showCurrentQuestion);
+  } else {
+    setMood(
+      "thinking",
+      "Not quite this time — no worries! 💜 Let's understand why.\n\n" +
+      "The answer is " + correctAnswer + ".\n\n" +
+      currentQuestion.explanation +
+      "\n\nRemember this idea and you'll be better prepared next time!"
+    );
   }
+
+  addOption("🔄 Let's try another", pickQuestion);
+  addOption("🔁 Try this one again", showCurrentQuestion);
+
 
   function showKnowledgeSearch() {
     setMood(
@@ -400,7 +412,11 @@
     );
 
     addTextInput("e.g. Explain anaphase", "Ask Mira", async question => {
-      setMood("thinking", "Let me search your Biology notes... 🔎");
+      setMood(
+  "thinking",
+  "Ooh, let's figure this out together! 🔎💜 " +
+  "I'm checking your MindSpring Biology notes for the answer."
+);
 
       if (!window.MiraKnowledge ||
           typeof window.MiraKnowledge.explain !== "function") {
@@ -416,11 +432,21 @@
       try {
         const result = await window.MiraKnowledge.explain(question);
 
-        if (!result.found) {
-          setMood("thinking", result.message);
-          addOption("Ask another question", showKnowledgeSearch);
-          return;
-        }
+       if (!result.found) {
+  setMood(
+    "thinking",
+    "Hmm, I couldn't find a clear match in my notes yet. 💜\n\n" +
+    "I don't want to guess and accidentally confuse you! " +
+    "Try using a specific Biology term, or check whether " +
+    "that chapter has been added to my knowledge list."
+  );
+
+  addOption("🔎 Try another question", showKnowledgeSearch);
+  addOption("📚 Explore chapters", () => {
+    widget.querySelector('[data-action="chapters"]').click();
+  });
+  return;
+}
 
         setMood("happy", result.message);
 
@@ -450,7 +476,11 @@
     toggle.setAttribute("aria-label", opening ? "Close Mira" : "Open Mira");
 
     if (opening) {
-      setMood("happy", "Hi, scientist! 💜 What shall we learn today?");
+      setMood(
+  "happy",
+  "Heyyy! 💜 Ready to make Biology a little easier today? " +
+  "We can explore a chapter, practise MCQs, or figure out a tricky topic together."
+);
     }
   });
 
@@ -493,19 +523,27 @@
         showKnowledgeSearch();
       }
 
-      if (action === "hint") {
-        if (currentQuestion) {
-          setMood("thinking", "Hint 💡 " + currentHint);
-          addOption("Back to question", showCurrentQuestion);
-        } else {
-          setMood(
-            "thinking",
-            "💡 Choose one small idea from the chapter, recall its meaning, " +
-            "and connect it to an example. You can also ask me about a topic!"
-          );
-          addOption("Ask about a topic", showKnowledgeSearch);
-        }
-      }
+     
+if (action === "hint") {
+  if (currentQuestion) {
+    setMood(
+      "thinking",
+      "No worries! Let's approach it another way. 💡\n\n" +
+      currentHint +
+      "\n\nGive it another shot when you're ready."
+    );
+    addOption("🔙 Back to the question", showCurrentQuestion);
+  } else {
+    setMood(
+      "thinking",
+      "Sure! 💜 Pick one small idea from your chapter. " +
+      "We'll break it down, connect it to an example, " +
+      "and work through it together."
+    );
+    addOption("✨ Ask me about a topic", showKnowledgeSearch);
+    addOption("🧠 Practise an MCQ", pickQuestion);
+  }
+}
 
       if (action === "home") {
         window.location.href = "/";
