@@ -10,7 +10,7 @@
       aria-label="Mira Biology mentor">
       <header class="mira-header">
         <img class="mira-avatar"
-          src="mira.png" alt="Mira">
+          src="mira-face.png" alt="Mira">
         <div class="mira-heading">
           <h3 style="margin:0">Mira 💜</h3>
           <p>Your Biology Buddy</p>
@@ -46,7 +46,7 @@
     <button id="mira-toggle" type="button"
       aria-label="Open Mira" aria-expanded="false"
       aria-controls="mira-panel">
-      <img src="mira.png" alt="">
+      <img src="mira-face.png" alt="">
     </button>
   `;
 
