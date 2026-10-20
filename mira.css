@@ -1,0 +1,150 @@
+
+/* MINDSpring — Mira's Floating Mentor */
+#mira-widget {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 9999;
+  font-family: Arial, sans-serif;
+  color: #30204d;
+}
+
+#mira-toggle {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  border: 3px solid #d9c4ff;
+  background: linear-gradient(145deg, #f4eaff, #d9c5ff);
+  box-shadow: 0 5px 22px #7250a955;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 38px;
+  transition: transform 0.25s ease;
+}
+
+#mira-toggle:hover {
+  transform: translateY(-4px) scale(1.05);
+}
+
+#mira-toggle:focus-visible,
+#mira-panel button:focus-visible {
+  outline: 3px solid #7c3aed;
+  outline-offset: 3px;
+}
+
+#mira-panel {
+  width: min(320px, calc(100vw - 36px));
+  margin-bottom: 12px;
+  border: 1px solid #e5d7ff;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 8px 35px #49316d30;
+  animation: mira-appear 0.25s ease;
+}
+
+#mira-panel[hidden] {
+  display: none;
+}
+
+.mira-header {
+  background: linear-gradient(120deg, #6d43a8, #a783df);
+  color: white;
+  padding: 16px;
+}
+
+.mira-header h3 {
+  margin: 0 0 5px;
+  font-size: 19px;
+}
+
+.mira-header p {
+  margin: 0;
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+.mira-content {
+  padding: 16px;
+}
+
+#mira-message {
+  margin: 0 0 14px;
+  padding: 12px;
+  border-radius: 14px;
+  background: #f4edff;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.mira-actions {
+  display: grid;
+  gap: 8px;
+}
+
+#mira-panel .mira-action {
+  padding: 11px;
+  border: 1px solid #e3d3ff;
+  border-radius: 12px;
+  background: #fff;
+  color: #58358d;
+  font-size: 13px;
+  text-align: left;
+  cursor: pointer;
+}
+
+#mira-panel .mira-action:hover {
+  background: #f5efff;
+}
+
+#mira-panel .mira-close {
+  float: right;
+  border: 0;
+  background: transparent;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+#mira-status {
+  margin-top: 12px;
+  color: #765b94;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+@keyframes mira-appear {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 480px) {
+  #mira-widget {
+    right: 12px;
+    bottom: 12px;
+  }
+
+  #mira-toggle {
+    width: 64px;
+    height: 64px;
+    font-size: 32px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #mira-panel {
+    animation: none;
+  }
+
+  #mira-toggle {
+    transition: none;
+  }
+}
