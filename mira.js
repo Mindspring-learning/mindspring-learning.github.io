@@ -9,10 +9,14 @@
     <section id="mira-panel" hidden
       aria-label="Mira Biology mentor">
       <header class="mira-header">
+        <img class="mira-avatar"
+          src="mira.png" alt="Mira">
+        <div class="mira-heading">
+          <h3 style="margin:0">Mira 💜</h3>
+          <p>Your Biology Buddy</p>
+        </div>
         <button class="mira-close"
           type="button" aria-label="Close Mira">×</button>
-        <h3>💜 Mira</h3>
-        <p>Your MindSpring Biology Buddy</p>
       </header>
 
       <div class="mira-content">
@@ -41,7 +45,9 @@
 
     <button id="mira-toggle" type="button"
       aria-label="Open Mira" aria-expanded="false"
-      aria-controls="mira-panel">👩🏻‍🔬</button>
+      aria-controls="mira-panel">
+      <img src="mira.png" alt="">
+    </button>
   `;
 
   document.body.appendChild(widget);
@@ -66,7 +72,6 @@
       const match = links.find(link =>
         link.textContent.toLowerCase().includes(term)
       );
-
       if (match) return match.href;
     }
 
@@ -75,17 +80,15 @@
 
   function showMessage(text) {
     message.textContent = text;
-    status.textContent = "";
+    status.replaceChildren();
   }
 
   toggle.addEventListener("click", function () {
     const opening = panel.hidden;
     panel.hidden = !opening;
     toggle.setAttribute("aria-expanded", String(opening));
-    toggle.setAttribute(
-      "aria-label",
-      opening ? "Close Mira" : "Open Mira"
-    );
+    toggle.setAttribute("aria-label",
+      opening ? "Close Mira" : "Open Mira");
 
     if (opening) {
       showMessage("Hi, scientist! 💜 What shall we learn today?");
@@ -105,21 +108,17 @@
         const action = button.dataset.action;
 
         if (action === "chapters") {
-          showMessage("Pick a chapter and let's explore it together! 🔬");
+          showMessage("Pick a chapter and let's explore it! 🔬");
 
           const available = chapters.filter(chapter =>
             findChapter(chapter.terms)
           );
 
-          if (available.length === 0) {
+          if (!available.length) {
             status.textContent =
-              "Open your Biology section to find your chapter links.";
+              "Open your Biology section to find chapter links.";
             return;
           }
-
-          status.textContent = available
-            .map(chapter => "📖 " + chapter.name)
-            .join("  •  ");
 
           available.forEach(chapter => {
             const link = findChapter(chapter.terms);
@@ -127,24 +126,19 @@
 
             const chapterButton = document.createElement("button");
             chapterButton.className = "mira-action";
-            chapterButton.textContent = "Open " + chapter.name;
-
-            chapterButton.addEventListener("click", function () {
+            chapterButton.textContent = "📖 " + chapter.name;
+            chapterButton.addEventListener("click", () => {
               window.location.href = link;
             });
-
-            status.appendChild(document.createElement("br"));
             status.appendChild(chapterButton);
           });
         }
 
         if (action === "quiz") {
           showMessage(
-            "Quick challenge! Which organelle produces most of " +
-            "the ATP in a typical eukaryotic cell?"
+            "Quick challenge! Which organelle produces most " +
+            "of the ATP in a typical eukaryotic cell?"
           );
-
-          status.replaceChildren();
 
           [
             ["Nucleus", false],
@@ -155,12 +149,11 @@
             option.className = "mira-action";
             option.textContent = answer;
 
-            option.addEventListener("click", function () {
+            option.addEventListener("click", () => {
               showMessage(correct
-                ? "Correct! 🎉 Mitochondria are the main site of " +
-                  "aerobic ATP production."
-                : "Not quite! 💜 Hint: think of the organelle " +
-                  "involved in cellular respiration."
+                ? "Correct! 🎉 Mitochondria are a main site " +
+                  "of aerobic ATP production."
+                : "Not quite! 💜 Think about cellular respiration."
               );
             });
 
@@ -170,8 +163,8 @@
 
         if (action === "hint") {
           showMessage(
-            "Study one small concept first, then test yourself " +
-            "without looking at your notes. You've got this! 💜"
+            "Let's take it one concept at a time! " +
+            "Read, recall, and then test yourself. 💜"
           );
         }
 
@@ -181,3 +174,4 @@
       });
     });
 })();
+
