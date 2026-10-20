@@ -148,3 +148,56 @@
     transition: none;
   }
 }
+
+/* Mira's anime avatar */
+#mira-toggle {
+  padding: 0;
+  overflow: hidden;
+  background: linear-gradient(145deg, #f5eaff, #cbb0ff);
+  border: 3px solid #d9c4ff;
+  animation: mira-float 3s ease-in-out infinite;
+}
+
+#mira-toggle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 25% 20%;
+  border-radius: 50%;
+  display: block;
+}
+
+#mira-toggle:hover {
+  box-shadow: 0 0 24px #a77affaa;
+}
+
+.mira-avatar {
+  width: 44px;
+  height: 44px;
+  object-fit: cover;
+  object-position: 25% 20%;
+  border-radius: 50%;
+  border: 2px solid #dfccff;
+  flex-shrink: 0;
+}
+
+.mira-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mira-header .mira-heading {
+  flex: 1;
+}
+
+@keyframes mira-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #mira-toggle {
+    animation: none;
+  }
+}
