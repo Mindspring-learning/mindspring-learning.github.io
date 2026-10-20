@@ -201,3 +201,87 @@
     animation: none;
   }
 }
+
+/* ===== MINDSpring MIRA EXPRESSION SYSTEM ===== */
+
+#mira-toggle {
+  position: relative;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+#mira-toggle img {
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+#mira-widget.mira-happy #mira-toggle {
+  box-shadow: 0 0 22px #b794ffcc;
+}
+
+#mira-widget.mira-thinking #mira-toggle img {
+  filter: hue-rotate(8deg) brightness(0.96);
+  transform: scale(0.94) rotate(-3deg);
+}
+
+#mira-widget.mira-celebrating #mira-toggle {
+  animation: mira-celebrate 0.55s ease-in-out 2;
+  box-shadow: 0 0 28px #d4a4ff;
+}
+
+#mira-widget.mira-happy #mira-toggle img {
+  animation: mira-happy 0.65s ease;
+}
+
+#mira-widget.mira-thinking #mira-toggle {
+  animation: mira-think 0.5s ease;
+}
+
+#mira-widget.mira-celebrating #mira-toggle img {
+  filter: brightness(1.12) saturate(1.15);
+}
+
+#mira-widget.mira-happy #mira-message {
+  background: #f1e8ff;
+}
+
+#mira-widget.mira-thinking #mira-message {
+  background: #eeeaff;
+}
+
+#mira-widget.mira-celebrating #mira-message {
+  background: #fcecff;
+}
+
+@keyframes mira-happy {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.09); }
+}
+
+@keyframes mira-think {
+  0%, 100% { transform: translateX(0); }
+  30% { transform: translateX(-3px); }
+  70% { transform: translateX(3px); }
+}
+
+@keyframes mira-celebrate {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  25% { transform: translateY(-8px) rotate(-5deg); }
+  75% { transform: translateY(-5px) rotate(5deg); }
+}
+
+#mira-widget .mira-mood-label {
+  display: inline-block;
+  margin-bottom: 8px;
+  color: #8052bd;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #mira-widget,
+  #mira-widget * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
