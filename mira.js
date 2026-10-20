@@ -403,7 +403,7 @@ function setMood(mood, text) {
 
   addOption("🔄 Let's try another", pickQuestion);
   addOption("🔁 Try this one again", showCurrentQuestion);
-
+  }
 
   function showKnowledgeSearch() {
     setMood(
