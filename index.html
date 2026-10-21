@@ -276,6 +276,20 @@ font-style: italic;color: #4B2E83; }
   </p>
 
   <form id="feedbackForm">
+    
+<label for="visitorName">
+  <strong>👋 First, what's your name?</strong>
+</label>
+<input
+  type="text"
+  id="visitorName"
+  name="visitorName"
+  placeholder="Enter your name or nickname"
+  maxlength="60"
+  required
+  style="width:100%; margin-top:10px; padding:12px; border:1px solid var(--line); border-radius:12px; font:inherit;"
+>
+
     <label for="nextChapter"><strong>📚 Which chapter are you waiting for next?</strong></label>
     <input
       type="text"
@@ -450,9 +464,16 @@ chapterButtons.forEach(button => {
     const message = document.getElementById("feedbackMessage");
     const button = feedbackForm.querySelector('button[type="submit"]');
 
-    const chapter = document.getElementById("nextChapter").value.trim();
-    const rating = document.getElementById("rating").value;
-    const suggestions = document.getElementById("suggestions").value.trim();
+  
+const visitorName = document.getElementById("visitorName").value.trim();
+const chapter = document.getElementById("nextChapter").value.trim();
+const rating = document.getElementById("rating").value;
+const suggestions = document.getElementById("suggestions").value.trim();
+
+if (!visitorName) {
+  message.textContent = "Please enter your name first. 💜";
+  return;
+}
 
     if (!chapter && !rating && !suggestions) {
       message.textContent = "Please fill in at least one field. 💜";
@@ -476,6 +497,7 @@ chapterButtons.forEach(button => {
           },
           body: JSON.stringify({
             _subject: "New MindSpring Feedback 💜",
+             "Visitor name": visitorName,
             "Requested chapter": chapter || "Not provided",
             "Experience rating": rating || "Not provided",
             "Suggestions": suggestions || "Not provided"
@@ -489,8 +511,9 @@ chapterButtons.forEach(button => {
         throw new Error("Submission failed");
       }
 
-      message.textContent =
-        "Thank you! Your feedback has been sent. 💜";
+     
+message.textContent =
+  `Thank you, ${visitorName}! Your request has been sent successfully. 💜`;
 
       feedbackForm.reset();
 
