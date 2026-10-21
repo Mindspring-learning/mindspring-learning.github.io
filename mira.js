@@ -138,6 +138,11 @@ function setMood(mood, text) {
       terms: ["cell: the unit", "cell structure"],
       title: "Cell: The Unit of Life"
     }
+    {
+  name: "Photosynthesis in Higher Plants",
+  terms: ["photosynthesis in higher plants", "photosynthesis"],
+  title: "Photosynthesis in Higher Plants"
+}
   ];
 
   function findChapter(terms) {
