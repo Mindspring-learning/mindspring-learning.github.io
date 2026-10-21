@@ -122,28 +122,29 @@ function setMood(mood, text) {
     input.focus();
   }
 
-  const chapters = [
-    {
-      name: "Biomolecules",
-      terms: ["biomolecule", "biomolecules"],
-      title: "Biomolecules"
-    },
-    {
-      name: "Cell Cycle and Cell Division",
-      terms: ["cell cycle", "cell division"],
-      title: "Cell Cycle and Cell Division"
-    },
-    {
-      name: "Cell: The Unit of Life",
-      terms: ["cell: the unit", "cell structure"],
-      title: "Cell: The Unit of Life"
-    },
-    {
-  name: "Photosynthesis in Higher Plants",
-  terms: ["photosynthesis in higher plants", "photosynthesis"],
-  title: "Photosynthesis in Higher Plants"
-}
-  ];
+  
+const chapters = [
+  {
+    name: "Biomolecules",
+    terms: ["biomolecule", "biomolecules"],
+    title: "Biomolecules"
+  },
+  {
+    name: "Cell Cycle and Cell Division",
+    terms: ["cell cycle", "cell division"],
+    title: "Cell Cycle and Cell Division"
+  },
+  {
+    name: "Cell: The Unit of Life",
+    terms: ["cell: the unit", "cell structure"],
+    title: "Cell: The Unit of Life"
+  },
+  {
+    name: "Photosynthesis in Higher Plants",
+    terms: ["photosynthesis in higher plants", "photosynthesis"],
+    title: "Photosynthesis in Higher Plants"
+  }
+];
 
   function findChapter(terms) {
     const links = Array.from(document.querySelectorAll("a[href]"));
