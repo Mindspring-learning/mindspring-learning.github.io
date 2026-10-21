@@ -137,7 +137,7 @@ function setMood(mood, text) {
       name: "Cell: The Unit of Life",
       terms: ["cell: the unit", "cell structure"],
       title: "Cell: The Unit of Life"
-    }
+    },
     {
   name: "Photosynthesis in Higher Plants",
   terms: ["photosynthesis in higher plants", "photosynthesis"],
