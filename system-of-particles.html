@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="MindSpring Class 11 Physics: System of Particles and Rotational Motion. Interactive lessons, formulas, worked examples and practice questions.">
+<title>System of Particles and Rotational Motion | MindSpring</title>
+<style>
+:root{--ink:#292541;--muted:#706b86;--purple:#7357c8;--purple-dark:#4b2e83;--lav:#f0ebff;--pink:#fff0f5;--paper:#fbfaff;--white:#fff;--line:#e9e4f5;--green:#217a55;--red:#a33b52;--shadow:0 8px 28px #2925410c}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:18px}body{margin:0;background:linear-gradient(180deg,#f5f0ff 0,var(--paper) 300px);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);line-height:1.6}.wrap{width:min(100% - 30px,1050px);margin:auto}
+header{padding:20px 0 8px;display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{font-family:Georgia,serif;font-style:italic;font-size:1.3rem;color:var(--purple-dark);font-weight:700;text-decoration:none}.back{color:var(--purple-dark);text-decoration:none;font-weight:750;font-size:.92rem}
+.hero{padding:30px 0 24px;display:grid;grid-template-columns:1.25fr .75fr;gap:20px;align-items:center}.eyebrow{font-size:.76rem;text-transform:uppercase;letter-spacing:.12em;color:var(--purple);font-weight:850}.hero h1{font-size:clamp(2rem,5vw,3.3rem);line-height:1.1;letter-spacing:-.04em;margin:10px 0 12px}.hero p{color:var(--muted);max-width:620px}.hero-art{border:1px solid var(--line);border-radius:25px;padding:22px;background:linear-gradient(135deg,var(--lav),var(--pink));box-shadow:var(--shadow)}.orbit{min-height:145px;display:grid;place-items:center;position:relative}.mass{border-radius:14px;background:#fff;border:2px solid #cfc1ff;padding:12px;text-align:center;font-weight:800;box-shadow:0 5px 15px #7357c822}.mass.a{position:absolute;left:4%;top:18px}.mass.b{position:absolute;right:4%;bottom:14px}.mass.mid{background:var(--purple);color:white;border-color:var(--purple);z-index:1}.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.btn,.btn-secondary{border:0;border-radius:12px;padding:11px 15px;font:inherit;font-weight:800;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:7px}.btn{background:var(--purple);color:white}.btn-secondary{background:white;color:var(--purple-dark);border:1px solid var(--line)}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #c7b8ff;outline-offset:3px}
+.quicknav{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 22px}.quicknav a{font-size:.88rem;font-weight:700;text-decoration:none;color:var(--purple-dark);background:white;border:1px solid var(--line);padding:7px 11px;border-radius:999px}
+.section{margin:25px 0}.section-head{margin-bottom:13px}.section h2{font-size:1.45rem;margin:0}.sub{color:var(--muted);margin:5px 0 0}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card{background:white;border:1px solid var(--line);border-radius:19px;padding:18px;box-shadow:var(--shadow);min-width:0}.card h3{margin:0 0 8px;font-size:1.08rem}.card p{margin:7px 0}.callout{border-left:4px solid var(--purple);background:var(--lav);padding:11px 13px;border-radius:0 12px 12px 0;margin:12px 0}.formula{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:1.04rem;background:#f8f5ff;border:1px solid var(--line);border-radius:10px;padding:10px 12px;display:block;overflow-wrap:anywhere;margin:9px 0}.muted{color:var(--muted)}.small{font-size:.9rem;color:var(--muted)}.pill{display:inline-block;padding:4px 9px;border-radius:999px;background:var(--lav);color:var(--purple-dark);font-size:.78rem;font-weight:800}.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:.92rem}th,td{padding:10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{background:#f8f5ff}
+.visual{background:linear-gradient(180deg,#fcfaff,#f6f1ff);border:1px solid var(--line);border-radius:15px;padding:14px;margin-top:12px}.range-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.range-row label{font-weight:700}.range-row input{flex:1;min-width:150px;accent-color:var(--purple)}.track{height:64px;position:relative;margin:18px 8px 5px;border-bottom:3px solid #b9a8ef}.block{position:absolute;bottom:3px;width:45px;height:42px;border-radius:10px 10px 4px 4px;background:var(--purple);color:white;display:grid;place-items:center;font-weight:850;transform:translateX(-50%);box-shadow:0 5px 12px #7357c82a}.block.second{background:#e58bad}.marker{position:absolute;bottom:-12px;width:2px;height:70px;background:#217a55;transform:translateX(-50%)}.marker-label{position:absolute;top:-19px;transform:translateX(-50%);font-size:.78rem;color:var(--green);font-weight:800;white-space:nowrap}.torque-wrap{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:center}.lever{height:150px;position:relative;display:grid;place-items:center}.lever-line{height:8px;width:86%;background:#b8a8e9;border-radius:999px;transform:rotate(-8deg);position:absolute}.pivot{width:0;height:0;border-left:17px solid transparent;border-right:17px solid transparent;border-bottom:30px solid #7357c8;position:absolute;bottom:31px}.force-dot{width:26px;height:26px;background:#e58bad;border-radius:50%;position:absolute;right:12%;top:25px}.force-arrow{position:absolute;right:calc(12% + 8px);top:48px;color:var(--red);font-weight:900;font-size:1.4rem}.result{font-weight:850;color:var(--purple-dark);font-size:1.04rem}.quiz-option{display:block;width:100%;text-align:left;background:#fff;border:1px solid var(--line);border-radius:11px;padding:11px 12px;font:inherit;cursor:pointer;margin:8px 0}.quiz-option:hover{border-color:var(--purple)}.quiz-option.correct{background:#e8f7ef;border-color:#7cc8a0}.quiz-option.wrong{background:#fff0f0;border-color:#e3a2a2}.feedback{min-height:28px;font-weight:700;margin-top:8px}.quiz-controls{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}.answer-key{font-size:.92rem}.footer{padding:25px 0 35px;margin-top:35px;border-top:1px solid var(--line);color:var(--muted);font-size:.86rem}
+@media(max-width:720px){.hero,.grid{grid-template-columns:1fr}.hero{padding-top:20px}.hero-art{min-height:180px}.torque-wrap{grid-template-columns:1fr}.card{padding:15px}.quicknav{gap:6px}.quicknav a{font-size:.82rem}}
+@media print{body{background:white;color:#111;font-size:10.5pt}.wrap{width:100%;max-width:none}.no-print,header .back,.hero-actions,.quicknav,.visual input,.quiz-controls{display:none!important}.hero{display:block;padding:8px 0}.hero-art{display:none}.card,.hero-art,.visual{box-shadow:none;break-inside:avoid;border:1px solid #bbb;background:white}.section{break-inside:auto;margin:16px 0}.grid{grid-template-columns:1fr 1fr}.formula{background:white}.section h2{font-size:15pt}a{color:#111;text-decoration:none}.footer{padding:10px 0}}
+</style>
+</head>
+<body>
+<header class="wrap">
+  <a class="brand" href="index.html">MindSpring 💜</a>
+  <a class="back" href="index.html">← Back to homepage</a>
+</header>
+<main class="wrap">
+<section class="hero">
+  <div>
+    <span class="eyebrow">Class 11 Physics · NCERT-aligned learning</span>
+    <h1>System of Particles &amp; Rotational Motion</h1>
+    <p>Understand how many particles move together, how forces turn objects, and why rotating bodies need their own set of ideas.</p>
+    <div class="hero-actions no-print">
+      <a class="btn" href="#interactive">Explore interactives ↓</a>
+      <button class="btn-secondary" onclick="window.print()">🖨️ Print / Save as PDF</button>
+    </div>
+    <p class="small">Use the print button and choose “Save as PDF” in your browser to keep a revision copy.</p>
+  </div>
+  <div class="hero-art" aria-label="Illustration of two masses and their centre of mass">
+    <div class="orbit">
+      <div class="mass a">m₁</div><div class="mass mid">COM</div><div class="mass b">m₂</div>
+    </div>
+    <p style="text-align:center;margin:0;font-weight:750">Many particles · One useful reference point</p>
+  </div>
+</section>
+<nav class="quicknav no-print" aria-label="Chapter navigation">
+  <a href="#overview">Overview</a><a href="#com">Centre of mass</a><a href="#torque">Torque</a><a href="#angular">Angular momentum</a><a href="#inertia">Moment of inertia</a><a href="#formulas">Formula sheet</a><a href="#practice">Practice</a>
+</nav>
+
+<section class="section" id="overview">
+<div class="section-head"><h2>1. Big picture: what is a system of particles?</h2><p class="sub">A collection of particles can often be studied as a whole, instead of tracking every particle separately.</p></div>
+<div class="grid">
+ <article class="card"><h3>System of particles</h3><p>A system is a collection of two or more particles considered together. The particles may interact with one another and may experience external forces.</p><div class="callout"><b>Key idea:</b> Internal forces act between particles within the system. External forces come from outside the chosen system.</div></article>
+ <article class="card"><h3>Centre of mass (COM)</h3><p>The centre of mass is the mass-weighted average position of a system. It is a useful point for describing the translational motion of the whole system.</p><span class="formula">r⃗COM = (Σ mᵢ r⃗ᵢ) / (Σ mᵢ)</span></article>
+ <article class="card"><h3>Translation vs rotation</h3><p><b>Translation:</b> the position of the whole body changes. <b>Rotation:</b> the body turns about an axis. A rigid body can translate and rotate at the same time.</p></article>
+ <article class="card"><h3>Rigid body model</h3><p>A rigid body is an idealised body in which the distance between every pair of particles remains constant. Real objects can deform, but the model is useful when deformation is negligible.</p></article>
+</div>
+</section>
+
+<section class="section" id="com">
+<div class="section-head"><h2>2. Centre of mass (COM)</h2><p class="sub">The position depends on both where the masses are and how much mass each particle has.</p></div>
+<div class="grid">
+ <article class="card"><h3>Two particles on a straight line</h3><span class="formula">xCOM = (m₁x₁ + m₂x₂) / (m₁ + m₂)</span><p>If the origin is at the first mass, with the second mass a distance d away:</p><span class="formula">xCOM = (m₂d) / (m₁ + m₂)</span><p class="small">The COM lies closer to the heavier mass. For a continuous body, the same idea is extended using integration or symmetry.</p></article>
+ <article class="card"><h3>Worked example</h3><p>Two point masses, 2 kg at x = 0 m and 6 kg at x = 4 m.</p><span class="formula">xCOM = [(2 × 0) + (6 × 4)] / (2 + 6)</span><span class="formula">xCOM = 24 / 8 = 3 m</span><p class="callout">The centre of mass is 3 m from the origin, closer to the 6 kg mass.</p></article>
+</div>
+<div class="card" style="margin-top:14px">
+<h3>Interactive: move the masses</h3>
+<p class="small">Change the masses and positions. Watch the calculated centre of mass move along the line.</p>
+<div class="visual" id="interactive">
+ <div class="range-row"><label for="m1">Mass m₁: <output id="m1out">2</output> kg</label><input id="m1" type="range" min="1" max="10" value="2"></div>
+ <div class="range-row"><label for="x1">Position x₁: <output id="x1out">0</output> m</label><input id="x1" type="range" min="0" max="10" value="0"></div>
+ <div class="range-row"><label for="m2">Mass m₂: <output id="m2out">6</output> kg</label><input id="m2" type="range" min="1" max="10" value="6"></div>
+ <div class="range-row"><label for="x2">Position x₂: <output id="x2out">8</output> m</label><input id="x2" type="range" min="0" max="10" value="8"></div>
+ <div class="track" id="massTrack"><div class="block" id="block1">m₁</div><div class="block second" id="block2">m₂</div><div class="marker" id="comMarker"><span class="marker-label" id="comLabel">COM = 6 m</span></div></div>
+ <p class="result" id="comResult" aria-live="polite">Centre of mass = 6.00 m</p>
+</div>
+</div>
+<div class="grid" style="margin-top:14px">
+ <article class="card"><h3>Motion of the centre of mass</h3><span class="formula">P⃗ = M V⃗COM</span><span class="formula">F⃗external = dP⃗/dt = M A⃗COM</span><p>Here M is the total mass. For a system of constant total mass, the centre of mass accelerates according to the net external force.</p></article>
+ <article class="card"><h3>Conservation of linear momentum</h3><p>If the net external force on a system is zero, its total linear momentum remains constant.</p><span class="formula">P⃗initial = P⃗final</span><p class="small">Internal forces can change individual particles' momenta, but they do not change the total momentum of an isolated system.</p></article>
+</div>
+</section>
+
+<section class="section" id="torque">
+<div class="section-head"><h2>3. Torque: the turning effect of a force</h2><p class="sub">A force can produce translation, rotation, or both, depending on where and how it acts.</p></div>
+<div class="grid">
+ <article class="card"><h3>Definition</h3><span class="formula">τ⃗ = r⃗ × F⃗</span><span class="formula">|τ| = r F sin θ = F × perpendicular lever arm</span><p>Here r is the displacement from the chosen axis/pivot to the point where force acts, F is force, and θ is the angle between r⃗ and F⃗.</p><p><b>SI unit:</b> newton metre (N m). Torque has the same dimensions as energy, but torque and energy are different physical quantities.</p></article>
+ <article class="card"><h3>How to increase torque?</h3><ul><li>Apply a larger force.</li><li>Apply it farther from the pivot.</li><li>Apply it more nearly perpendicular to the lever arm.</li></ul><div class="callout">This is why a door handle is placed far from the hinges.</div></article>
+</div>
+<div class="card" style="margin-top:14px">
+<h3>Interactive: torque on a lever</h3>
+<p class="small">Adjust force, distance from pivot, and angle. The simple model calculates the torque magnitude.</p>
+<div class="visual torque-wrap">
+ <div>
+  <div class="range-row"><label for="force">Force: <output id="forceOut">10</output> N</label><input id="force" type="range" min="1" max="50" value="10"></div>
+  <div class="range-row"><label for="arm">Lever arm r: <output id="armOut">0.5</output> m</label><input id="arm" type="range" min="1" max="20" value="10"></div>
+  <div class="range-row"><label for="angle">Angle θ: <output id="angleOut">90</output>°</label><input id="angle" type="range" min="0" max="180" value="90"></div>
+  <p class="result" id="torqueResult" aria-live="polite">Torque magnitude = 5.00 N m</p>
+ </div>
+ <div class="lever" aria-hidden="true"><div class="lever-line"></div><div class="pivot"></div><div class="force-dot"></div><div class="force-arrow">↓ F</div></div>
+</div>
+</div>
+<div class="grid" style="margin-top:14px">
+ <article class="card"><h3>Couple</h3><p>A couple consists of two equal, opposite and parallel forces acting along different lines. Their net force is zero, but they produce a turning effect.</p><span class="formula">Couple torque = F × perpendicular distance between forces</span></article>
+ <article class="card"><h3>Rotational equilibrium</h3><p>For rotational equilibrium, the net external torque about the chosen point is zero.</p><span class="formula">Στ⃗ = 0</span><p>For complete static equilibrium, both net force and net torque must be zero.</p><span class="formula">ΣF⃗ = 0 and Στ⃗ = 0</span></article>
+</div>
+</section>
+
+<section class="section" id="angular">
+<div class="section-head"><h2>4. Angular momentum</h2><p class="sub">The rotational counterpart of linear momentum.</p></div>
+<div class="grid">
+ <article class="card"><h3>Particle angular momentum</h3><span class="formula">L⃗ = r⃗ × p⃗</span><span class="formula">|L| = r p sin θ</span><p>For a particle moving in a circle with velocity perpendicular to the radius, L = mvr.</p></article>
+ <article class="card"><h3>Torque and angular momentum</h3><span class="formula">τ⃗external = dL⃗/dt</span><p>If the net external torque on a system is zero, total angular momentum remains constant.</p><span class="formula">L⃗initial = L⃗final</span><p class="callout">Example idea: when a rotating skater pulls their arms inward, their moment of inertia decreases and angular speed increases, if external torque is negligible.</p></article>
+</div>
+</section>
+
+<section class="section" id="inertia">
+<div class="section-head"><h2>5. Moment of inertia and rotational dynamics</h2><p class="sub">Moment of inertia tells us how strongly a body resists a change in its angular motion about a particular axis.</p></div>
+<div class="grid">
+ <article class="card"><h3>Moment of inertia</h3><span class="formula">I = Σ mᵢ rᵢ²</span><p>For point masses, each mass is multiplied by the square of its perpendicular distance from the axis. SI unit: kg m².</p><p>It depends on the mass distribution and the axis chosen, not just on total mass.</p></article>
+ <article class="card"><h3>Rotational form of Newton's second law</h3><span class="formula">τnet = Iα</span><p>For a rigid body rotating about a fixed principal axis with constant I, net torque equals moment of inertia multiplied by angular acceleration α.</p><p>SI unit of angular acceleration: rad s⁻².</p></article>
+ <article class="card"><h3>Rotational kinetic energy</h3><span class="formula">Krot = ½ Iω²</span><p>ω is angular speed in rad s⁻¹. A rolling body may have both translational and rotational kinetic energy.</p><span class="formula">Ktotal = ½ MvCOM² + ½ ICOMω²</span></article>
+ <article class="card"><h3>Radius of gyration</h3><span class="formula">I = Mk²  ⇒  k = √(I/M)</span><p>Radius of gyration k is the distance from the axis at which the whole mass M could be imagined concentrated to give the same moment of inertia.</p></article>
+</div>
+<div class="card" style="margin-top:14px">
+<h3>Common standard results to learn</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Body and axis</th><th>Moment of inertia</th></tr></thead>
+<tbody>
+<tr><td>Thin ring, through centre and perpendicular to plane</td><td>I = MR²</td></tr>
+<tr><td>Solid disc, through centre and perpendicular to plane</td><td>I = ½MR²</td></tr>
+<tr><td>Solid cylinder, about its symmetry axis</td><td>I = ½MR²</td></tr>
+<tr><td>Solid sphere, about a diameter</td><td>I = ⅖MR²</td></tr>
+<tr><td>Thin spherical shell, about a diameter</td><td>I = ⅔MR²</td></tr>
+<tr><td>Thin rod of length L, through centre and perpendicular to rod</td><td>I = ML²/12</td></tr>
+<tr><td>Thin rod of length L, through one end and perpendicular to rod</td><td>I = ML²/3</td></tr>
+</tbody></table></div>
+<p class="small">These are standard ideal-body results. Always check the axis specified in the question.</p>
+</div>
+<div class="grid" style="margin-top:14px">
+ <article class="card"><h3>Parallel-axis theorem</h3><span class="formula">I = ICOM + Md²</span><p>I is the moment of inertia about an axis parallel to an axis through the centre of mass; d is the separation between the axes.</p></article>
+ <article class="card"><h3>Perpendicular-axis theorem</h3><span class="formula">Iz = Ix + Iy</span><p>For a plane lamina lying in the xy-plane, the moment of inertia about the perpendicular z-axis through a point equals the sum about two perpendicular in-plane axes through that point.</p></article>
+</div>
+</section>
+
+<section class="section" id="formulas">
+<div class="section-head"><h2>6. Quick formula sheet</h2><p class="sub">Use this for revision, but make sure you know what every symbol means.</p></div>
+<div class="card">
+<div class="table-wrap"><table>
+<thead><tr><th>Concept</th><th>Formula</th><th>Symbols / units</th></tr></thead>
+<tbody>
+<tr><td>Centre of mass, 1D</td><td>xCOM = Σmᵢxᵢ / Σmᵢ</td><td>m in kg; x in m</td></tr>
+<tr><td>Linear momentum</td><td>p⃗ = Mv⃗COM</td><td>p in kg m s⁻¹</td></tr>
+<tr><td>External force and COM</td><td>F⃗ext = M a⃗COM</td><td>F in N; a in m s⁻²</td></tr>
+<tr><td>Torque magnitude</td><td>τ = rF sin θ</td><td>τ in N m; r in m; F in N</td></tr>
+<tr><td>Angular momentum</td><td>L⃗ = r⃗ × p⃗</td><td>L in kg m² s⁻¹</td></tr>
+<tr><td>Moment of inertia</td><td>I = Σmᵢrᵢ²</td><td>I in kg m²</td></tr>
+<tr><td>Rotational dynamics</td><td>τnet = Iα</td><td>α in rad s⁻²</td></tr>
+<tr><td>Rotational kinetic energy</td><td>K = ½Iω²</td><td>ω in rad s⁻¹; K in J</td></tr>
+<tr><td>Angular momentum for fixed-axis rigid body</td><td>L = Iω</td><td>For rotation about a fixed principal axis</td></tr>
+<tr><td>Radius of gyration</td><td>I = Mk²</td><td>k in m</td></tr>
+<tr><td>Parallel-axis theorem</td><td>I = ICOM + Md²</td><td>d is distance between axes</td></tr>
+<tr><td>Rolling without slipping</td><td>vCOM = Rω</td><td>R is rolling radius</td></tr>
+</tbody></table></div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-head"><h2>7. Solved numerical: torque and angular acceleration</h2><p class="sub">A model example showing the usual exam method.</p></div>
+<article class="card">
+<p><b>Question:</b> A constant net torque of 6 N m acts on a body with moment of inertia 2 kg m² about a fixed axis. Find its angular acceleration.</p>
+<p><b>Step 1 — Write the relation:</b></p><span class="formula">τnet = Iα</span>
+<p><b>Step 2 — Rearrange:</b></p><span class="formula">α = τnet / I</span>
+<p><b>Step 3 — Substitute:</b></p><span class="formula">α = 6 / 2 = 3 rad s⁻²</span>
+<p class="callout"><b>Answer:</b> The angular acceleration is 3 rad s⁻². Check that torque and moment of inertia are in SI units.</p>
+</article>
+</section>
+
+<section class="section" id="practice">
+<div class="section-head"><h2>8. Test your understanding</h2><p class="sub">Choose an option to get instant feedback and a short explanation.</p></div>
+<div class="card">
+<span class="pill">Practice MCQs</span>
+<div id="quizArea">
+<p class="quiz-q" id="quizQuestion">A 2 kg particle is at x = 0 m and a 6 kg particle is at x = 4 m. What is their centre of mass?</p>
+<div id="quizOptions">
+<button class="quiz-option" data-index="0">1 m</button>
+<button class="quiz-option" data-index="1">2 m</button>
+<button class="quiz-option" data-index="2">3 m</button>
+<button class="quiz-option" data-index="3">4 m</button>
+</div>
+<div class="feedback" id="quizFeedback" aria-live="polite"></div>
+<div class="quiz-controls no-print"><button class="btn" id="nextQuestion">Next question →</button><button class="btn-secondary" id="resetQuiz">Restart quiz</button></div>
+<p class="small" id="quizScore">Answered correctly: 0 / 0</p>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="card">
+<h2>Before you finish 💜</h2>
+<ul>
+<li>Practise identifying the system and choosing the correct origin or axis.</li>
+<li>Draw a labelled diagram before substituting values into a formula.</li>
+<li>Check units, signs, perpendicular distances and the axis of rotation.</li>
+<li>For NEET, learn standard moments of inertia and practise applying the theorems.</li>
+</ul>
+<p class="small">These notes are a learning aid. Use your prescribed NCERT textbook and teacher's instructions for the complete syllabus and exam-specific coverage.</p>
+<div class="hero-actions no-print"><button class="btn" onclick="window.print()">🖨️ Print / Save as PDF</button><a class="btn-secondary" href="index.html">← Return to MindSpring</a></div>
+</div>
+</section>
+</main>
+<footer class="wrap footer">MindSpring · Understand, Revise and Grow · Class 11 Physics learning resource</footer>
+<script>
+(function(){
+ const ids=['m1','x1','m2','x2'];
+ function updateCOM(){
+  const vals={};ids.forEach(id=>vals[id]=Number(document.getElementById(id).value));
+  ids.forEach(id=>document.getElementById(id+'out').textContent=vals[id]);
+  const total=vals.m1+vals.m2;
+  const com=(vals.m1*vals.x1+vals.m2*vals.x2)/total;
+  const track=document.getElementById('massTrack');
+  const pct=x=>Math.max(0,Math.min(100,x*10));
+  document.getElementById('block1').style.left=pct(vals.x1)+'%';
+  document.getElementById('block2').style.left=pct(vals.x2)+'%';
+  document.getElementById('comMarker').style.left=pct(com)+'%';
+  const label=document.getElementById('comLabel');
+  label.textContent='COM = '+com.toFixed(2)+' m';
+  label.style.left='0';label.style.transform='translateX(-50%)';
+  document.getElementById('comResult').textContent='Centre of mass = '+com.toFixed(2)+' m';
+ }
+ ids.forEach(id=>document.getElementById(id).addEventListener('input',updateCOM));updateCOM();
+ function updateTorque(){
+  const f=Number(document.getElementById('force').value);
+  const r=Number(document.getElementById('arm').value)/20;
+  const deg=Number(document.getElementById('angle').value);
+  document.getElementById('forceOut').textContent=f;
+  document.getElementById('armOut').textContent=r.toFixed(2);
+  document.getElementById('angleOut').textContent=deg;
+  const tau=f*r*Math.sin(deg*Math.PI/180);
+  document.getElementById('torqueResult').textContent='Torque magnitude = '+tau.toFixed(2)+' N m';
+ }
+ ['force','arm','angle'].forEach(id=>document.getElementById(id).addEventListener('input',updateTorque));updateTorque();
+ const questions=[
+  {q:'A 2 kg particle is at x = 0 m and a 6 kg particle is at x = 4 m. What is their centre of mass?',o:['1 m','2 m','3 m','4 m'],a:2,e:'xCOM = (2×0 + 6×4)/(2+6) = 24/8 = 3 m.'},
+  {q:'The SI unit of moment of inertia is:',o:['kg m','kg m²','N m','kg m s⁻¹'],a:1,e:'I = Σmr², so its SI unit is kg m².'},
+  {q:'A 10 N force acts perpendicular to a lever arm of 0.5 m. What is the torque magnitude?',o:['2 N m','5 N m','10 N m','20 N m'],a:1,e:'τ = rF sin 90° = 0.5×10 = 5 N m.'},
+  {q:'If the net external torque on a system is zero, which quantity is conserved?',o:['Always its kinetic energy','Its total angular momentum','Each particle’s angular momentum separately','Its moment of inertia in every situation'],a:1,e:'Zero net external torque means total angular momentum is conserved.'},
+  {q:'For a rigid body rotating about a fixed axis with constant I, the net torque is:',o:['I/α','Iα','Iω²','mvr'],a:1,e:'For fixed-axis rotation, τnet = Iα.'},
+  {q:'A ring and a solid disc have the same mass and radius. About their central symmetry axes, which has greater moment of inertia?',o:['The ring','The disc','Both equal','Cannot compare without angular speed'],a:0,e:'A ring has I = MR², while a solid disc has I = ½MR².'},
+ ];
+ // Correct the final item explicitly to keep the quiz data easy to edit.
+ questions[5]={q:'A ring and a solid disc have the same mass and radius. About their central symmetry axes, which has greater moment of inertia?',o:['The ring','The disc','Both equal','Cannot compare without angular speed'],a:0,e:'For a ring I = MR²; for a solid disc I = ½MR². The ring has the greater moment of inertia.'};
+ let qi=0,answered=false,correct=0,attempted=0;
+ const qel=document.getElementById('quizQuestion'),oel=document.getElementById('quizOptions'),fel=document.getElementById('quizFeedback'),sel=document.getElementById('quizScore');
+ function render(){
+  const q=questions[qi];qel.textContent=(qi+1)+'. '+q.q;oel.innerHTML='';fel.textContent='';answered=false;
+  q.o.forEach((opt,i)=>{const b=document.createElement('button');b.className='quiz-option';b.textContent=String.fromCharCode(65+i)+'. '+opt;b.addEventListener('click',()=>choose(i,b));oel.appendChild(b)});
+  sel.textContent='Answered correctly: '+correct+' / '+attempted;
+ }
+ function choose(i,button){
+  if(answered)return;answered=true;attempted++;const q=questions[qi];const all=oel.querySelectorAll('button');
+  all.forEach((b,j)=>{b.disabled=true;if(j===q.a)b.classList.add('correct')});
+  if(i===q.a){correct++;fel.textContent='Correct! '+q.e;fel.style.color='var(--green)'}
+  else{button.classList.add('wrong');fel.textContent='Not quite. '+q.e;fel.style.color='var(--red)'}
+  sel.textContent='Answered correctly: '+correct+' / '+attempted;
+ }
+ document.getElementById('nextQuestion').addEventListener('click',()=>{qi=(qi+1)%questions.length;render()});
+ document.getElementById('resetQuiz').addEventListener('click',()=>{qi=0;correct=0;attempted=0;render()});
+ render();
+})();
+</script>
+</body>
+</html>
