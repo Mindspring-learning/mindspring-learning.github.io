@@ -185,6 +185,37 @@ font-style: italic;color: #4B2E83; }
   border-color: var(--purple);
   background: var(--purple-light);
 }
+#phy-chapters {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 19px;
+  box-shadow: 0 8px 28px #29254108;
+  scroll-margin-top: 30px;
+}
+
+.phy-list {
+  display: grid;
+  gap: 9px;
+  margin-top: 13px;
+}
+
+.phy-btn {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px;
+  background: white;
+  color: var(--ink);
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+}
+
+.phy-btn:hover {
+  border-color: var(--purple);
+  background: var(--purple-light);
+}
 
 .announcement {
   margin: 14px auto;
@@ -258,7 +289,7 @@ font-style: italic;color: #4B2E83; }
   <div class="card-icon">⚙️</div>
   <h3>Physics</h3>
   <p>Understand concepts through interactive lessons, diagrams and solved numericals.</p>
-  <span class="pill">Class 11 · Launching now</span>
+  <span class="pill">Class 11 · Launched recently</span>
 </a>
 
 <a href="python-runner.html" class="python-playground-btn">
@@ -392,34 +423,23 @@ font-style: italic;color: #4B2E83; }
     </a>
   </div>
 </article>
-</section>
-
-<section id="physics-chapters">
-  <div class="section-title">
-    <div>
-      <h2>⚙️ Your Physics Space</h2>
-      <p class="small">
-        Explore concepts, understand the mathematics and practise problems.
-      </p>
-    </div>
-  </div>
-
-  <article class="card notes-box">
-    <span class="eyebrow">CLASS 11 PHYSICS</span>
-    <p class="small">
-      ⚛️ Physics isn’t just about formulas — it’s about understanding how our world works! 💜✨
+      <article class="card notes-box phy" id="phy-chapters">
+  <span class="eyebrow">YOUR PHYSICS ERA </span>
+  <h3>Explore Chapters 💻</h3>
+  <p class="small">
+    ⚛️ Physics isn’t just about formulas — it’s about understanding how our world works! 💜✨
       Let’s learn, visualise, and understand Physics one concept at a time! 🌱💜
+  </p>
 
-
-    </p>
-
-    
-<a class="btn" href="system-of-particles.html">
-  ⚙️ System of Particles →
-</a>
- </article>
+  <div class="phy-list">
+    <a class="phy-btn"
+       href="system-of-particles.html"
+       style="text-decoration:none; display:block;">
+       ⚙️ System of Particles →
+    </a>
+  </div>
+</article>
 </section>
-
     
     <section class="card" style="margin-bottom:34px" id="quiz">
       <span class="eyebrow">Mini quiz</span>
