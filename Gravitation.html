@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="MindSpring Class 11 Physics: Gravitation. NCERT-aligned interactive lessons, gravity visualisations, formulas, worked examples and practice.">
+<title>Gravitation | MindSpring Learning</title>
+<style>
+:root{--ink:#292541;--muted:#706b86;--purple:#7357c8;--deep:#4b2e83;--lav:#f0ebff;--pink:#fff0f5;--paper:#fbfaff;--white:#fff;--line:#e9e4f5;--green:#217a55;--red:#a33b52;--shadow:0 8px 28px #2925410c}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:18px}body{margin:0;background:linear-gradient(180deg,#f5f0ff 0,var(--paper) 320px);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);line-height:1.65}.wrap{width:min(100% - 30px,1050px);margin:auto}
+header{padding:20px 0 8px;display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{font-family:Georgia,serif;font-style:italic;font-size:1.3rem;color:var(--deep);font-weight:700;text-decoration:none}.back{color:var(--deep);text-decoration:none;font-weight:750;font-size:.92rem}
+.hero{padding:30px 0 24px;display:grid;grid-template-columns:1.15fr .85fr;gap:20px;align-items:center}.eyebrow{font-size:.76rem;text-transform:uppercase;letter-spacing:.12em;color:var(--purple);font-weight:850}.hero h1{font-size:clamp(2rem,5vw,3.35rem);line-height:1.1;letter-spacing:-.04em;margin:10px 0 12px}.hero p{color:var(--muted);max-width:620px}.hero-art{border:1px solid var(--line);border-radius:25px;padding:22px;background:linear-gradient(135deg,var(--lav),var(--pink));box-shadow:var(--shadow);min-height:230px;display:grid;place-items:center}.planet-system{position:relative;width:100%;height:160px;display:grid;place-items:center}.earth{width:82px;height:82px;border-radius:50%;background:radial-gradient(circle at 30% 25%,#b9e9ff,#6b8de6 48%,#3b3b9b 78%);box-shadow:0 0 0 12px #8b74d21b,0 0 35px #7357c855;z-index:2}.orbit-ring{position:absolute;width:220px;height:105px;border:1.5px solid #8c72d6;border-radius:50%;transform:rotate(-18deg)}.satellite{position:absolute;top:20px;right:calc(50% - 112px);font-size:1.35rem;animation:float 5s ease-in-out infinite}@keyframes float{50%{transform:translateY(9px) rotate(8deg)}}.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.btn,.btn-secondary{border:0;border-radius:12px;padding:11px 15px;font:inherit;font-weight:800;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:7px}.btn{background:var(--purple);color:white}.btn-secondary{background:white;color:var(--deep);border:1px solid var(--line)}.small{font-size:.88rem;color:var(--muted)}.quicknav{display:flex;gap:8px;flex-wrap:wrap;padding:10px 0 22px}.quicknav a{background:#fff;border:1px solid var(--line);padding:7px 11px;border-radius:999px;color:var(--deep);font-weight:750;text-decoration:none;font-size:.86rem}.section{margin:18px 0 28px}.section-head{display:flex;align-items:end;justify-content:space-between;gap:14px;margin-bottom:12px}.section h2{font-size:clamp(1.35rem,3vw,1.8rem);line-height:1.2;margin:0}.section-head p{margin:5px 0 0;color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card{background:var(--white);border:1px solid var(--line);border-radius:19px;padding:19px;box-shadow:var(--shadow);min-width:0}.card h3{margin:0 0 8px;font-size:1.08rem}.card p:first-child{margin-top:0}.tag{display:inline-block;background:var(--lav);color:var(--deep);padding:4px 9px;border-radius:999px;font-size:.77rem;font-weight:800;margin-bottom:8px}.formula{background:linear-gradient(135deg,#f5f0ff,#fff5fa);border:1px solid #e5dcfb;border-radius:14px;padding:13px 15px;margin:10px 0;font-size:1.05rem;font-weight:800;overflow-wrap:anywhere}.formula small{display:block;font-size:.82rem;font-weight:500;color:var(--muted);margin-top:3px}.note{border-left:4px solid var(--purple);padding:10px 13px;background:#f8f5ff;border-radius:0 12px 12px 0;margin:12px 0}.warning{border-left-color:#d78b39;background:#fff9ef}.visual{background:linear-gradient(145deg,#fbfaff,#f3edff);border:1px solid var(--line);border-radius:18px;padding:18px;overflow:hidden}.visual label{display:block;font-weight:750;margin:10px 0 4px}.visual input[type=range]{width:100%;accent-color:var(--purple)}.statline{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}.stat{background:#fff;border:1px solid var(--line);border-radius:12px;padding:9px 12px;flex:1;min-width:130px}.stat strong{display:block;color:var(--deep);font-size:1.05rem}.stat span{font-size:.8rem;color:var(--muted)}.earth-demo{height:190px;position:relative;display:grid;place-items:center;overflow:hidden}.earth-demo .globe{width:118px;height:118px;border-radius:50%;background:radial-gradient(circle at 30% 28%,#a8e6ff 0,#6286df 40%,#343178 78%);box-shadow:0 0 0 13px #8c72d61b,0 0 30px #7357c844;z-index:2}.arrowline{position:absolute;width:2px;height:42px;background:#a18adf;transform-origin:bottom;opacity:.9}.arrowline:after{content:"";position:absolute;bottom:-1px;left:-4px;border-left:5px solid transparent;border-right:5px solid transparent;border-top:8px solid #a18adf}.arrow-label{position:absolute;font-size:.78rem;color:var(--deep);font-weight:800}.quiz-q{font-weight:800;font-size:1.04rem;margin:12px 0}.answers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.answer{background:#fff;border:1px solid var(--line);border-radius:12px;padding:11px;text-align:left;font:inherit;cursor:pointer;color:var(--ink)}.answer:hover{border-color:var(--purple)}.answer.correct{border-color:var(--green);background:#edfff5}.answer.wrong{border-color:var(--red);background:#fff0f2}.feedback{min-height:26px;margin:10px 0;font-weight:750}.quiz-controls{display:flex;gap:9px;flex-wrap:wrap}.progress{height:7px;background:#ebe5fa;border-radius:99px;overflow:hidden;margin:12px 0}.progress span{display:block;height:100%;width:0;background:var(--purple);transition:width .2s}.mindmap{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:stretch}.mindmap div{padding:12px;border-radius:13px;background:#f5f0ff;border:1px solid var(--line)}.mindmap strong{display:block;color:var(--deep)}.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:530px;background:#fff;border-radius:12px;overflow:hidden}th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}th{background:var(--lav);color:var(--deep)}.footer{padding:25px 0 35px;margin-top:35px;border-top:1px solid var(--line);color:var(--muted);font-size:.86rem}
+@media(max-width:720px){.hero,.grid{grid-template-columns:1fr}.hero{padding-top:20px}.hero-art{min-height:190px}.card{padding:15px}.quicknav{gap:6px}.quicknav a{font-size:.82rem}.answers{grid-template-columns:1fr}.section-head{display:block}.mindmap{grid-template-columns:1fr 1fr}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+@media print{body{background:white;color:#111;font-size:10.5pt}.wrap{width:100%;max-width:none}.no-print,header .back,.hero-actions,.quicknav,.visual input,.quiz-controls,.answers button{display:none!important}.hero{display:block;padding:8px 0}.hero-art{display:none}.card,.visual{box-shadow:none;break-inside:avoid;border:1px solid #bbb;background:white}.section{break-inside:auto;margin:16px 0}.grid{grid-template-columns:1fr 1fr}.formula{background:white}.section h2{font-size:15pt}a{color:#111;text-decoration:none}.footer{padding:10px 0}}
+</style>
+</head>
+<body>
+<header class="wrap">
+  <a class="brand" href="index.html">MindSpring 💜</a>
+  <a class="back" href="index.html">← Back to homepage</a>
+</header>
+<main class="wrap">
+<section class="hero">
+  <div>
+    <span class="eyebrow">Class 11 Physics · NCERT-aligned learning</span>
+    <h1>Gravitation</h1>
+    <p>From the force that keeps our feet on Earth to the motion of planets and satellites, discover how gravity shapes the universe.</p>
+    <div class="hero-actions no-print">
+      <a class="btn" href="#interactive">Explore the gravity lab ↓</a>
+      <button class="btn-secondary" onclick="window.print()">🖨️ Print / Save as PDF</button>
+    </div>
+    <p class="small">Use the print button, then choose “Save as PDF” in your browser to keep a revision copy.</p>
+  </div>
+  <div class="hero-art" aria-label="Illustration of Earth and a satellite in orbit">
+    <div class="planet-system"><div class="orbit-ring"></div><div class="earth"></div><div class="satellite">🛰️</div></div>
+    <p style="text-align:center;margin:0;font-weight:750">One force · From falling apples to orbiting worlds</p>
+  </div>
+</section>
+<nav class="quicknav no-print" aria-label="Chapter navigation">
+<a href="#overview">Overview</a><a href="#newton">Newton's law</a><a href="#g">Acceleration due to gravity</a><a href="#potential">Potential & energy</a><a href="#satellites">Satellites</a><a href="#interactive">Interactive lab</a><a href="#formulas">Formula sheet</a><a href="#practice">Practice</a>
+</nav>
+
+<section class="section" id="overview">
+<div class="section-head"><div><h2>01 · The big picture</h2><p>What you should understand by the end of this chapter.</p></div></div>
+<div class="grid">
+ <article class="card"><span class="tag">Core idea</span><h3>Universal gravitation</h3><p>Every object with mass attracts every other object with mass. The force acts along the line joining their centres and is always attractive in the Newtonian model.</p></article>
+ <article class="card"><span class="tag">Earth and beyond</span><h3>Gravity controls motion</h3><p>The same gravitational interaction explains falling bodies, the Moon's orbit, planetary motion, and artificial satellites.</p></article>
+ <article class="card"><span class="tag">Important distinction</span><h3>Mass is not weight</h3><p>Mass measures inertia and is measured in kilograms. Weight is the gravitational force on a body; near Earth's surface, its magnitude is approximately <b>mg</b>.</p></article>
+ <article class="card"><span class="tag">Chapter route</span><h3>Learn → visualise → practise</h3><p>Read the concept cards, experiment with the sliders, revise the formula sheet, then test your understanding with the quiz.</p></article>
+</div>
+</section>
+
+<section class="section" id="newton">
+<div class="section-head"><div><h2>02 · Newton's universal law of gravitation</h2><p>Two masses attract each other with a force proportional to their masses and inversely proportional to the square of their separation.</p></div></div>
+<div class="grid">
+ <article class="card"><h3>Mathematical form</h3><div class="formula">F = G m₁m₂ / r²<small>F: gravitational force (N) · m₁, m₂: masses (kg) · r: centre-to-centre distance (m)</small></div><p>Doubling either mass doubles the force. Doubling the separation makes the force one-fourth as large.</p><div class="note">The distance <b>r</b> is measured between the centres of the two bodies, not between their nearest surfaces.</div></article>
+ <article class="card"><h3>Universal gravitational constant</h3><div class="formula">G ≈ 6.67 × 10⁻¹¹ N m² kg⁻²</div><p><b>G</b> is universal: its value does not depend on which planet or object is being considered.</p><p>Gravitational forces between everyday objects are usually tiny because G is very small.</p></article>
+</div>
+<div class="card" style="margin-top:14px"><h3>Worked example · Inverse-square reasoning</h3><p>If the distance between two masses becomes three times the original distance while the masses stay unchanged:</p><div class="formula">F′ = Gm₁m₂/(3r)² = F/9</div><p>The new force is <b>one-ninth</b> of the original force. Always square the distance factor.</p></div>
+</section>
+
+<section class="section" id="g">
+<div class="section-head"><div><h2>03 · Acceleration due to gravity</h2><p>Why the value of g changes with altitude, depth, and the planet you are on.</p></div></div>
+<div class="grid">
+ <article class="card"><h3>At a planet's surface</h3><div class="formula">g = GM / R²<small>M: mass of the planet · R: radius of the planet</small></div><p>For Earth, the approximate surface value is <b>9.8 m s⁻²</b>. It depends on the planet's mass and radius.</p></article>
+ <article class="card"><h3>Mass vs weight</h3><div class="formula">W = mg<small>Weight W is a force, measured in newtons (N).</small></div><p>A person's mass remains approximately the same when travelling between planets, but their weight changes with the local gravitational acceleration.</p></article>
+ <article class="card"><h3>At height h above the surface</h3><div class="formula">gₕ = GM / (R + h)²<small>Equivalently: gₕ = g [R/(R+h)]²</small></div><p>As altitude increases, the distance from Earth's centre increases, so gravitational acceleration decreases.</p></article>
+ <article class="card"><h3>At depth d below the surface</h3><div class="formula">gᵈ ≈ g (1 − d/R)<small>For a uniform-density Earth model.</small></div><p>In the standard NCERT model, g decreases linearly with depth and becomes zero at Earth's centre. This result assumes uniform density.</p></article>
+</div>
+<div class="note warning"><b>Exam caution:</b> The simple depth relation assumes a uniform-density Earth. Real Earth has varying density, so treat this as the textbook model rather than an exact geophysical description.</div>
+</section>
+
+<section class="section" id="potential">
+<div class="section-head"><div><h2>04 · Gravitational potential and potential energy</h2><p>Use these ideas to describe the energy of a mass in a gravitational field.</p></div></div>
+<div class="grid">
+ <article class="card"><h3>Gravitational potential energy</h3><div class="formula">U = −GMm/r<small>For two masses with zero potential energy chosen at infinite separation.</small></div><p>The negative sign reflects that gravity is attractive and the bound system has less energy than the separated masses at infinity.</p></article>
+ <article class="card"><h3>Gravitational potential</h3><div class="formula">V = U/m = −GM/r<small>Potential is potential energy per unit test mass; SI unit: J kg⁻¹.</small></div><p>Potential is a scalar. Potential energy depends on the mass placed in the field, while potential at a point describes the field source.</p></article>
+ <article class="card"><h3>Near Earth's surface</h3><div class="formula">ΔU ≈ mgΔh</div><p>For small height changes near the surface, gravitational potential energy changes approximately by mass × g × height change.</p></article>
+ <article class="card"><h3>Potential and field direction</h3><p>For a spherically symmetric mass, gravitational potential becomes less negative as distance from the mass increases, approaching zero at infinity under this convention.</p><div class="note">Gravitational force is attractive; gravitational potential energy for a bound pair is negative with the usual zero-at-infinity reference.</div></article>
+</div>
+</section>
+
+<section class="section" id="satellites">
+<div class="section-head"><div><h2>05 · Satellites and orbital motion</h2><p>A satellite is continually falling towards Earth while moving sideways fast enough to keep missing the surface.</p></div></div>
+<div class="grid">
+ <article class="card"><h3>Orbital speed for a circular orbit</h3><div class="formula">vₒ = √(GM/r)<small>r is measured from the centre of the planet.</small></div><p>For a circular orbit, gravity provides the required centripetal force. At a larger orbital radius, the circular orbital speed is lower.</p></article>
+ <article class="card"><h3>Time period</h3><div class="formula">T = 2π √(r³/GM)<small>For a circular orbit around a central mass M.</small></div><p>A satellite farther away takes longer to complete one orbit. This is consistent with Kepler's third law: T² is proportional to r³ for a fixed central mass.</p></article>
+ <article class="card"><h3>Escape speed</h3><div class="formula">vₑ = √(2GM/R) = √(2gR)<small>Ideal minimum launch speed from the surface, neglecting atmosphere and Earth's rotation.</small></div><p>Escape speed is the speed needed to reach infinity with zero residual speed in the ideal energy model. It does not depend on the mass of the escaping object.</p></article>
+ <article class="card"><h3>Energy of a circular-orbit satellite</h3><div class="formula">K = +GMm/(2r)<br>U = −GMm/r<br>E = −GMm/(2r)</div><p>The total mechanical energy is negative for a bound circular orbit. K is positive, U is negative, and E = K + U.</p></article>
+</div>
+<div class="card" style="margin-top:14px"><h3>Geostationary satellites · Key features</h3><ul><li>Orbit in the equatorial plane.</li><li>Move in the same direction as Earth's rotation.</li><li>Have an orbital period equal to one sidereal day (about 23 h 56 min).</li><li>Appear approximately fixed above one point on Earth's equator, making them useful for communications and weather monitoring.</li></ul><p class="small">A satellite merely having a 24-hour period is not enough; the orbital plane and direction must also be correct.</p></div>
+</section>
+
+<section class="section" id="kepler">
+<div class="section-head"><div><h2>06 · Kepler's laws of planetary motion</h2><p>Three observations that Newton's law of gravitation helps explain.</p></div></div>
+<div class="grid">
+ <article class="card"><span class="tag">First law</span><h3>Law of orbits</h3><p>Planets move in elliptical orbits with the Sun at one focus.</p></article>
+ <article class="card"><span class="tag">Second law</span><h3>Law of areas</h3><p>The line joining a planet to the Sun sweeps out equal areas in equal intervals of time. A planet moves faster when nearer the Sun.</p></article>
+ <article class="card"><span class="tag">Third law</span><h3>Law of periods</h3><div class="formula">T² ∝ a³</div><p>The square of the orbital period is proportional to the cube of the semi-major axis for bodies orbiting the same central mass.</p></article>
+ <article class="card"><h3>Why these laws matter</h3><p>They connect the geometry and timing of planetary orbits. Newton's gravitational law provides a physical explanation for these regularities.</p></article>
+</div>
+</section>
+
+<section class="section" id="interactive">
+<div class="section-head"><div><h2>07 · Interactive gravity lab</h2><p>Change one variable at a time and watch the relationship update.</p></div></div>
+<div class="grid">
+ <article class="visual">
+  <h3>Experiment A · Force between two masses</h3>
+  <p class="small">This model uses Newton's universal law. The displayed force is calculated using the selected masses and centre-to-centre separation.</p>
+  <label for="massA">Mass 1: <span id="massAVal">10</span> kg</label><input id="massA" type="range" min="1" max="100" value="10">
+  <label for="massB">Mass 2: <span id="massBVal">20</span> kg</label><input id="massB" type="range" min="1" max="100" value="20">
+  <label for="distance">Separation: <span id="distanceVal">2</span> m</label><input id="distance" type="range" min="1" max="10" value="2">
+  <div class="statline"><div class="stat"><span>Gravitational force</span><strong id="forceVal">3.34 × 10⁻⁹ N</strong></div><div class="stat"><span>Relative to current setup</span><strong id="forceInsight">Baseline</strong></div></div>
+ </article>
+ <article class="visual">
+  <h3>Experiment B · Gravity above Earth</h3>
+  <p class="small">Adjust altitude as a fraction of Earth's radius. Earth is shown schematically; this is not to scale.</p>
+  <div class="earth-demo"><div class="globe"></div><div class="arrowline" style="left:50%;top:12px;height:43px"></div><span class="arrow-label" style="top:5px;left:calc(50% + 14px)">h</span></div>
+  <label for="altitude">Altitude h: <span id="altitudeVal">0</span> × Earth's radius</label><input id="altitude" type="range" min="0" max="3" step=".1" value="0">
+  <div class="statline"><div class="stat"><span>Gravity at altitude</span><strong id="gAltitude">9.80 m s⁻²</strong></div><div class="stat"><span>Of surface gravity</span><strong id="gRatio">100%</strong></div></div>
+  <p class="small">Model: gₕ/g = [R/(R+h)]². Real-world values are approximate.</p>
+ </article>
+</div>
+</section>
+
+<section class="section" id="formulas">
+<div class="section-head"><div><h2>08 · Formula sheet</h2><p>Revise the relationship, symbol meanings, and conditions before attempting numericals.</p></div><button class="btn-secondary no-print" onclick="window.print()">🖨️ Print sheet</button></div>
+<div class="card table-wrap"><table><thead><tr><th>Quantity / concept</th><th>Formula</th><th>Conditions / reminders</th></tr></thead><tbody>
+<tr><td>Universal gravitation</td><td>F = Gm₁m₂/r²</td><td>Point masses or spherically symmetric bodies; r is centre-to-centre.</td></tr>
+<tr><td>Gravitational constant</td><td>G ≈ 6.67 × 10⁻¹¹ N m² kg⁻²</td><td>Universal constant.</td></tr>
+<tr><td>Surface gravity</td><td>g = GM/R²</td><td>Spherical planet; idealised surface value.</td></tr>
+<tr><td>Weight</td><td>W = mg</td><td>Near a planet's surface; weight is a force (N).</td></tr>
+<tr><td>Gravity at altitude</td><td>gₕ = GM/(R+h)²</td><td>Distance from centre is R+h.</td></tr>
+<tr><td>Gravity at depth</td><td>gᵈ ≈ g(1−d/R)</td><td>Uniform-density Earth model.</td></tr>
+<tr><td>Potential energy</td><td>U = −GMm/r</td><td>Zero chosen at infinity.</td></tr>
+<tr><td>Potential</td><td>V = −GM/r</td><td>SI unit J kg⁻¹; zero at infinity.</td></tr>
+<tr><td>Circular orbital speed</td><td>vₒ = √(GM/r)</td><td>Gravity supplies centripetal force.</td></tr>
+<tr><td>Orbital period</td><td>T = 2π√(r³/GM)</td><td>Circular orbit; central mass M dominates.</td></tr>
+<tr><td>Escape speed</td><td>vₑ = √(2GM/R) = √(2gR)</td><td>Ideal launch from radius R; no atmosphere/rotation.</td></tr>
+<tr><td>Circular orbit kinetic energy</td><td>K = GMm/(2r)</td><td>Positive.</td></tr>
+<tr><td>Circular orbit potential energy</td><td>U = −GMm/r</td><td>Zero potential energy at infinity.</td></tr>
+<tr><td>Circular orbit total energy</td><td>E = −GMm/(2r)</td><td>Bound orbit; E = K + U.</td></tr>
+<tr><td>Kepler's third law</td><td>T² ∝ a³</td><td>Same central mass; a is semi-major axis.</td></tr>
+</tbody></table></div>
+<div class="note"><b>Units check:</b> Use SI units throughout: mass in kg, distance in m, time in s, force in N, energy in J, and acceleration in m s⁻².</div>
+</section>
+
+<section class="section" id="mistakes">
+<div class="section-head"><div><h2>09 · Common exam traps</h2><p>Small checks that prevent avoidable mistakes.</p></div></div>
+<div class="grid">
+ <article class="card"><h3>01 · Distance means centre-to-centre</h3><p>For separated spherical bodies, do not substitute the gap between their surfaces for r.</p></article>
+ <article class="card"><h3>02 · Do not forget the square</h3><p>If distance becomes n times, force becomes 1/n² times when masses are unchanged.</p></article>
+ <article class="card"><h3>03 · G and g are different</h3><p>G is universal; g is local gravitational acceleration and changes with the planet and location.</p></article>
+ <article class="card"><h3>04 · Escape speed vs orbital speed</h3><p>At the same radius in the ideal model, escape speed is √2 times circular orbital speed.</p></article>
+ <article class="card"><h3>05 · Potential energy has a sign</h3><p>With zero at infinity, gravitational potential energy is negative for a bound pair.</p></article>
+ <article class="card"><h3>06 · Use radius from the centre</h3><p>For a satellite at altitude h, use r = R + h in orbital formulas.</p></article>
+</div>
+</section>
+
+<section class="section" id="mindmap">
+<div class="section-head"><div><h2>10 · Chapter mind map</h2><p>A quick connected view for final revision.</p></div></div>
+<div class="mindmap">
+<div><strong>Newton's law</strong>Force ∝ m₁m₂; force ∝ 1/r²</div>
+<div><strong>Earth's gravity</strong>g = GM/R²; weight W = mg</div>
+<div><strong>Variation of g</strong>Altitude: decreases; depth: decreases in uniform-density model</div>
+<div><strong>Potential and energy</strong>V = −GM/r; U = −GMm/r</div>
+<div><strong>Satellite motion</strong>Gravity supplies centripetal force; vₒ = √(GM/r)</div>
+<div><strong>Escape and binding</strong>vₑ = √(2GM/R); bound circular orbit has E &lt; 0</div>
+<div><strong>Kepler's laws</strong>Ellipses; equal areas; T² ∝ a³</div>
+<div><strong>Problem-solving habit</strong>Sketch → identify r → write formula → substitute SI units → check dimensions</div>
+</div>
+</section>
+
+<section class="section" id="practice">
+<div class="section-head"><div><h2>11 · Check your understanding</h2><p>Choose an answer to receive instant feedback, then move to the next question.</p></div></div>
+<div class="card">
+<div class="statline"><div class="stat"><span>Question</span><strong id="qCount">1 / 10</strong></div><div class="stat"><span>Score</span><strong id="score">0</strong></div><div class="stat"><span>Progress</span><strong id="progressText">0%</strong></div></div>
+<div class="progress"><span id="progressBar"></span></div>
+<div class="quiz-q" id="question">If the distance between two masses is doubled, the gravitational force becomes:</div>
+<div class="answers" id="answers">
+<button class="answer" data-index="0">Twice the original</button><button class="answer" data-index="1">Half the original</button><button class="answer" data-index="2">One-fourth the original</button><button class="answer" data-index="3">Four times the original</button>
+</div>
+<div class="feedback" id="feedback" aria-live="polite"></div>
+<div class="quiz-controls"><button class="btn" id="next" disabled>Next question →</button><button class="btn-secondary" id="restart">Restart quiz</button></div>
+</div>
+</section>
+
+<section class="section">
+<div class="card"><span class="eyebrow">MindSpring revision reminder</span><h2 style="margin:8px 0">Understand, Revise and Grow 💜</h2><p>Try explaining each formula in words before memorising it. Then solve a few numericals without looking at the worked example. Use your current NCERT textbook and your teacher's guidance alongside this page.</p><p class="small">This is a learning aid, not a replacement for the prescribed textbook. Check the exact scope of your school syllabus and exam.</p></div>
+</section>
+</main>
+<footer class="wrap footer">MindSpring Learning · Class 11 Physics · Gravitation<br>Made for concept-first revision, with interactive practice and a printable study copy.</footer>
+
+<script>
+(() => {
+ const G = 6.67e-11;
+ const $ = id => document.getElementById(id);
+ const forceBase = () => {
+   const m1 = Number($('massA').value), m2 = Number($('massB').value), r = Number($('distance').value);
+   const f = G*m1*m2/(r*r);
+   $('massAVal').textContent=m1; $('massBVal').textContent=m2; $('distanceVal').textContent=r;
+   $('forceVal').textContent = f.toExponential(3).replace('e',' × 10^') + ' N';
+   $('forceInsight').textContent = '∝ m₁m₂ / r²';
+ };
+ ['massA','massB','distance'].forEach(id => $(id).addEventListener('input',forceBase));
+ forceBase();
+ const alt = () => {
+   const h = Number($('altitude').value);
+   const ratio = 1/Math.pow(1+h,2);
+   $('altitudeVal').textContent=h.toFixed(1);
+   $('gAltitude').textContent=(9.8*ratio).toFixed(2)+' m s⁻²';
+   $('gRatio').textContent=(ratio*100).toFixed(1)+'%';
+ };
+ $('altitude').addEventListener('input',alt); alt();
+
+ const qs = [
+  {q:'If the distance between two masses is doubled, the gravitational force becomes:',a:['Twice the original','Half the original','One-fourth the original','Four times the original'],c:2,e:'Newton’s law has r² in the denominator: F ∝ 1/r², so doubling r gives F/4.'},
+  {q:'The SI unit of the universal gravitational constant G is:',a:['N kg⁻¹','N m² kg⁻²','m s⁻²','J kg⁻¹'],c:1,e:'From F = Gm₁m₂/r², the unit of G is N m² kg⁻².'},
+  {q:'The approximate value of g near Earth’s surface is:',a:['6.67 × 10⁻¹¹ m s⁻²','3.0 × 10⁸ m s⁻²','9.8 m s⁻²','1.6 m s⁻²'],c:2,e:'Near Earth’s surface, g is approximately 9.8 m s⁻².'},
+  {q:'At altitude h above a planet of radius R, the distance from its centre is:',a:['h − R','R + h','R/h','Rh'],c:1,e:'Altitude is measured above the surface, so centre-to-object distance is R + h.'},
+  {q:'With zero gravitational potential energy at infinity, U for two masses at finite separation is:',a:['Positive','Always zero','Negative','Infinite'],c:2,e:'Gravity is attractive; U = −GMm/r with the usual zero-at-infinity reference.'},
+  {q:'For a circular orbit, gravity provides the:',a:['Frictional force','Centripetal force','Buoyant force','Magnetic force'],c:1,e:'The gravitational force acts towards the centre of the orbit and supplies the centripetal force.'},
+  {q:'For the same orbital radius, escape speed compared with circular orbital speed is:',a:['vₑ = vₒ','vₑ = 2vₒ','vₑ = √2 vₒ','vₑ = vₒ/√2'],c:2,e:'vₑ = √(2GM/R) while vₒ = √(GM/R), so vₑ = √2 vₒ.'},
+  {q:'Which quantity is approximately unchanged when a person travels from Earth to the Moon?',a:['Weight','Gravitational acceleration','Mass','Gravitational force'],c:2,e:'Mass is an intrinsic measure of inertia. Weight depends on local gravitational acceleration.'},
+  {q:'Kepler’s third law for bodies orbiting the same central mass states:',a:['T ∝ a','T² ∝ a³','T³ ∝ a²','T² ∝ a'],c:1,e:'The square of the orbital period is proportional to the cube of the semi-major axis.'},
+  {q:'For a satellite in a circular orbit, total mechanical energy is:',a:['+GMm/r','−GMm/(2r)','Zero','−GMm/r'],c:1,e:'K = +GMm/(2r) and U = −GMm/r, so E = K + U = −GMm/(2r).'}
+ ];
+ let index=0, score=0, answered=false;
+ function render(){
+   const item=qs[index]; $('qCount').textContent=(index+1)+' / '+qs.length;
+   $('question').textContent=item.q; $('feedback').textContent=''; $('next').disabled=true; answered=false;
+   $('answers').innerHTML='';
+   item.a.forEach((label,i)=>{const b=document.createElement('button');b.className='answer';b.textContent=label;b.addEventListener('click',()=>choose(i,b));$('answers').appendChild(b)});
+   $('progressText').textContent=Math.round(index/qs.length*100)+'%';$('progressBar').style.width=(index/qs.length*100)+'%';
+   $('next').textContent=index===qs.length-1?'See results →':'Next question →';
+ }
+ function choose(choice,button){
+   if(answered)return; answered=true; const item=qs[index]; const buttons=[...$('answers').children];
+   buttons.forEach((b,i)=>{b.disabled=true;if(i===item.c)b.classList.add('correct')});
+   if(choice===item.c){score++;$('feedback').textContent='Correct! '+item.e;}else{button.classList.add('wrong');$('feedback').textContent='Not quite. '+item.e;}
+   $('score').textContent=score;$('progressText').textContent=Math.round((index+1)/qs.length*100)+'%';$('progressBar').style.width=((index+1)/qs.length*100)+'%';$('next').disabled=false;
+ }
+ $('next').addEventListener('click',()=>{if(!answered)return;if(index<qs.length-1){index++;render()}else{ $('question').textContent='Quiz complete! You scored '+score+' out of '+qs.length+'.';$('answers').innerHTML='';$('feedback').textContent=score>=8?'Strong work — revise the explanations for any questions you missed.': 'Good start — revisit the formula sheet and try the quiz again.';$('next').disabled=true;$('next').textContent='Completed';$('progressText').textContent='100%';$('progressBar').style.width='100%';}});
+ $('restart').addEventListener('click',()=>{index=0;score=0;$('score').textContent='0';$('next').textContent='Next question →';render()});
+ render();
+})();
+</script>
+</body>
+</html>
