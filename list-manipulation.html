@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Class 11 Python List Manipulation notes, examples and practice. MindSpring Learning.">
+<title>List Manipulation | MindSpring Learning</title>
+<style>
+:root{--ink:#292541;--muted:#706b86;--purple:#7357c8;--purple-light:#f0ebff;--pink-light:#fff0f5;--paper:#fbfaff;--white:#fff;--line:#e9e4f5;--green:#217a55}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:18px}
+body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:linear-gradient(180deg,#f5f0ff 0,var(--paper) 280px);line-height:1.65}
+a{color:var(--purple);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{width:min(100% - 32px,1000px);margin:auto}
+header{padding:24px 0 10px}.site-logo{display:block;width:145px;max-width:100%;height:auto}
+.hero{padding:34px 0 24px;display:grid;grid-template-columns:1.4fr .8fr;gap:22px;align-items:center}
+.eyebrow{color:var(--purple);font-size:.78rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.08;margin:10px 0 14px;letter-spacing:-.04em}
+.hero p{color:var(--muted);max-width:600px}
+.hero-art{background:linear-gradient(135deg,var(--purple-light),var(--pink-light));border:1px solid var(--line);border-radius:28px;padding:24px;min-height:170px;display:flex;flex-direction:column;justify-content:center;gap:12px}
+.float-note{background:white;border:1px solid var(--line);padding:11px 14px;border-radius:15px}.float-note:nth-child(2){margin-left:20px}
+.pill{display:inline-block;background:var(--purple-light);color:var(--purple);padding:4px 10px;border-radius:999px;font-size:.75rem;font-weight:750;margin-top:10px}
+.card{background:white;border:1px solid var(--line);border-radius:20px;padding:clamp(18px,3vw,27px);box-shadow:0 8px 28px #29254108;margin:0 0 16px}
+h2{font-size:1.35rem;margin:0 0 12px;line-height:1.3}h3{margin:22px 0 8px;font-size:1.08rem}h4{margin:16px 0 6px}
+p{margin:10px 0}ul,ol{padding-left:23px}li{margin:5px 0}
+.muted,.small{color:var(--muted);font-size:.92rem}
+.path{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:16px}
+.path-item{border:1px solid var(--line);border-radius:15px;padding:15px;background:linear-gradient(135deg,#fff,var(--paper))}
+.path-item b{display:block;margin:6px 0}.num{display:inline-grid;place-items:center;width:29px;height:29px;border-radius:10px;background:var(--purple-light);color:var(--purple);font-weight:800}
+.section{scroll-margin-top:16px}
+.callout{padding:13px 15px;border-radius:14px;background:var(--purple-light);border-left:4px solid var(--purple);margin:15px 0}
+.callout.tip{background:#e8f7ef;border-left-color:#7cc8a0}.callout.warn{background:#fff5ec;border-left-color:#e9a15b}
+table{border-collapse:collapse;width:100%;margin:13px 0;font-size:.93rem;background:white}th,td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}th{background:var(--purple-light)}tr:nth-child(even) td{background:#fdfcff}
+code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.92em}:not(pre)>code{background:var(--purple-light);color:#4b2e83;padding:2px 5px;border-radius:5px}
+pre{background:#292541;color:#f5f0ff;padding:15px;border-radius:14px;overflow:auto;line-height:1.6;font-size:.9rem}pre code{color:inherit}
+.output{background:#fbfaff;color:#292541;border:1px dashed #c9bee8;padding:11px 14px;border-radius:12px;margin-top:-3px}
+details{border:1px solid var(--line);border-radius:13px;padding:12px 15px;margin:10px 0;background:white}summary{font-weight:750;cursor:pointer}
+button{border:0;border-radius:12px;background:var(--purple);color:white;font:inherit;font-weight:750;padding:11px 15px;cursor:pointer}
+button:hover{filter:brightness(.95)}button:focus-visible{outline:3px solid #c7b8ff;outline-offset:2px}
+.quiz-question{padding:14px 0;border-bottom:1px solid var(--line)}.quiz-question p{font-weight:750;margin:0 0 8px}.quiz-question label{display:block;margin:6px 0;color:var(--muted);cursor:pointer}.quiz-question input{margin-right:8px;accent-color:var(--purple)}
+.result{font-weight:750;margin-left:10px}.tools{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 20px}.secondary{background:white;color:var(--purple);border:1px solid var(--line)}
+footer{padding:18px 0 32px;border-top:1px solid var(--line);color:var(--muted);font-size:.84rem}
+@media(max-width:700px){.hero{grid-template-columns:1fr;padding-top:24px}.hero-art{min-height:130px}.path{grid-template-columns:1fr}.card{padding:18px}table{font-size:.83rem}th,td{padding:7px}}
+@media print{body{background:white}.hero-art,.tools,button{display:none!important}.hero{padding:10px 0}.card{box-shadow:none;break-inside:avoid;border:1px solid #ddd}pre{white-space:pre-wrap}details{break-inside:avoid}}
+</style>
+</head>
+<body id="top">
+<header class="wrap">
+  <a href="index.html" aria-label="MindSpring homepage"><img src="assests/mindspring-logo-transparent.png" alt="MindSpring Learning" class="site-logo"></a>
+  <section class="hero">
+    <div>
+      <div class="eyebrow">Your calm corner for learning</div>
+      <h1>List<br>Manipulation.</h1>
+      <p>Class 11 Computer Science · Python 3 · Understand lists, work with their elements, and practise with clear examples.</p>
+      <span class="pill">Learn · Practise · Revise</span>
+    </div>
+    <div class="hero-art" aria-label="Python list example">
+      <div class="float-note"><code>subjects = ["Bio", "CS", "English"]</code></div>
+      <div class="float-note"><b>One list.</b> Many useful operations.</div>
+    </div>
+  </section>
+</header>
+<main class="wrap">
+  <div class="tools"><button onclick="window.print()">Print / Save as PDF</button><a class="small" href="index.html" style="align-self:center">← MindSpring home</a></div>
+
+  <section class="card" aria-label="Learning path">
+    <div class="eyebrow">Your learning path</div>
+    <h2 style="margin-top:6px">A simple way through the chapter</h2>
+    <p class="muted">Start with what a list is, learn how to change it, then check your understanding.</p>
+    <div class="path">
+      <div class="path-item"><span class="num">01</span><b>Understand lists</b><span class="small">Create, index and slice</span></div>
+      <div class="path-item"><span class="num">02</span><b>Work with lists</b><span class="small">Update, add, remove and traverse</span></div>
+      <div class="path-item"><span class="num">03</span><b>Revise and practise</b><span class="small">Examples, questions and quiz</span></div>
+    </div>
+  </section>
+
+  <section class="card section" id="understand">
+    <div class="eyebrow">01 · Understand lists</div>
+    <h2>What is a list?</h2>
+    <p>A <b>list</b> is an ordered, mutable collection in Python. It can store multiple items, including values of different data types. Lists are written using square brackets, with items separated by commas.</p>
+    <pre><code>subjects = ["Biology", "Computer Science", "English"]
+print(subjects)</code></pre>
+    <div class="small">Output</div><pre class="output"><code>['Biology', 'Computer Science', 'English']</code></pre>
+    <h3>Creating lists</h3>
+    <pre><code>numbers = [10, 20, 30, 40]
+mixed = ["Mira", 16, 92.5, True]
+empty = []</code></pre>
+    <div class="callout tip"><b>Remember:</b> A list can be empty. Its elements keep their order, and the same value may appear more than once.</div>
+    <h3>Indexing: access one element</h3>
+    <p>Indexing starts at <code>0</code>. Negative indices count from the end: <code>-1</code> is the last element.</p>
+    <table><thead><tr><th>Element</th><th>"Bio"</th><th>"CS"</th><th>"English"</th><th>"Maths"</th></tr></thead><tbody><tr><th>Positive index</th><td>0</td><td>1</td><td>2</td><td>3</td></tr><tr><th>Negative index</th><td>-4</td><td>-3</td><td>-2</td><td>-1</td></tr></tbody></table>
+    <pre><code>subjects = ["Bio", "CS", "English", "Maths"]
+print(subjects[0])
+print(subjects[-1])</code></pre>
+    <div class="small">Output</div><pre class="output"><code>Bio
+Maths</code></pre>
+    <h3>Slicing: access a part of a list</h3>
+    <p>The slice <code>list[start:stop]</code> includes the start index but excludes the stop index.</p>
+    <pre><code>subjects = ["Bio", "CS", "English", "Maths"]
+print(subjects[1:3])
+print(subjects[:2])
+print(subjects[2:])</code></pre>
+    <div class="small">Output</div><pre class="output"><code>['CS', 'English']
+['Bio', 'CS']
+['English', 'Maths']</code></pre>
+    <div class="callout warn"><b>Common mistake:</b> Accessing an index that does not exist raises <code>IndexError</code>. For example, a four-item list has indices 0 to 3, not 4.</div>
+  </section>
+
+  <section class="card section" id="manipulate">
+    <div class="eyebrow">02 · Work with lists</div>
+    <h2>Changing and using list elements</h2>
+    <h3>Update an element</h3>
+    <p>Lists are mutable, so an element can be replaced using its index.</p>
+    <pre><code>marks = [78, 85, 91]
+marks[1] = 88
+print(marks)</code></pre>
+    <div class="small">Output</div><pre class="output"><code>[78, 88, 91]</code></pre>
+    <h3>Add elements</h3>
+    <table><thead><tr><th>Method</th><th>What it does</th><th>Example</th></tr></thead><tbody>
+      <tr><td><code>append(x)</code></td><td>Adds one item at the end</td><td><code>items.append(5)</code></td></tr>
+      <tr><td><code>insert(i, x)</code></td><td>Inserts an item at index i</td><td><code>items.insert(1, 5)</code></td></tr>
+      <tr><td><code>extend(iterable)</code></td><td>Adds items from another iterable</td><td><code>items.extend([5, 6])</code></td></tr>
+    </tbody></table>
+    <pre><code>items = [1, 2]
+items.append(3)
+items.insert(0, 9)
+items.extend([4, 5])
+print(items)</code></pre>
+    <div class="small">Output</div><pre class="output"><code>[9, 1, 2, 3, 4, 5]</code></pre>
+    <h3>Remove elements</h3>
+    <table><thead><tr><th>Method</th><th>What it does</th></tr></thead><tbody>
+      <tr><td><code>remove(x)</code></td><td>Removes the first matching value</td></tr>
+      <tr><td><code>pop(i)</code></td><td>Removes and returns the item at index i; without i, removes the last item</td></tr>
+      <tr><td><code>del list[i]</code></td><td>Deletes the item at index i</td></tr>
+      <tr><td><code>clear()</code></td><td>Removes all items</td></tr>
+    </tbody></table>
+    <pre><code>items = ["pen", "book", "ruler"]
+items.remove("book")
+last_item = items.pop()
+print(items)
+print(last_item)</code></pre>
+    <div class="small">Output</div><pre class="output"><code>['pen']
+ruler</code></pre>
+    <h3>Functions and methods: what is the difference?</h3>
+    <p>A <b>function</b> is called by writing its name and giving it data in parentheses, for example <code>len(subjects)</code>. A <b>method</b> is an operation that belongs to an object; for a list, write the list name, a dot, and the method name, for example <code>subjects.append("Art")</code>.</p>
+    <pre><code>subjects = ["Bio", "CS"]
+print(len(subjects))       # function
+subjects.append("English") # list method</code></pre>
+    <div class="small">Output</div><pre class="output"><code>2</code></pre>
+    <div class="callout tip"><b>Easy way to spot it:</b> <code>len(my_list)</code> is a function called with a list. <code>my_list.append("Bio")</code> is a method called on that list.</div>
+
+    <h3>Useful built-in functions</h3>
+    <p>These functions work with lists and are written before the list in parentheses.</p>
+    <table><thead><tr><th>Function</th><th>What it does</th><th>Example</th></tr></thead><tbody>
+      <tr><td><code>len(L)</code></td><td>Returns the number of items.</td><td><code>len([4, 8, 2])</code> → <code>3</code></td></tr>
+      <tr><td><code>max(L)</code></td><td>Returns the largest item (when values can be compared).</td><td><code>max([4, 8, 2])</code> → <code>8</code></td></tr>
+      <tr><td><code>min(L)</code></td><td>Returns the smallest item (when values can be compared).</td><td><code>min([4, 8, 2])</code> → <code>2</code></td></tr>
+      <tr><td><code>sum(L)</code></td><td>Adds numeric items.</td><td><code>sum([4, 8, 2])</code> → <code>14</code></td></tr>
+      <tr><td><code>sorted(L)</code></td><td>Returns a new sorted list; the original list is unchanged.</td><td><code>sorted([4, 2, 8])</code> → <code>[2, 4, 8]</code></td></tr>
+    </tbody></table>
+    <pre><code>marks = [72, 91, 84]
+print("Count:", len(marks))
+print("Total:", sum(marks))
+print("Highest:", max(marks))
+print("Sorted:", sorted(marks))
+print("Original:", marks)</code></pre>
+    <div class="small">Output</div><pre class="output"><code>Count: 3
+Total: 247
+Highest: 91
+Sorted: [72, 84, 91]
+Original: [72, 91, 84]</code></pre>
+
+    <h3>Useful list methods</h3>
+    <p>List methods are called using dot notation: <code>list_name.method()</code>. Some change the existing list; others return information or a value.</p>
+    <table><thead><tr><th>Method</th><th>What it does</th><th>Example</th></tr></thead><tbody>
+      <tr><td><code>append(x)</code></td><td>Adds x as one item at the end.</td><td><code>L.append(7)</code></td></tr>
+      <tr><td><code>extend(items)</code></td><td>Adds each item from the given iterable.</td><td><code>L.extend([7, 8])</code></td></tr>
+      <tr><td><code>insert(i, x)</code></td><td>Inserts x at index i.</td><td><code>L.insert(1, 7)</code></td></tr>
+      <tr><td><code>remove(x)</code></td><td>Removes the first matching value x.</td><td><code>L.remove(7)</code></td></tr>
+      <tr><td><code>pop(i)</code></td><td>Removes and returns item at index i; without i, removes the last item.</td><td><code>last = L.pop()</code></td></tr>
+      <tr><td><code>index(x)</code></td><td>Returns the index of the first matching x.</td><td><code>L.index(7)</code></td></tr>
+      <tr><td><code>count(x)</code></td><td>Returns how many times x occurs.</td><td><code>L.count(7)</code></td></tr>
+      <tr><td><code>sort()</code></td><td>Sorts the existing list in place.</td><td><code>L.sort()</code></td></tr>
+      <tr><td><code>reverse()</code></td><td>Reverses the existing list in place.</td><td><code>L.reverse()</code></td></tr>
+      <tr><td><code>copy()</code></td><td>Returns a shallow copy of the list.</td><td><code>new_L = L.copy()</code></td></tr>
+      <tr><td><code>clear()</code></td><td>Removes all items from the list.</td><td><code>L.clear()</code></td></tr>
+    </tbody></table>
+    <h4>Example: methods change the list</h4>
+    <pre><code>colours = ["purple", "blue"]
+colours.append("pink")
+colours.insert(1, "lavender")
+print(colours)
+
+colours.remove("blue")
+removed = colours.pop()
+print(colours)
+print("Removed:", removed)</code></pre>
+    <div class="small">Output</div><pre class="output"><code>['purple', 'lavender', 'blue', 'pink']
+['purple', 'lavender']
+Removed: pink</code></pre>
+    <h4>Example: methods that give a result</h4>
+    <pre><code>scores = [8, 5, 8, 2]
+print(scores.count(8))
+print(scores.index(5))
+print(scores)</code></pre>
+    <div class="small">Output</div><pre class="output"><code>2
+1
+[8, 5, 8, 2]</code></pre>
+    <div class="callout warn"><b>Important:</b> <code>sort()</code> changes the original list and returns <code>None</code>. Use <code>sorted(L)</code> when you need a new sorted list and want to keep the original unchanged. Similarly, <code>reverse()</code> changes the list in place.</div>
+    <h3>Traversing a list</h3>
+    <p>A <code>for</code> loop can visit each element in order.</p>
+    <pre><code>subjects = ["Bio", "CS", "English"]
+for subject in subjects:
+    print(subject)</code></pre>
+    <div class="small">Output</div><pre class="output"><code>Bio
+CS
+English</code></pre>
+  </section>
+
+  <section class="card section" id="practice">
+    <div class="eyebrow">03 · Revise and practise</div>
+    <h2>Quick recap</h2>
+    <ul>
+      <li>Lists are ordered and mutable; they use square brackets.</li>
+      <li>Positive indexing starts at 0; negative indexing starts at -1 from the end.</li>
+      <li>Slicing uses an inclusive start and exclusive stop.</li>
+      <li><code>append()</code> adds one item; <code>extend()</code> adds each item from an iterable.</li>
+      <li><code>remove()</code> removes by value; <code>pop()</code> removes by index and returns the removed item.</li>
+    </ul>
+    <h3>Predict the output</h3>
+    <details><summary>1. What is printed?</summary><pre><code>values = [4, 7, 9]
+print(values[1])
+print(values[-1])</code></pre><b>Answer</b><pre class="output"><code>7
+9</code></pre></details>
+    <details><summary>2. What is printed?</summary><pre><code>items = [1, 2]
+items.append([3, 4])
+print(items)</code></pre><b>Answer</b><pre class="output"><code>[1, 2, [3, 4]]</code></pre></details>
+    <details><summary>3. What is printed?</summary><pre><code>letters = ["a", "b", "c", "d"]
+print(letters[1:3])</code></pre><b>Answer</b><pre class="output"><code>['b', 'c']</code></pre></details>
+    <h3>Try it yourself</h3>
+    <ol>
+      <li>Create a list containing five favourite subjects and print the first and last items.</li>
+      <li>Given <code>nums = [3, 6, 9]</code>, change the middle value to 7.</li>
+      <li>Write a program that adds two items to a list and prints its length.</li>
+    </ol>
+  </section>
+
+  <section class="card section" id="quiz">
+    <div class="eyebrow">Self-check</div>
+    <h2>Mini quiz</h2>
+    <p class="muted">Choose one answer for each question, then check your score.</p>
+    <form id="quizForm">
+      <div class="quiz-question"><p>1. Which brackets create a Python list?</p><label><input type="radio" name="q1" value="a">( )</label><label><input type="radio" name="q1" value="b">[ ]</label><label><input type="radio" name="q1" value="c">{ }</label></div>
+      <div class="quiz-question"><p>2. What is the index of the first item?</p><label><input type="radio" name="q2" value="a">0</label><label><input type="radio" name="q2" value="b">1</label><label><input type="radio" name="q2" value="c">-1</label></div>
+      <div class="quiz-question"><p>3. Which method adds one item to the end?</p><label><input type="radio" name="q3" value="a">insert()</label><label><input type="radio" name="q3" value="b">append()</label><label><input type="radio" name="q3" value="c">remove()</label></div>
+      <div class="quiz-question"><p>4. What does <code>pop()</code> do with no argument?</p><label><input type="radio" name="q4" value="a">Removes the first item</label><label><input type="radio" name="q4" value="b">Removes the last item</label><label><input type="radio" name="q4" value="c">Sorts the list</label></div>
+      <div class="quiz-question"><p>5. In <code>items[1:3]</code>, which index is excluded?</p><label><input type="radio" name="q5" value="a">1</label><label><input type="radio" name="q5" value="b">2</label><label><input type="radio" name="q5" value="c">3</label></div>
+      <button type="button" id="checkQuiz">Check answers</button><span class="result" id="quizResult" aria-live="polite"></span>
+    </form>
+  </section>
+  <p><a href="#top">↑ Back to top</a></p>
+</main>
+<footer><div class="wrap">MindSpring Learning · Understand, Revise and Grow 💜</div></footer>
+<script>
+const answers={q1:"b",q2:"a",q3:"b",q4:"b",q5:"c"};
+document.getElementById("checkQuiz").addEventListener("click",function(){
+ let score=0,answered=0;
+ Object.keys(answers).forEach(function(key){
+  const selected=document.querySelector('input[name="'+key+'"]:checked');
+  if(selected){answered++;if(selected.value===answers[key])score++;}
+ });
+ const result=document.getElementById("quizResult");
+ result.textContent=answered<5?"Answer all 5 questions first ("+answered+"/5).":"Score: "+score+"/5 — "+(score===5?"Excellent work!":score>=3?"Good job. Review missed concepts.":"Revise the notes and try again.");
+});
+</script>
+</body>
+</html>
