@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="MindSpring Class 11 Biology: Excretory Products and Their Elimination. NCERT-aligned notes, nephron diagrams, urine formation and revision.">
+<title>Excretory Products and Their Elimination | MindSpring</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+ --purple:#7047c7;--deep:#39216f;--lav:#f1ebff;--lav2:#e5d9ff;
+ --pink:#f9e8f2;--mint:#e5f6ef;--gold:#fff3d8;--ink:#302844;
+ --muted:#716b7e;--line:#e8e1f1;--white:#fff;--shadow:0 9px 28px rgba(65,39,111,.08);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:100px}
+body{margin:0;background:#fbf9ff;color:var(--ink);font-family:'Nunito',Arial,sans-serif;line-height:1.75}
+#progress{position:fixed;top:0;left:0;height:4px;width:0;background:linear-gradient(90deg,#7047c7,#c18ce8);z-index:1000}
+header{background:linear-gradient(135deg,#39216f,#7047c7 65%,#a78bda);color:white;padding:22px max(5%,calc((100% - 1120px)/2)) 56px}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:42px}
+.brand{display:flex;align-items:center;gap:10px;color:white;text-decoration:none;font-weight:800;letter-spacing:.3px}
+.brand-mark{width:36px;height:36px;border-radius:12px;background:#ffffff25;display:grid;place-items:center;font-size:20px}
+.top-actions{display:flex;gap:9px;flex-wrap:wrap}
+.btn{border:1px solid #ffffff75;background:#ffffff18;color:white;border-radius:12px;padding:9px 15px;font:800 13px 'Nunito';text-decoration:none;cursor:pointer}
+.btn:hover{background:#ffffff30}
+.hero{max-width:850px}
+.eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:2px;font-weight:800;color:#e4d6ff}
+h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;line-height:1.25}
+h1{font-size:clamp(34px,5vw,54px);margin:12px 0 14px}
+.hero p{max-width:720px;color:#f0eaff;font-size:17px;margin:0}
+.hero-meta{display:flex;gap:9px;flex-wrap:wrap;margin-top:23px}
+.pill{border:1px solid #ffffff55;background:#ffffff18;border-radius:30px;padding:6px 12px;font-size:12px;font-weight:800}
+.layout{max-width:1120px;margin:0 auto;padding:0 22px;display:grid;grid-template-columns:245px minmax(0,1fr);gap:28px;align-items:start}
+aside{position:sticky;top:18px;margin-top:28px;background:white;border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:var(--shadow);max-height:calc(100vh - 36px);overflow:auto}
+aside h3{font-size:17px;margin:0 0 10px;color:var(--deep)}
+aside a{display:block;text-decoration:none;color:#645b72;font-size:13px;font-weight:800;padding:7px 9px;border-radius:9px;margin:2px 0;line-height:1.4}
+aside a:hover,aside a.active{background:var(--lav);color:var(--deep)}
+main{min-width:0;padding:30px 0 70px}
+section{margin:0 0 28px;scroll-margin-top:90px}
+.section-kicker{font-size:11px;color:var(--purple);font-weight:900;letter-spacing:1.6px;text-transform:uppercase}
+h2{font-size:30px;color:var(--deep);margin:4px 0 13px}
+h3{font-size:21px;color:var(--deep);margin:18px 0 8px}
+h4{font-size:17px;color:var(--deep);margin:12px 0 5px}
+p{margin:8px 0 13px}
+.card{background:white;border:1px solid var(--line);border-radius:20px;padding:21px;margin:14px 0;box-shadow:var(--shadow)}
+.card p:last-child{margin-bottom:0}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.soft{background:var(--lav);border-color:#e4d8ff}
+.mint{background:var(--mint);border-color:#d5eee2}
+.gold{background:var(--gold);border-color:#f5e6bd}
+.pink{background:var(--pink);border-color:#f2dce9}
+.callout{border-left:4px solid var(--purple);background:#f7f3ff;padding:14px 17px;border-radius:0 13px 13px 0;margin:16px 0}
+.small{font-size:13px;color:var(--muted)}
+.diagram{background:linear-gradient(180deg,#fff,#fcfaff);border:1px solid var(--line);border-radius:18px;padding:14px;margin:15px 0;text-align:center;overflow:hidden}
+.diagram svg{width:100%;height:auto;max-height:490px}
+.diagram figcaption{font-size:12px;color:var(--muted);margin-top:8px}
+table{width:100%;border-collapse:collapse;font-size:14px;margin:12px 0;border-radius:12px;overflow:hidden}
+th{background:#eee7ff;color:var(--deep);text-align:left}
+th,td{padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+ul,ol{padding-left:22px}
+li{margin:5px 0}
+.tag{display:inline-block;background:var(--lav);color:var(--deep);font-size:11px;font-weight:900;border-radius:20px;padding:3px 9px;margin:2px}
+.pathway{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:7px;margin:16px 0}
+.pathway span{background:#f0eaff;color:var(--deep);border:1px solid #e0d4ff;border-radius:10px;padding:8px 11px;font-weight:900;font-size:13px}
+.pathway b{color:var(--purple)}
+.quiz-q{padding:15px 0;border-bottom:1px solid var(--line)}
+.quiz-q:last-child{border:0}
+.quiz-q label{display:block;margin:6px 0;font-size:14px;cursor:pointer}
+.quiz-q input{accent-color:var(--purple);margin-right:7px}
+#quiz-result{font-weight:900;color:var(--deep);margin-top:12px}
+footer{background:#30204f;color:#e9e1f7;text-align:center;padding:28px 18px;font-size:13px}
+footer strong{color:white}
+@media(max-width:850px){
+ .layout{grid-template-columns:1fr;gap:0}
+ aside{position:relative;top:auto;max-height:none;margin-top:18px}
+ aside nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px}
+ main{padding-top:24px}
+}
+@media(max-width:560px){
+ header{padding:18px 20px 38px}
+ .topbar{margin-bottom:30px}
+ .grid2,.grid3{grid-template-columns:1fr}
+ .card{padding:17px}
+ h2{font-size:26px}
+ th,td{padding:9px;font-size:12px}
+}
+@media print{
+ @page{size:A4;margin:15mm}
+ body{background:white;color:#222;font-size:11pt}
+ #progress,.top-actions,aside,.no-print{display:none!important}
+ header{background:white!important;color:#222;padding:0 0 18px}
+ .eyebrow,.hero p{color:#444}
+ .pill{border:1px solid #aaa;color:#333;background:white}
+ .layout{display:block;max-width:none;padding:0}
+ main{padding:10px 0}
+ .card,.diagram{box-shadow:none;break-inside:avoid;border:1px solid #bbb}
+ section{break-inside:auto}
+ h1,h2,h3{color:#222;break-after:avoid}
+ footer{background:white;color:#333;border-top:1px solid #aaa}
+ a{color:#222}
+}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<header>
+ <div class="topbar">
+  <a class="brand" href="index.html"><span class="brand-mark">✦</span><span>MindSpring</span></a>
+  <div class="top-actions">
+   <a class="btn" href="index.html">← Home</a>
+   <button class="btn" onclick="window.print()">Print / Save as PDF</button>
+  </div>
+ </div>
+ <div class="hero">
+  <div class="eyebrow">MindSpring Biology • Class 11</div>
+  <h1>Excretory Products and Their Elimination</h1>
+  <p>Explore how the human body removes metabolic wastes, how the kidneys filter blood, and how a tiny nephron helps maintain the body's internal balance.</p>
+  <div class="hero-meta"><span class="pill">NCERT-aligned</span><span class="pill">Concept-by-concept notes</span><span class="pill">Diagrams included</span></div>
+ </div>
+</header>
+
+<div class="layout">
+<aside>
+ <h3>Chapter contents</h3>
+ <nav id="contents">
+  <a href="#intro">01 · Why excretion?</a>
+  <a href="#products">02 · Excretory products</a>
+  <a href="#modes">03 · Modes of excretion</a>
+  <a href="#human-system">04 · Human excretory system</a>
+  <a href="#kidney">05 · Structure of kidney</a>
+  <a href="#nephron">06 · The nephron</a>
+  <a href="#urine">07 · Formation of urine</a>
+  <a href="#counter">08 · Counter-current mechanism</a>
+  <a href="#regulation">09 · Regulation</a>
+  <a href="#micturition">10 · Micturition & urine</a>
+  <a href="#disorders">11 · Disorders</a>
+  <a href="#revision">12 · Quick revision</a>
+  <a href="#quiz">13 · Check your understanding</a>
+ </nav>
+</aside>
+
+<main>
+<section id="intro">
+ <div class="section-kicker">01 · The big picture</div><h2>Why do we need excretion?</h2>
+ <div class="card">
+  <p>Every living cell carries out metabolic activities. These activities produce waste substances. If wastes accumulate, they can disturb the normal functioning of cells and tissues.</p>
+  <p><strong>Excretion</strong> is the process by which organisms eliminate metabolic wastes and other unwanted substances from the body.</p>
+  <div class="callout"><strong>Remember:</strong> Excretion removes metabolic wastes. Egestion is the removal of undigested food from the digestive tract. They are not the same process.</div>
+ </div>
+ <div class="grid2">
+  <div class="card soft"><h3>Excretion</h3><p>Removal of metabolic wastes such as carbon dioxide, nitrogenous wastes and excess salts or water.</p></div>
+  <div class="card mint"><h3>Osmoregulation</h3><p>Maintenance of the water and solute balance of body fluids. Kidneys play a major role in this process.</p></div>
+ </div>
+</section>
+
+<section id="products">
+ <div class="section-kicker">02 · Nitrogenous wastes</div><h2>Excretory products</h2>
+ <p>Breakdown of proteins and nucleic acids produces nitrogenous wastes. Different animals eliminate nitrogen mainly in three forms.</p>
+ <div class="grid3">
+  <div class="card pink"><span class="tag">Highly toxic</span><h3>Ammonia</h3><p>Very toxic and highly soluble in water. It needs a large amount of water for elimination.</p><p class="small"><strong>Common in:</strong> Many aquatic animals.</p></div>
+  <div class="card soft"><span class="tag">Less toxic</span><h3>Urea</h3><p>Less toxic than ammonia. It is formed in the liver from ammonia and can be eliminated using less water.</p><p class="small"><strong>Common in:</strong> Mammals, many terrestrial amphibians and cartilaginous fishes.</p></div>
+  <div class="card gold"><span class="tag">Least toxic</span><h3>Uric acid</h3><p>Least toxic and poorly soluble in water. It is excreted as a semi-solid paste, conserving water.</p><p class="small"><strong>Common in:</strong> Birds, reptiles, insects and land snails.</p></div>
+ </div>
+ <div class="callout"><strong>Concept link:</strong> The form of nitrogenous waste is related to the animal's habitat and water availability. This is a broad biological pattern, not a rule that every member of a group must follow without exception.</div>
+</section>
+
+<section id="modes">
+ <div class="section-kicker">03 · Modes of excretion</div><h2>Three modes of excretion</h2>
+ <div class="card">
+  <table><thead><tr><th>Mode</th><th>Main nitrogenous waste</th><th>Examples</th></tr></thead>
+  <tbody>
+   <tr><td><strong>Ammonotelism</strong></td><td>Ammonia</td><td>Many bony fishes, aquatic amphibians and aquatic invertebrates</td></tr>
+   <tr><td><strong>Ureotelism</strong></td><td>Urea</td><td>Mammals, many terrestrial amphibians and cartilaginous fishes</td></tr>
+   <tr><td><strong>Uricotelism</strong></td><td>Uric acid</td><td>Birds, reptiles, insects and land snails</td></tr>
+  </tbody></table>
+  <p class="small">These terms describe the principal nitrogenous waste eliminated by an animal.</p>
+ </div>
+</section>
+
+<section id="human-system">
+ <div class="section-kicker">04 · Human excretory system</div><h2>The human excretory system</h2>
+ <p>The human excretory system consists of a pair of kidneys, a pair of ureters, a urinary bladder and a urethra.</p>
+ <figure class="diagram">
+ <svg viewBox="0 0 700 440" role="img" aria-label="Schematic human urinary system showing kidneys, ureters, urinary bladder and urethra">
+  <defs><linearGradient id="kid" x2="1" y2="1"><stop stop-color="#d889a7"/><stop offset="1" stop-color="#a94e7a"/></linearGradient></defs>
+  <path d="M270 95 C210 48 145 90 155 165 C165 225 222 231 256 190 C280 161 286 124 270 95Z" fill="url(#kid)" stroke="#773b68" stroke-width="3"/>
+  <path d="M430 95 C490 48 555 90 545 165 C535 225 478 231 444 190 C420 161 414 124 430 95Z" fill="url(#kid)" stroke="#773b68" stroke-width="3"/>
+  <path d="M265 120 C232 118 207 143 211 173 C226 191 251 184 265 161Z" fill="#f5c3d2" stroke="#8d4b70" stroke-width="2"/>
+  <path d="M435 120 C468 118 493 143 489 173 C474 191 449 184 435 161Z" fill="#f5c3d2" stroke="#8d4b70" stroke-width="2"/>
+  <path d="M255 176 C263 245 287 267 305 318" fill="none" stroke="#d4a34a" stroke-width="8" stroke-linecap="round"/>
+  <path d="M445 176 C437 245 413 267 395 318" fill="none" stroke="#d4a34a" stroke-width="8" stroke-linecap="round"/>
+  <path d="M305 318 Q350 290 395 318 Q414 370 350 385 Q286 370 305 318Z" fill="#f1b8c9" stroke="#9d5678" stroke-width="3"/>
+  <path d="M350 383 L350 425" stroke="#d4a34a" stroke-width="9" stroke-linecap="round"/>
+  <g stroke="#5b477d" stroke-width="2" fill="none"><path d="M170 112 L65 75 L20 75"/><path d="M530 112 L630 75 L680 75"/><path d="M420 260 L565 260 L665 260"/><path d="M395 350 L560 350 L665 350"/><path d="M350 405 L225 420 L165 420"/></g>
+  <g fill="#39216f" font-size="17" font-family="Nunito" font-weight="800">
+   <text x="20" y="61">Left kidney</text><text x="570" y="61">Right kidney</text>
+   <text x="570" y="246">Ureter</text><text x="570" y="337">Urinary bladder</text><text x="25" y="426">Urethra</text>
+  </g>
+  <g fill="#fff" font-size="13" font-family="Nunito" font-weight="800"><text x="192" y="143">K</text><text x="474" y="143">K</text></g>
+ </svg>
+ <figcaption>Simplified schematic of the human urinary system. Not drawn to anatomical scale.</figcaption>
+ </figure>
+ <div class="grid2">
+  <div class="card"><h3>Kidneys</h3><p>Bean-shaped, reddish-brown organs located in the abdominal cavity, one on either side of the vertebral column. They filter blood and form urine.</p></div>
+  <div class="card"><h3>Ureters</h3><p>Two narrow muscular tubes that carry urine from the kidneys to the urinary bladder.</p></div>
+  <div class="card"><h3>Urinary bladder</h3><p>A muscular, elastic sac that temporarily stores urine.</p></div>
+  <div class="card"><h3>Urethra</h3><p>A tube through which urine is released from the urinary bladder to the outside.</p></div>
+ </div>
+ <div class="callout">The inner concave side of each kidney has a notch called the <strong>hilum</strong>, through which the renal artery, renal vein, nerves and ureter are connected.</div>
+</section>
+
+<section id="kidney">
+ <div class="section-kicker">05 · Inside the kidney</div><h2>External and internal structure of kidney</h2>
+ <figure class="diagram">
+ <svg viewBox="0 0 700 390" role="img" aria-label="Simplified kidney cross-section showing cortex, medulla, renal pyramids, pelvis and ureter">
+  <path d="M300 40 C185 25 105 105 120 218 C135 330 250 360 330 300 C385 260 390 180 360 115 C345 78 328 50 300 40Z" fill="#b85c83" stroke="#78385e" stroke-width="4"/>
+  <path d="M293 62 C204 49 137 119 150 216 C163 301 247 326 310 278 C355 244 357 177 333 122 C321 94 310 73 293 62Z" fill="#e8a8bc"/>
+  <path d="M290 88 C230 85 181 137 190 211 C199 272 250 291 294 255 C327 228 327 177 310 135 C302 113 297 98 290 88Z" fill="#bd7296"/>
+  <g fill="#8b426f" stroke="#71365d" stroke-width="2">
+   <path d="M224 120 L262 155 L231 177Z"/><path d="M281 101 L302 154 L270 164Z"/>
+   <path d="M197 190 L244 197 L218 230Z"/><path d="M260 184 L302 190 L278 226Z"/>
+   <path d="M238 247 L279 235 L269 275Z"/>
+  </g>
+  <path d="M310 132 Q345 170 318 211 Q300 239 336 267 Q360 283 350 310" fill="none" stroke="#f4d36f" stroke-width="17" stroke-linecap="round"/>
+  <path d="M350 310 L390 370" stroke="#d5a34d" stroke-width="13" stroke-linecap="round"/>
+  <g stroke="#4d3a6d" stroke-width="2" fill="none">
+   <path d="M165 93 L75 55 L20 55"/><path d="M210 210 L70 210 L20 210"/>
+   <path d="M278 125 L475 75 L670 75"/><path d="M325 235 L485 235 L670 235"/><path d="M375 340 L510 340 L670 340"/>
+  </g>
+  <g fill="#39216f" font-size="17" font-family="Nunito" font-weight="800">
+   <text x="20" y="42">Renal cortex</text><text x="20" y="197">Renal medulla</text>
+   <text x="485" y="61">Renal pyramid</text><text x="490" y="222">Renal pelvis</text><text x="520" y="327">Ureter</text>
+  </g>
+ </svg>
+ <figcaption>Schematic kidney section. The medulla contains cone-shaped renal pyramids; the renal pelvis collects urine and continues as the ureter.</figcaption>
+ </figure>
+ <div class="card">
+  <h3>Two main regions</h3>
+  <ul><li><strong>Renal cortex:</strong> The outer region of the kidney.</li><li><strong>Renal medulla:</strong> The inner region, organised into cone-shaped masses called renal pyramids.</li></ul>
+  <p>The cortex extends between the renal pyramids as renal columns of Bertini. The tips of the pyramids project into the calyces, which lead towards the renal pelvis.</p>
+ </div>
+</section>
+
+<section id="nephron">
+ <div class="section-kicker">06 · The functional unit</div><h2>The nephron – the kidney's microscopic unit</h2>
+ <p>Each kidney contains a very large number of nephrons (about one million). A nephron is the <strong>structural and functional unit of the kidney</strong>.</p>
+ <figure class="diagram">
+ <svg viewBox="0 0 760 500" role="img" aria-label="Schematic nephron showing glomerulus, Bowman's capsule, PCT, loop of Henle, DCT and collecting duct">
+  <defs><marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6" fill="#d39b35"/></marker></defs>
+  <ellipse cx="155" cy="105" rx="66" ry="51" fill="#f5dce8" stroke="#9e557c" stroke-width="4"/>
+  <path d="M110 105 C112 58 143 65 150 96 C157 125 180 130 190 94 C201 63 222 83 202 119 C183 154 153 136 145 113 C137 88 119 91 110 105Z" fill="none" stroke="#c35b82" stroke-width="8" stroke-linecap="round"/>
+  <path d="M65 76 C20 40 24 130 91 126" fill="none" stroke="#c95b5b" stroke-width="8" stroke-linecap="round"/>
+  <path d="M211 89 C250 46 268 72 254 115" fill="none" stroke="#6d87c7" stroke-width="8" stroke-linecap="round"/>
+  <path d="M210 130 C260 155 300 128 320 166 C345 212 285 235 270 278 C255 323 285 370 330 370 C375 370 380 322 380 270 C380 226 407 204 440 217 C480 232 470 286 445 310" fill="none" stroke="#d39b35" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M445 310 C420 345 435 378 478 370 C520 362 516 318 510 290 C505 255 530 240 560 245" fill="none" stroke="#d39b35" stroke-width="11" stroke-linecap="round"/>
+  <path d="M560 245 L560 435" stroke="#7d69bd" stroke-width="13" stroke-linecap="round"/>
+  <path d="M560 435 L560 470" stroke="#7d69bd" stroke-width="13" stroke-linecap="round"/>
+  <g stroke="#51416e" stroke-width="2" fill="none">
+   <path d="M155 48 L155 20 L40 20"/><path d="M80 125 L35 165 L15 165"/>
+   <path d="M280 160 L330 115 L425 115"/><path d="M315 365 L225 410 L120 410"/>
+   <path d="M455 215 L500 175 L625 175"/><path d="M560 330 L645 330 L730 330"/>
+   <path d="M560 440 L645 460 L730 460"/>
+  </g>
+  <g fill="#39216f" font-family="Nunito" font-size="16" font-weight="800">
+   <text x="15" y="15">Glomerulus</text><text x="15" y="185">Bowman's capsule</text>
+   <text x="430" y="108">PCT</text><text x="20" y="430">Loop of Henle</text>
+   <text x="625" y="165">DCT</text><text x="650" y="320">Collecting duct</text><text x="650" y="480">To renal pelvis</text>
+  </g>
+  <g fill="#b94e55" font-family="Nunito" font-size="13" font-weight="800"><text x="10" y="55">Afferent arteriole</text></g>
+  <g fill="#5975b7" font-family="Nunito" font-size="13" font-weight="800"><text x="260" y="54">Efferent arteriole</text></g>
+  <path d="M340 245 L340 350" stroke="#d39b35" stroke-width="2" stroke-dasharray="5 5" marker-end="url(#arr)"/>
+  <text x="350" y="294" fill="#8d641f" font-size="12" font-family="Nunito">Filtrate</text>
+ </svg>
+ <figcaption>Simplified nephron schematic. The actual nephron is more complex; the diagram is not to scale. Red and blue vessels represent blood entering and leaving the glomerulus; the golden tube represents the filtrate pathway.</figcaption>
+ </figure>
+ <div class="callout"><strong>Two major components:</strong> (1) Glomerulus – a tuft of capillaries. (2) Renal tubule – begins with Bowman's capsule and continues through PCT, loop of Henle and DCT.</div>
+ <div class="card">
+  <h3>1. Glomerulus and Bowman's capsule</h3>
+  <p>The glomerulus is a network of capillaries formed by the afferent arteriole and drained by the efferent arteriole. It is enclosed by a double-walled epithelial cup called Bowman's capsule.</p>
+  <p>The glomerulus and Bowman's capsule together form the <strong>Malpighian body (renal corpuscle)</strong>.</p>
+  <h3>2. Proximal convoluted tubule (PCT)</h3>
+  <p>The first highly coiled part of the renal tubule. Its epithelial cells have a brush border of microvilli, increasing the surface area for reabsorption.</p>
+  <h3>3. Loop of Henle</h3>
+  <p>A U-shaped part of the tubule with descending and ascending limbs. It dips into the medulla. The two limbs differ in their permeability to water and electrolytes.</p>
+  <h3>4. Distal convoluted tubule (DCT)</h3>
+  <p>The next coiled part of the tubule. It carries out selective reabsorption and secretion, helping regulate the composition of the filtrate.</p>
+  <h3>5. Collecting duct</h3>
+  <p>Receives fluid from nephrons and passes through the medulla towards the renal pelvis. It plays an important role in water reabsorption and urine concentration.</p>
+ </div>
+ <div class="card soft">
+  <h3>Types of nephrons</h3>
+  <div class="grid2">
+   <div><strong>Cortical nephrons</strong><p>Have their glomeruli in the outer cortex and relatively short loops of Henle.</p></div>
+   <div><strong>Juxtamedullary nephrons</strong><p>Have glomeruli closer to the medulla and long loops of Henle that extend deep into the medulla.</p></div>
+  </div>
+ </div>
+</section>
+
+<section id="urine">
+ <div class="section-kicker">07 · How urine is formed</div><h2>Formation of urine</h2>
+ <p>Urine formation involves three main processes: glomerular filtration, selective reabsorption and tubular secretion.</p>
+ <div class="pathway"><span>Blood</span><b>→</b><span>Filtration</span><b>→</b><span>Reabsorption</span><b>→</b><span>Secretion</span><b>→</b><span>Urine</span></div>
+ <div class="card">
+  <h3>1. Glomerular filtration (ultrafiltration)</h3>
+  <p>Blood is filtered through the three-layered filtration membrane: the fenestrated endothelium of glomerular blood vessels, the basement membrane, and the filtration slits between podocytes of Bowman's capsule.</p>
+  <p>Water and small solutes pass into Bowman's space. Blood cells and most large plasma proteins are normally retained in the blood.</p>
+  <div class="grid2">
+   <div class="card mint"><strong>Glomerular filtration rate (GFR)</strong><p>About 125 mL of filtrate per minute in a healthy adult, or approximately 180 L per day.</p></div>
+   <div class="card gold"><strong>Why so much filtrate?</strong><p>Most of the filtrate is subsequently reabsorbed. Only a small fraction becomes final urine.</p></div>
+  </div>
+  <h3>2. Selective reabsorption</h3>
+  <p>Useful substances are taken back from the filtrate into the blood through the surrounding capillaries. These include glucose, amino acids, water and required ions. Reabsorption may occur by active or passive transport.</p>
+  <h3>3. Tubular secretion</h3>
+  <p>Some substances are transported from the blood into the tubular fluid. This helps remove additional wastes and regulate ionic and acid-base balance. Substances secreted include hydrogen ions, potassium ions and ammonia.</p>
+ </div>
+ <div class="card">
+  <h3>What happens in each part?</h3>
+  <table><thead><tr><th>Part</th><th>Main function</th></tr></thead><tbody>
+   <tr><td><strong>PCT</strong></td><td>Reabsorbs nearly all essential nutrients and a major part of water and electrolytes; also helps maintain pH and ionic balance through secretion.</td></tr>
+   <tr><td><strong>Descending limb</strong></td><td>Permeable to water; water moves out into the increasingly concentrated medullary interstitium.</td></tr>
+   <tr><td><strong>Ascending limb</strong></td><td>Impermeable to water; electrolytes move out of the tubular fluid, helping establish the medullary osmotic gradient.</td></tr>
+   <tr><td><strong>DCT</strong></td><td>Conditional reabsorption of sodium and water, and reabsorption of bicarbonate; selective secretion of ions helps regulate pH and ionic balance.</td></tr>
+   <tr><td><strong>Collecting duct</strong></td><td>Reabsorbs water, helping concentrate urine; contributes to maintenance of pH and ionic balance.</td></tr>
+  </tbody></table>
+ </div>
+ <div class="callout"><strong>Key distinction:</strong> Reabsorption moves substances from tubular fluid back into blood. Secretion moves substances from blood into tubular fluid.</div>
+</section>
+
+<section id="counter">
+ <div class="section-kicker">08 · Concentrating urine</div><h2>Counter-current mechanism</h2>
+ <p>The loop of Henle and vasa recta help maintain an osmotic gradient in the renal medulla. This gradient allows water to be reabsorbed from the collecting duct and helps produce concentrated urine.</p>
+ <figure class="diagram">
+ <svg viewBox="0 0 700 370" role="img" aria-label="Simplified counter-current arrangement of loop of Henle and vasa recta">
+  <rect x="25" y="25" width="650" height="320" rx="18" fill="#f4efff"/>
+  <rect x="25" y="25" width="650" height="95" rx="18" fill="#eee5ff"/>
+  <rect x="25" y="120" width="650" height="110" fill="#e3d8f7"/>
+  <rect x="25" y="230" width="650" height="115" rx="18" fill="#d4c3ee"/>
+  <text x="40" y="52" font-size="15" fill="#39216f" font-family="Nunito" font-weight="800">Cortex</text>
+  <text x="40" y="145" font-size="15" fill="#39216f" font-family="Nunito" font-weight="800">Outer medulla</text>
+  <text x="40" y="255" font-size="15" fill="#39216f" font-family="Nunito" font-weight="800">Inner medulla</text>
+  <path d="M280 65 L280 290 Q280 325 315 325 Q350 325 350 290 L350 65" fill="none" stroke="#c88a32" stroke-width="13" stroke-linecap="round"/>
+  <path d="M280 85 L280 285" stroke="#fff2ce" stroke-width="3"/>
+  <path d="M350 285 L350 85" stroke="#fff2ce" stroke-width="3"/>
+  <path d="M470 65 L470 290 Q470 325 500 325 Q530 325 530 290 L530 65" fill="none" stroke="#6685bf" stroke-width="9" stroke-linecap="round"/>
+  <path d="M470 85 L470 285" stroke="#dce8ff" stroke-width="3"/>
+  <path d="M530 285 L530 85" stroke="#dce8ff" stroke-width="3"/>
+  <g fill="#39216f" font-family="Nunito" font-size="14" font-weight="800">
+   <text x="200" y="45">Loop of Henle</text><text x="445" y="45">Vasa recta</text>
+   <text x="170" y="175">Descending</text><text x="365" y="175">Ascending</text>
+   <text x="205" y="195">limb</text><text x="365" y="195">limb</text>
+  </g>
+  <g fill="#6a4b9c" font-family="Nunito" font-size="13" font-weight="800"><text x="565" y="95">300</text><text x="565" y="185">600</text><text x="565" y="285">1200</text><text x="565" y="310">mOsm/L</text></g>
+  <g stroke="#fff" stroke-width="2" stroke-dasharray="5 5"><path d="M25 120 H675"/><path d="M25 230 H675"/></g>
+ </svg>
+ <figcaption>Conceptual illustration of the medullary osmotic gradient and counter-current arrangement; values shown are approximate.</figcaption>
+ </figure>
+ <div class="card">
+  <h3>How does it work?</h3>
+  <ol>
+   <li>Fluid flows in opposite directions in the descending and ascending limbs of the loop of Henle. This is called a counter-current arrangement.</li>
+   <li>The descending limb is permeable to water, so water moves out into the medullary interstitium.</li>
+   <li>The ascending limb is impermeable to water. Sodium chloride moves out, contributing to the osmotic gradient.</li>
+   <li>Blood in the vasa recta also flows in opposite directions in its descending and ascending portions. This counter-current arrangement helps maintain the gradient.</li>
+   <li>Urea from the collecting duct also contributes to the high osmolarity of the inner medulla.</li>
+  </ol>
+  <p>Osmolarity increases from about 300 mOsmol/L in the cortex to about 1200 mOsmol/L in the inner medulla. This gradient helps water move out of the collecting duct, producing concentrated urine.</p>
+ </div>
+</section>
+
+<section id="regulation">
+ <div class="section-kicker">09 · Hormonal control</div><h2>Regulation of kidney function</h2>
+ <div class="card">
+  <h3>1. ADH (antidiuretic hormone)</h3>
+  <p>ADH increases water reabsorption in the distal parts of the nephron and collecting duct. When body water is low, increased ADH helps conserve water and produces a smaller volume of more concentrated urine.</p>
+  <h3>2. Renin–angiotensin–aldosterone system (RAAS)</h3>
+  <p>A fall in glomerular blood flow, blood pressure or sodium chloride delivery can stimulate the juxtaglomerular apparatus (JGA) to release renin. Renin initiates the conversion of angiotensinogen into angiotensin I; angiotensin-converting enzyme (ACE) converts it into angiotensin II.</p>
+  <p>Angiotensin II causes vasoconstriction and stimulates aldosterone release. Aldosterone increases sodium reabsorption; water follows, helping restore blood volume and pressure.</p>
+  <h3>3. Atrial natriuretic factor (ANF)</h3>
+  <p>ANF is released by the atria of the heart when blood volume or pressure is high. It acts against the RAAS and promotes sodium and water loss, helping reduce blood pressure.</p>
+ </div>
+ <div class="card soft">
+  <h3>Juxtaglomerular apparatus (JGA)</h3>
+  <p>The JGA is a specialised region formed where the DCT comes in close contact with the afferent arteriole. It plays an important role in regulating GFR through the release of renin.</p>
+ </div>
+</section>
+
+<section id="micturition">
+ <div class="section-kicker">10 · From kidney to outside</div><h2>Micturition and the nature of urine</h2>
+ <div class="card">
+  <h3>Micturition</h3>
+  <p>The process of releasing urine from the urinary bladder is called <strong>micturition</strong>. As the bladder fills, stretch receptors send signals to the central nervous system. A reflex is initiated, causing the bladder muscles to contract and the sphincter muscles to relax. The process is under nervous control and can be voluntarily regulated to some extent.</p>
+  <h3>Normal urine</h3>
+  <ul>
+   <li>Usually pale yellow due to the presence of the pigment urochrome.</li>
+   <li>Slightly acidic on average, with a pH around 6; it can vary.</li>
+   <li>An adult typically produces about 1–1.5 litres per day, depending on fluid intake and other conditions.</li>
+   <li>Urine is approximately 95% water, 2.5% urea and 2.5% other dissolved substances, as described in NCERT.</li>
+  </ul>
+ </div>
+</section>
+
+<section id="disorders">
+ <div class="section-kicker">11 · Clinical connections</div><h2>Disorders of the excretory system</h2>
+ <div class="grid2">
+  <div class="card"><h3>Uraemia</h3><p>Abnormally high levels of urea in the blood, usually due to impaired kidney function.</p></div>
+  <div class="card"><h3>Renal failure</h3><p>A condition in which the kidneys lose their ability to perform normal functions adequately. Severe cases may require dialysis or kidney transplantation.</p></div>
+  <div class="card"><h3>Renal calculi</h3><p>Kidney stones formed by the crystallisation of certain salts in the urinary tract.</p></div>
+  <div class="card"><h3>Glomerulonephritis</h3><p>Inflammation of the glomeruli, which can interfere with normal filtration.</p></div>
+ </div>
+ <div class="card gold"><h3>Haemodialysis</h3><p>In haemodialysis, blood is passed through a dialyser containing a semipermeable membrane. Waste substances and excess salts move into the dialysis fluid, and the cleaned blood is returned to the body. Dialysis supports waste removal when kidneys cannot do so adequately; it does not perform every function of healthy kidneys.</p></div>
+</section>
+
+<section id="revision">
+ <div class="section-kicker">12 · Before you move on</div><h2>Quick revision sheet</h2>
+ <div class="card">
+  <table><thead><tr><th>Topic</th><th>Remember</th></tr></thead><tbody>
+   <tr><td>Functional unit</td><td>Nephron</td></tr>
+   <tr><td>Renal corpuscle</td><td>Glomerulus + Bowman's capsule</td></tr>
+   <tr><td>Filtration</td><td>Occurs across the glomerular filtration membrane</td></tr>
+   <tr><td>GFR</td><td>About 125 mL/min or 180 L/day</td></tr>
+   <tr><td>Major reabsorption</td><td>PCT</td></tr>
+   <tr><td>Water-permeable limb</td><td>Descending limb of Henle's loop</td></tr>
+   <tr><td>Water-impermeable limb</td><td>Ascending limb of Henle's loop</td></tr>
+   <tr><td>Counter-current parts</td><td>Loop of Henle and vasa recta</td></tr>
+   <tr><td>Water-conserving hormone</td><td>ADH</td></tr>
+   <tr><td>JGA hormone/enzyme</td><td>Renin</td></tr>
+   <tr><td>Opposes RAAS</td><td>ANF</td></tr>
+   <tr><td>Urine release</td><td>Micturition</td></tr>
+  </tbody></table>
+  <div class="callout"><strong>NEET memory cue:</strong> Filtration → Reabsorption → Secretion. Keep the direction of movement clear for each process.</div>
+ </div>
+</section>
+
+<section id="quiz">
+ <div class="section-kicker">13 · Test your understanding</div><h2>Quick concept check</h2>
+ <div class="card">
+  <form id="quiz-form">
+   <div class="quiz-q"><strong>1. The structural and functional unit of the kidney is:</strong>
+    <label><input type="radio" name="q1" value="a"> Glomerulus</label><label><input type="radio" name="q1" value="b"> Nephron</label><label><input type="radio" name="q1" value="c"> Renal pelvis</label></div>
+   <div class="quiz-q"><strong>2. Which part of the nephron is normally impermeable to water?</strong>
+    <label><input type="radio" name="q2" value="a"> Descending limb</label><label><input type="radio" name="q2" value="b"> PCT</label><label><input type="radio" name="q2" value="c"> Ascending limb</label></div>
+   <div class="quiz-q"><strong>3. The approximate normal GFR in a healthy adult is:</strong>
+    <label><input type="radio" name="q3" value="a"> 125 mL/min</label><label><input type="radio" name="q3" value="b"> 25 mL/min</label><label><input type="radio" name="q3" value="c"> 500 mL/min</label></div>
+   <div class="quiz-q"><strong>4. Which hormone increases water reabsorption?</strong>
+    <label><input type="radio" name="q4" value="a"> ANF</label><label><input type="radio" name="q4" value="b"> ADH</label><label><input type="radio" name="q4" value="c"> Insulin</label></div>
+   <div class="quiz-q"><strong>5. The renal corpuscle consists of:</strong>
+    <label><input type="radio" name="q5" value="a"> PCT and DCT</label><label><input type="radio" name="q5" value="b"> Loop of Henle and collecting duct</label><label><input type="radio" name="q5" value="c"> Glomerulus and Bowman's capsule</label></div>
+   <button class="btn" type="button" style="background:#7047c7;border:0" onclick="checkQuiz()">Check answers</button>
+   <button class="btn" type="reset" style="background:#eee8fa;color:#39216f;border:0">Try again</button>
+   <div id="quiz-result" aria-live="polite"></div>
+  </form>
+ </div>
+</section>
+
+<div class="card soft">
+ <h3>Keep learning with MindSpring</h3>
+ <p>Read the NCERT chapter alongside these notes, practise labelled diagrams, and test yourself with NCERT-based questions. Use the illustrations to understand the processes rather than memorising labels alone.</p>
+</div>
+</main>
+</div>
+<footer><strong>MindSpring</strong><br>Understand · Revise · Grow<br><span>Class 11 Biology learning resource</span></footer>
+
+<script>
+const progress=document.getElementById('progress');
+function updateProgress(){
+ const total=document.documentElement.scrollHeight-window.innerHeight;
+ progress.style.width=(total>0?(window.scrollY/total)*100:0)+'%';
+}
+window.addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+
+const sections=[...document.querySelectorAll('main section[id]')];
+const links=[...document.querySelectorAll('#contents a')];
+const observer=new IntersectionObserver(entries=>{
+ entries.forEach(entry=>{
+  if(entry.isIntersecting){
+   links.forEach(link=>link.classList.toggle('active',link.getAttribute('href')==='#'+entry.target.id));
+  }
+ });
+},{rootMargin:'-18% 0px -72% 0px'});
+sections.forEach(section=>observer.observe(section));
+
+function checkQuiz(){
+ const answers={q1:'b',q2:'c',q3:'a',q4:'b',q5:'c'};
+ let score=0,answered=0;
+ Object.entries(answers).forEach(([q,a])=>{
+  const selected=document.querySelector('input[name="'+q+'"]:checked');
+  if(selected){answered++;if(selected.value===a)score++;}
+ });
+ const result=document.getElementById('quiz-result');
+ if(answered<5){result.textContent='You have answered '+answered+' of 5 questions. Complete all questions to see your score.';}
+ else{result.textContent='Your score: '+score+'/5. '+(score===5?'Excellent work!':score>=3?'Good progress — revisit the explanations for the questions you missed.':'Revisit the nephron and urine formation sections, then try again.');}
+}
+document.getElementById('quiz-form').addEventListener('reset',()=>{document.getElementById('quiz-result').textContent='';});
+</script>
+</body>
+</html>
